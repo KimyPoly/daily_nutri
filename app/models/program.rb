@@ -14,5 +14,4 @@ class Program < ApplicationRecord
   validates :nb_of_snacks, presence: true, inclusion: { in: (0..3) }
   validates :height, presence: true
   validates :weight, presence: true
-
 end

@@ -1,0 +1,14 @@
+// Meal cards
+
+.meal-card {
+  overflow: hidden;
+  height: 120px;
+  background: $white;
+  box-shadow: $box-shadow;
+  display: flex;
+  align-items: center;
+}
+
+.meal-card li {
+  text-decoration: none;
+}

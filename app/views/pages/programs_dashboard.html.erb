@@ -1,7 +1,10 @@
 <div class="container">
-  <h1>Welcome to your dashboard <%= @user %></h1>
-  <% @programs.each do |program| %>
-    <%= program %>
-    <p> Test bla bla</p>
-  <% end %>
+  <h1>Welcome to your dashboard ! <%= @user %></h1>
+  <ul class= "meal-card">
+    <% @programs.each do |program| %>
+      <li><%= program.goal %></li>
+      <li><%= program.diet %></li>
+      <li><%= program.nb_of_days %></li>
+    <% end %>
+  </ul>
 </div>

@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   end
 
   def programs_dashboard
+    @user = current_user
     @programs = Program.all
   end
 end

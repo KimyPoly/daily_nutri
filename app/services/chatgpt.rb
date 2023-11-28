@@ -30,13 +30,13 @@ class Chatgpt
 
   def meal_prompt
     format = "I need you to generate recipes. I need your answer to respect a certain format. Like this : \n
-    1. Recipe's title \n
-    ## Calories ### how many calories \n
-    ## Type ### what type of meal is it \n
-    ## Time ### how long does it take to cook \n
-    ## Price ### how much does it cost approximately \n
-    ## Ingredients ### first ingredient, second ingredient, etc. \n
-    ## Recipe ### the recipe itself \n"
+    @@ name @@ @@@ Recipe's name @@@ \n
+    @@ Calories @@ @@@ how many calories @@@ \n
+    @@ Type @@ @@@ what type of meal is it @@@ \n
+    @@ Time @@ @@@ how long does it take to cook @@@ \n
+    @@ Price @@ @@@ how much does it cost approximately @@@ \n
+    @@ Ingredients @@ @@@ first ingredient, second ingredient, etc. @@@ \n
+    @@ Recipe @@ @@@ the recipe itself @@@"
 
     if @allergies
     allergies = "my allergies are #{@allergies}"

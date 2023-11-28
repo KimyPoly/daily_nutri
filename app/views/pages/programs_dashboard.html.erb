@@ -18,7 +18,7 @@
     <div data-controller="toggle">
       <button data-action="click->toggle#action" class="btn-home">Create a new program</button>
       <div class="display-none" data-toggle-target="form">
-        <%= render partial: 'programs/new', locals: { program: @program } %>
+        <%= render partial: 'shared/form_new', locals: { program: @program } %>
       </div>
     </div>
   </div>

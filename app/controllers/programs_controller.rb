@@ -10,6 +10,7 @@ class ProgramsController < ApplicationController
     @user = current_user
     @program.user = @user
     @program.save
+    redirect_to dashboard_path
   end
 
   private

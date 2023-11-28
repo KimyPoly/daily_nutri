@@ -62,20 +62,17 @@ program = Program.create!(
 # Create meals for the program directly
 meal = program.meals.build(
   name: "Quinoa Salad",
-  recipe: "Cook quinoa and let it cool.
-  Mix quinoa with chopped vegetables like cucumbers, tomatoes, and bell peppers.
-  Drizzle with olive oil and lemon juice, and season with salt and pepper.",
+  recipe: "Cook quinoa and let it cool. Mix quinoa with chopped vegetables like cucumbers, tomatoes, and bell peppers. Drizzle with olive oil and lemon juice, and season with salt and pepper.",
   day: 2,
   type_of_meal: "lunch/dinner"
-).save
+)
 
-meal.ingredients.build(
-  name: "Quinoa"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "lemon"
-).save
+meal.ingredients.create([
+  { name: "Quinoa" },
+  { name: "Lemon" }
+])
 
 meal = program.meals.build(
   name: "Stuffed Bell Peppers",
@@ -84,7 +81,9 @@ meal = program.meals.build(
   Bake in the oven until peppers are tender.",
   day: 3,
   type_of_meal: "lunch/dinner"
-).save
+)
+
+meal.save
 
 meal.ingredients.build(
   name: "Peppers"
@@ -98,15 +97,14 @@ meal = program.meals.build(
   Season with soy sauce and serve over rice.",
   day: 4,
   type_of_meal: "lunch/dinner"
-).save
+)
 
-meal.ingredients.build(
-  name: "Tofu"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "Ginger"
-).save
+meal.ingredients.build([
+  { name: "Tofu" },
+  { name: "Ginger" }
+])
 
 meal = program.meals.build(
   name: "Chickpea Salad",
@@ -114,15 +112,14 @@ meal = program.meals.build(
   Dress with olive oil, lemon juice, and your favorite herbs.",
   day: 5,
   type_of_meal: "lunch/dinner"
-).save
+)
 
-meal.ingredients.build(
-  name: "Tomato"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "Oil"
-).save
+meal.ingredients.build([
+  {name: "Tomato"},
+  {name: "Oil"}
+])
 
 program =  Program.create!(
   user_id: existing_user_ids.sample,
@@ -141,15 +138,15 @@ meal = program.meals.build(
   recipe: "Mix all ingredients and cook on a hot griddle",
   day: 1,
   type_of_meal: "breakfast"
-).save
+)
 
-meal.ingredients.build(
-  name: "Banana"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "Salt"
-).save
+meal.ingredients.build([
+  {name: "Banana"},
+  {name: "Salt"}
+])
+
 
 meal = program.meals.build(
   name: "Quinoa Chickpea Salad",
@@ -158,15 +155,14 @@ meal = program.meals.build(
   Drizzle with olive oil and lemon vinaigrette",
   day: 2,
   type_of_meal: "lunch/dinner"
-).save
+)
 
-meal.ingredients.build(
-  name: "Quinoa"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "lemon"
-).save
+meal.ingredients.build([
+  {name: "Quinoa"},
+  {name: "lemon"}
+])
 
 meal = program.meals.build(
   name: "Dinner: Stir-Fried Tofu with Vegetable",
@@ -175,15 +171,14 @@ meal = program.meals.build(
   Season with soy sauce, ginger, and garlic.",
   day: 3,
   type_of_meal: "lunch/dinner"
-).save
+)
 
-meal.ingredients.build(
-  name: "Tofu"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "Brocoli"
-).save
+meal.ingredients.build([
+  {name: "Tofu"},
+  {name: "Brocoli"}
+])
 
 meal = program.meals.build(
   name: "Protein Smoothie",
@@ -191,15 +186,14 @@ meal = program.meals.build(
   Add ice and blend until smooth.",
   day: 4,
   type_of_meal: "breakfast"
-).save
+)
 
-meal.ingredients.build(
-  name: "protein-powder"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "Banana"
-).save
+meal.ingredients.build([
+  {name: "protein-powder"},
+  {name: "Banana"}
+])
 
 meal = program.meals.build(
   name: "Vegetarian Burrito",
@@ -207,15 +201,14 @@ meal = program.meals.build(
   Optionally, add shredded cheese.",
   day: 5,
   type_of_meal: "lunch/dinner"
-).save
+)
 
-meal.ingredients.build(
-  name: "black beans"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "avocado"
-).save
+meal.ingredients.build([
+  {name: "black beans"},
+  {name: "avocado"}
+])
 
 program.meals.build(
   name: "Lentils with Vegetables",
@@ -224,15 +217,14 @@ program.meals.build(
   Season with a herbed tomato sauce.",
   day: 6,
   type_of_meal: "lunch/dinner"
-).save
+)
 
-meal.ingredients.build(
-  name: "lentils"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "tomato sauce"
-).save
+meal.ingredients.build([
+  {name: "lentils"},
+  {name: "tomato sauce"}
+])
 
 program =  Program.create!(
   user_id: existing_user_ids.sample,
@@ -253,15 +245,15 @@ meal = program.meals.build(
   Cook until the eggs are set, then fold in half.",
   day: 1,
   type_of_meal: "breakfast"
-).save
+)
 
-meal.ingredients.build(
-  name: "Egg"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "Spinach"
-).save
+meal.ingredients.build([
+  {name: "Egg"},
+  {name: "Spinach"}
+])
+
 
 meal = program.meals.build(
   name: "Grilled Chicken Salad",
@@ -270,15 +262,14 @@ meal = program.meals.build(
   Top with grilled chicken and drizzle with olive oil and lemon vinaigrette.",
   day: 2,
   type_of_meal: "lunch/dinner"
-).save
+)
 
-meal.ingredients.build(
-  name: "Chicken"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "Cucumber"
-).save
+meal.ingredients.build([
+  {name: "Chicken"},
+  {name: "Cucumber"}
+])
 
 program.meals.build(
   name: "Baked Salmon",
@@ -286,15 +277,14 @@ program.meals.build(
   Steam broccoli and cook quinoa according to package instructions.",
   day: 3,
   type_of_meal: "lunch/dinner"
-).save
+)
 
-meal.ingredients.build(
-  name: "Salmon"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "Brocoli"
-).save
+meal.ingredients.build([
+  {name: "Salmon"},
+  {name: "Brocoli"}
+])
 
 meal = program.meals.build(
   name: "Protein Smoothie",
@@ -302,15 +292,14 @@ meal = program.meals.build(
   Add ice if desired.",
   day: 4,
   type_of_meal: "breakfast"
-).save
+)
 
-meal.ingredients.build(
-  name: "almond milk"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "lactose-free protein powder"
-).save
+meal.ingredients.build([
+  {name: "almond milk"},
+  {name: "lactose-free protein powder"}
+])
 
 meal = program.meals.build(
   name: "Turkey Wrap",
@@ -319,15 +308,14 @@ meal = program.meals.build(
   Roll it up and enjoy with raw carrots on the side.",
   day: 5,
   type_of_meal: "lunch/dinner"
-).save
+)
 
-meal.ingredients.build(
-  name: "Tortilla"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "Turkey"
-).save
+meal.ingredients.build([
+  {name: "Tortilla"},
+  {name: "Turkey"}
+])
 
 meal = program.meals.build(
   name: "Stir-Fried Beef with Vegetables",
@@ -336,30 +324,28 @@ meal = program.meals.build(
   Serve over brown rice.",
   day: 6,
   type_of_meal: "lunch/dinner"
-).save
+)
 
-meal.ingredients.build(
-  name: "Broccoli"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "Beef"
-).save
+meal.ingredients.build([
+  {name: "Broccoli"},
+  {name: "Beef"}
+])
 
 meal = program.meals.build(
   name: "Lactose-Free Yogurt with Fruits and Nuts",
   recipe: "Mix lactose-free yogurt with fresh strawberries and a handful of almonds.",
   day: 7,
   type_of_meal: "breakfast"
-).save
+)
 
-meal.ingredients.build(
-  name: "Lactose-Free yogurt"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "Almond"
-).save
+meal.ingredients.build([
+  {name: "Lactose-Free yogurt"},
+  {name: "Almond"}
+])
 
 program =  Program.create!(
   user_id: existing_user_ids.sample,
@@ -381,15 +367,15 @@ meal = program.meals.build(
   Serve with a slice of whole wheat toasted bread.",
   day: 1,
   type_of_meal: "breakfast"
-).save
+)
 
-meal.ingredients.build(
-  name: "Egg"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "Mushroom"
-).save
+meal.ingredients.build([
+  {name: "Egg"},
+  {name: "Mushroom"}
+])
+
 
 meal = program.meals.build(
   name: "Roasted Chicken with Quinoa and Vegetables",
@@ -398,30 +384,29 @@ meal = program.meals.build(
   Roast vegetables (carrots, zucchini, bell peppers) with olive oil.",
   day: 2,
   type_of_meal: "lunch/dinner"
-).save
+)
 
-meal.ingredients.build(
-  name: "Rosted Chiken"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "carrots"
-).save
+meal.ingredients.build([
+  {name: "Rosted Chiken"},
+  {name: "carrots"}
+])
 
 meal = program.meals.build(
   name: " Greek Yogurt with Almonds and Berries",
   recipe: "Mix natural Greek yogurt with almonds and fresh berries.",
   day: 3,
   type_of_meal: "breakfast"
-).save
+)
 
-meal.ingredients.build(
-  name: "Greek yogurt"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "Berries"
-).save
+meal.ingredients.build([
+  {name: "Greek yogurt"},
+  {name: "Berries"}
+])
+
 
 meal = program.meals.build(
   name: "Beef Stir-Fry with Vegetables",
@@ -430,15 +415,15 @@ meal = program.meals.build(
   Serve over brown rice.",
   day: 4,
   type_of_meal: "lunch/dinner"
-).save
+)
 
-meal.ingredients.build(
-  name: "Beef"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "Broccoli"
-).save
+meal.ingredients.build([
+  {name: "Beef"},
+  {name: "Broccoli"}
+])
+
 
 meal = program.meals.build(
   name: "Spinach Banana Smoothies",
@@ -446,15 +431,15 @@ meal = program.meals.build(
   Toast a slice of whole wheat bread and spread almond butter.",
   day: 5,
   type_of_meal: "breakfast"
-).save
+)
 
-meal.ingredients.build(
-  name: "Spinach"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "Banana"
-).save
+meal.ingredients.build([
+  {name: "Spinach"},
+  {name: "Banana"}
+])
+
 
 program =  Program.create!(
   user_id: existing_user_ids.sample,
@@ -475,15 +460,14 @@ meal = program.meals.build(
   Sprinkle with shredded cheese and serve with sliced avocado.",
   day: 1,
   type_of_meal: "breakfast"
-).save
+)
 
-meal.ingredients.build(
-  name: "Egg"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "Avocado"
-).save
+meal.ingredients.build([
+  {name: "Egg"},
+  {name: "Avocado"}
+])
 
 meal = program.meals.build(
   name: "Grilled Salmon with Keto Vegetables",
@@ -492,15 +476,14 @@ meal = program.meals.build(
   Roast broccoli and cauliflower with olive oil.",
   day: 1,
   type_of_meal: "lunch/dinner"
-).save
+)
 
-meal.ingredients.build(
-  name: "salmon"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "Pepper"
-).save
+meal.ingredients.build([
+  {name: "Salmon"},
+  {name: "Pepper"}
+])
 
 meal = program.meals.build(
   name: "Keto Chicken Caesar Salad",
@@ -509,42 +492,39 @@ meal = program.meals.build(
   Garnish with parmesan shavings.",
   day: 2,
   type_of_meal: "breakfast"
-).save
+)
 
-meal.ingredients.build(
-  name: "Chicken"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "Lettuce "
-).save
+meal.ingredients.build([
+  {name: "Chicken"},
+  {name: "Lettuce "}
+])
 
 meal = program.meals.build(
   name: "Pulled Pork with Sautéed Kale",
   recipe: "Pulled Pork with Sautéed Kale",
   day: 3,
   type_of_meal: "lunch/dinner"
-).save
+)
 
-meal.ingredients.build(
-  name: "Pork"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "Sautéed Kale"
-).save
+meal.ingredients.build([
+  {name: "Pork"},
+  {name: "Sautéed Kale"}
+])
 
 meal = program.meals.build(
   name: "Turkey Lettuce Wrap",
   recipe: "Wrap slices of turkey, cheese, mayo, and lettuce in large lettuce leaves.",
   day: 1,
   type_of_meal: "breakfast"
-).save
+)
 
-meal.ingredients.build(
-  name: "Turkey"
-).save
+meal.save
 
-meal.ingredients.build(
-  name: "cheese"
-).save
+meal.ingredients.build([
+  {name: "Turkey"},
+  {name: "cheese"}
+])

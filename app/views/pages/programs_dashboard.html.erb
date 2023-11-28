@@ -8,9 +8,9 @@
       <div class="program-card">
         <%= render partial: 'pages/goal_image', locals: { goal: program.goal } %>
         <div class="program-card-info">
-          <p>Goal: <%= program.goal.capitalize %></p>
-          <p>Diet: <%= program.diet %></p>
-          <p>Number of days: <%= program.nb_of_days %></p>
+          <p> <strong>Goal:</strong> <%= program.goal.capitalize %></p>
+          <p><strong>Diet:</strong> <%= program.diet %></p>
+          <p><strong>Number of days:</strong> <%= program.nb_of_days %></p>
         </div>
       </div>
     <% end %>

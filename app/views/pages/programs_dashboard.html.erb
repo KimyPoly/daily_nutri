@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Welcome to your dashboard ! <%= @user %></h1>
+  <h1>Welcome to your dashboard <%= @user.first_name %> <%= @user.last_name %> ! </h1>
 
   <h2>All your programs (<%= @programs.count %>): </h2>
 
@@ -11,6 +11,7 @@
           <p> <strong>Goal:</strong> <%= program.goal.capitalize %></p>
           <p><strong>Diet:</strong> <%= program.diet %></p>
           <p><strong>Number of days:</strong> <%= program.nb_of_days %></p>
+          <%= link_to "More info", program_path(program) %>
         </div>
       </div>
     <% end %>

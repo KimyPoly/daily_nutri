@@ -1,13 +1,13 @@
 
 <div class="container">
+  <%= link_to "Back", dashboard_path, class: "btn-home" %>
   <%= link_to "Groceries list", "#", class: "btn-home" %>
-  
-  <h1>Your detailed program</h1>
-  <div class="card">
-    <%= "Day 1" %>
-    <%= @program.goal %>
-    <%= @program.diet %>
 
+  <h1>Meal plan </h1>
+  <div>
+    <h3>Meals</h3>
+    <% @meals.each do |meal| %>
+      <%= meal.name %>
+    <% end %>
   </div>
-
 </div>

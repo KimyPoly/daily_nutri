@@ -23,7 +23,7 @@ class MealsProvider
 
   def prepare_ingredients(ingredients, meal)
     ingredients.each do |ingredient|
-     ingr = Ingredient.new(title: ingredient)
+     ingr = Ingredient.new(name: ingredient)
       ingr.meal = meal
       ingr.save
     end

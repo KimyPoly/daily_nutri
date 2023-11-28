@@ -87,7 +87,7 @@ meal.save
 
 meal.ingredients.build(
   name: "Peppers"
-).save
+)
 
 meal = program.meals.build(
   name: "Tofu Stir-Fry",

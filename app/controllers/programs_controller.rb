@@ -16,10 +16,12 @@ class ProgramsController < ApplicationController
     @user = current_user
     @program.user = @user
     @program.save
+
     redirect_to dashboard
   end
 
   def edit
+
   end
 
   private

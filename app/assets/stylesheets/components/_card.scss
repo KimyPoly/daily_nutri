@@ -1,14 +1,33 @@
-// Meal cards
+// Program cards
 
-.meal-card {
+.program-card-container {
+  margin: 20px 10px;
+
+}
+
+.program-card {
   overflow: hidden;
-  height: 120px;
+  height: 200px;
   background: $white;
   box-shadow: $box-shadow;
+  align-items: center;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-radius: 2%;
+}
+.program-card img {
+  height: 125px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.program-card-info {
+  font-size: 12px;
+  padding: 16px;
   display: flex;
   align-items: center;
 }
 
-.meal-card li {
-  text-decoration: none;
+.program-card li {
+  list-style-type: none;
 }

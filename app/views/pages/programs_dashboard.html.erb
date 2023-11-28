@@ -1,10 +1,25 @@
 <div class="container">
-  <h1>Welcome to your dashboard ! <%= @user %></h1>
-  <ul class= "meal-card">
+  <h1>Welcome to your dashboard <%= @user.first_name %> <%= @user.last_name %> ! </h1>
+
+  <h2>All your programs (<%= @programs.count %>): </h2>
+
+  <div class="program-card-container">
     <% @programs.each do |program| %>
-      <li><%= program.goal %></li>
-      <li><%= program.diet %></li>
-      <li><%= program.nb_of_days %></li>
+      <div class="program-card">
+        <%= render partial: 'pages/goal_image', locals: { goal: program.goal } %>
+        <div class="program-card-info">
+          <p> <strong>Goal:</strong> <%= program.goal.capitalize %></p>
+          <p><strong>Diet:</strong> <%= program.diet %></p>
+          <p><strong>Number of days:</strong> <%= program.nb_of_days %></p>
+          <%= link_to "More info", program_path(program) %>
+        </div>
+      </div>
     <% end %>
-  </ul>
+    <div data-controller="toggle">
+      <button data-action="click->toggle#action" class="btn-home">Create a new program</button>
+      <div class="display-none" data-toggle-target="form">
+        <%= render partial: 'programs/new', locals: { program: @program } %>
+      </div>
+    </div>
+  </div>
 </div>

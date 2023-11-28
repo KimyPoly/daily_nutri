@@ -65,7 +65,7 @@ Program.create(
   diet: "Keto",
   allergies: "Shellfish",
   nb_of_meals_by_day: 2,
-   nb_of_days: 6,
+  nb_of_days: 6,
   nb_of_snacks: 0,
   height: 176,
   weight: 70

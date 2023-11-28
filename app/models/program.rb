@@ -1,7 +1,7 @@
 class Program < ApplicationRecord
   GOAL = ["lose weight", "weight maintenance", "gain weight"]
   DIET = ["Vegan", "Vegetarian", "Omnivorous", "Pescatarian", "Keto"]
-  ALLERGIES = ["Nuts", "Crusta", "Milk", "Eggs", "Fish", "Crustacean",
+  ALLERGIES = ["None", "Nuts", "Crusta", "Milk", "Eggs", "Fish", "Crustacean",
                "Shellfish", "Peanuts", "Wheat", "Soybeans", "Sesame"]
 
   belongs_to :user

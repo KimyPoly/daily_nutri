@@ -1,4 +1,10 @@
 class ProgramsController < ApplicationController
+  # skip_before_action :authenticate_user!, only: :home
+  before_action :set_program, only: %i[show edit]
+
+  def show
+    @meals = Meal.all
+  end
 
   def new
     @program = Program.new
@@ -10,6 +16,10 @@ class ProgramsController < ApplicationController
     @user = current_user
     @program.user = @user
     @program.save
+    redirect_to dashboard
+  end
+
+  def edit
   end
 
   private

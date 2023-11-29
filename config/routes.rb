@@ -9,8 +9,10 @@ Rails.application.routes.draw do
 
   get "dashboard", to: "pages#programs_dashboard"
   resources :programs do
-    resources :meals, only: [:show]
-
+    resources :meals do
+      resources :meal_assignments, only: [:index, :create, :destroy]
+      post 'process_meals', on: :collection
+    end
   end
 
   # Defines the root path route ("/")

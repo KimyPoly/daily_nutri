@@ -9,4 +9,8 @@ class MealsController < ApplicationController
   def set_meal
     @meal = Meal.find(params[:id])
   end
+
+  def update
+    
+  end
 end

@@ -1,3 +1,4 @@
+
 <% d = Time.now.day%>
 <% m = Time.now.month%>
 <% y = Time.now.year %>
@@ -18,17 +19,48 @@
 <% end %>
 <div class="bubble_list">
   <% we.each do |day| %>
-    <div class="bubble_container"><a class="calendar_bubble" href="http://127.0.0.1:3000/programs"><%= day %></a></div>
+    <div class="bubble_container"><a class="calendar_bubble" href="http://127.0.0.1:3000/dashboard"><%= day %></a></div>
+  <% end %>
+</div>
+<h1>Meal plan </h1>
+<div>
+  <h2>Meals</h2>
+  <h3>Breakfast</h3>
+   <%= "Oeuf" %>
+  <%= "5 min" %>
+  <%= "2,50 €" %>
+  <% @meals.each do |meal| %>
+    <% if meal.meal_type == "breakfast" %>
+      <%= meal.name %>
+      <%= meal.time %>
+      <%= meal.price %>
+    <% end %>
+  <% end %>
+  <h3>Lunch</h3>
+   <%= "Lasagne" %>
+  <%= "12 min" %>
+  <%= "3,50 €" %>
+  <% @meals.each do |meal| %>
+    <% if meal.meal_type == "Lunch" %>
+      <%= meal.name %>
+      <%= meal.time %>
+      <%= meal.price %>
+    <% end %>
+  <% end %>
+  <h3>Dinner</h3>
+  <%= "Quinoa" %>
+  <%= "10 min" %>
+  <%= "5,50 €" %>
+  <% @meals.each do |meal| %>
+    <% if meal.meal_type == "Dinner" %>
+      <%= meal.name %>
+      <%= meal.time %>
+      <%= meal.price %>
+    <% end %
   <% end %>
 </div>
 
-  <%= link_to "Back", dashboard_path, class: "btn-home" %>
-  <%= link_to "Groceries list", "#", class: "btn-home" %>
 
-  <h1>Meal plan </h1>
-  <div>
-    <h3>Meals</h3>
-    <% @meals.each do |meal| %>
-      <%= meal.name %>
-    <% end %>
-  </div>
+<%= link_to "Back", dashboard_path, class: "btn-home" %>
+<%= link_to "Groceries list", "#", class: "btn-home" %>
+ </div>

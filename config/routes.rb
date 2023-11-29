@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       post 'process_meals', on: :collection
     end
   end
-
-  # Defines the root path route ("/")
-  # root "posts#index"
 end
+
+# Defines the root path route ("/")
+# root "posts#index"

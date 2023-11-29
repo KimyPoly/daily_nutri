@@ -16,8 +16,7 @@ class ProgramsController < ApplicationController
     @user = current_user
     @program.user = @user
     @program.save
-
-    redirect_to dashboard_path
+    redirect_to program_meals_path(@program)
   end
 
   def edit

@@ -3,6 +3,7 @@ class ProgramsController < ApplicationController
   before_action :set_program, only: %i[show edit]
 
   def show
+    @meals = Meal.all
   end
 
   def new

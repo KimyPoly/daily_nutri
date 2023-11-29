@@ -1,5 +1,5 @@
 class Program < ApplicationRecord
-  GOAL = ["lose weight", "weight maintenance", "gain weight"]
+  GOAL = ["Lose weight", "Weight maintenance", "Gain weight"]
   DIET = ["Vegan", "Vegetarian", "Omnivorous", "Pescatarian", "Keto"]
   ALLERGIES = ["None", "Nuts", "Crusta", "Milk", "Eggs", "Fish", "Crustacean",
                "Shellfish", "Peanuts", "Wheat", "Soybeans", "Sesame"]

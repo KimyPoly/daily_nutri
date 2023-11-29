@@ -1,0 +1,15 @@
+1) remplir le form
+2) create program
+3) dans le create appelle le mealprovider
+4) provider = mealprovider.new(params du form)
+5) meal = provider.prepare_meals
+6) provider.save_meal
+7) redirect to choose_a_meal
+Sur la nouvelle vue
+8) index des current_user.program.meals
+9) formulaire PATCH qui permtete de sélectionner les meals
+10) à l'envoi du formulaire on passe les meals en selected: true
+Sur la vue calendrier
+11) avec un script on répartir les meals sur les jours
+12) on fait un update des jours
+13) on récupéer les meals et on les affiche dans la vue pour chaque jour et chaque type de repas

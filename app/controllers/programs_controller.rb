@@ -3,7 +3,7 @@ class ProgramsController < ApplicationController
   before_action :set_program, only: %i[show edit]
 
   def show
-    @meals = Meal.all
+    @meals = @program.meals
   end
 
   def new
@@ -16,10 +16,12 @@ class ProgramsController < ApplicationController
     @user = current_user
     @program.user = @user
     @program.save
+
     redirect_to dashboard
   end
 
   def edit
+
   end
 
   private

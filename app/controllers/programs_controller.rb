@@ -7,17 +7,31 @@ class ProgramsController < ApplicationController
   end
 
   def new
-    @program = Program.new
-    @program.user = current_user
+    session[:program_params] ||= {}
+    @program = Program.new(session[:program_params])
+    @step = session[:step] || 1
+    session[:step] = @step
   end
 
   def create
-    @program = Program.new(program_params)
-    @user = current_user
-    @program.user = @user
-    @program.save
+    options = session[:program_params].deep_merge!(program_params)
+    @program = Program.new(options)
+    @program.user = current_user
+    @step = session[:step]
+    if @step == 7
+      session[:program_params] = nil
+      session[:step] = nil
+      if @program.save
+        redirect_to dashboard_path
+      else
+        redirect_to new_program_path
+      end
+    else
+      new_step = @step + 1
+      session[:step] = new_step
+      redirect_to new_program_path
+    end
 
-    redirect_to dashboard
   end
 
   def edit
@@ -27,8 +41,9 @@ class ProgramsController < ApplicationController
   private
 
   def program_params
-    params.require(:program).permit(:goal, :user_id, :diet, :allergies, :nb_of_meals_by_day, :nb_of_days, :nb_of_snacks, :height, :weight)
+    params.require(:program).permit(:goal, :diet, :allergies, :nb_of_meals_by_day, :nb_of_days, :nb_of_snacks, :height, :weight, :step)
   end
+
 
   def set_program
     @program = Program.find(params[:id])

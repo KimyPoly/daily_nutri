@@ -1,4 +1,3 @@
 class Meal < ApplicationRecord
-  belongs_to :program
-  has_many :ingredients
+  has_many :programs, through: :meal_assignments
 end

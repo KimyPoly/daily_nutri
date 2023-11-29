@@ -38,6 +38,29 @@ legend {
   transition: opacity 0.3s ease;
   background-color: $orange;
   text-decoration: none;
-  margin-top: 20px;
-  margin-left: 100px
+  border-radius: 8px;
+}
+
+.btn-program {
+  font-weight: bold ;
+  color: $orange;
+  border: 1px solid $orange;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  background-color: $light-gray;
+  text-decoration: none;
+  margin-top: 10px;
+  text-align: center;
+
+  input {
+    display: none;
+  }
+
+}
+
+.btn-program:hover {
+  opacity: 1;
 }

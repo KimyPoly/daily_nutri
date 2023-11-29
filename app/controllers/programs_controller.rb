@@ -3,7 +3,6 @@ class ProgramsController < ApplicationController
   before_action :set_program, only: %i[show edit]
 
   def show
-    @meals = @program.meals
   end
 
   def new
@@ -17,7 +16,7 @@ class ProgramsController < ApplicationController
     @program.user = @user
     @program.save
 
-    redirect_to dashboard
+    redirect_to dashboard_path
   end
 
   def edit

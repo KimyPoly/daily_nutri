@@ -3,7 +3,7 @@ class ProgramsController < ApplicationController
   before_action :set_program, only: %i[show edit]
 
   def show
-    @meals = @program.meals
+    @meals = Meal.all
   end
 
   def new
@@ -14,6 +14,7 @@ class ProgramsController < ApplicationController
   end
 
   def create
+
     options = session[:program_params].deep_merge!(program_params)
     @program = Program.new(options)
     @program.user = current_user
@@ -22,7 +23,7 @@ class ProgramsController < ApplicationController
       session[:program_params] = nil
       session[:step] = nil
       if @program.save
-        redirect_to dashboard_path
+        redirect_to program_meals_path(@program)
       else
         redirect_to new_program_path
       end
@@ -31,7 +32,7 @@ class ProgramsController < ApplicationController
       session[:step] = new_step
       redirect_to new_program_path
     end
-
+    
   end
 
   def edit

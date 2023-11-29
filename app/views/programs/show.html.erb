@@ -1,3 +1,26 @@
+<% d = Time.now.day%>
+<% m = Time.now.month%>
+<% y = Time.now.year %>
+<% m31 = [1,3,5,7,8,10,12] %>
+<% fev = 2 %>
+<% we = (d..d + 6).to_a %>
+
+<%if m31.include?(m)%>
+  <% we.map! { |valeur| valeur > 31 ? valeur -= 31 : valeur } %>
+<%  elsif m == fev %>
+    <% if y/4 == Integer %>
+      <% we.map! { |valeur| valeur > 29 ? valeur -= 29 : valeur } %>
+    <% else %>
+      <% we.map! { |valeur| valeur > 28 ? valeur -= 28 : valeur } %>
+    <% end %>
+<% else %>
+  <% we.map! { |valeur| valeur > 30 ? valeur -= 30 : valeur } %>
+<% end %>
+<div class="bubble_list">
+  <% we.each do |day| %>
+    <div class="bubble_container"><a class="calendar_bubble" href="http://127.0.0.1:3000/programs"><%= day %></a></div>
+  <% end %>
+</div>
 
   <%= link_to "Back", dashboard_path, class: "btn-home" %>
   <%= link_to "Groceries list", "#", class: "btn-home" %>

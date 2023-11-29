@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_29_095131) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_29_140106) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_095131) do
     t.string "name"
     t.string "title"
     t.index ["meal_id"], name: "index_ingredients_on_meal_id"
+  end
+
+  create_table "meal_assignements", force: :cascade do |t|
+    t.bigint "meal_id", null: false
+    t.bigint "program_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meal_id"], name: "index_meal_assignements_on_meal_id"
+    t.index ["program_id"], name: "index_meal_assignements_on_program_id"
   end
 
   create_table "meals", force: :cascade do |t|
@@ -36,6 +45,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_095131) do
     t.integer "price"
     t.boolean "selected", default: false
     t.string "ingredients"
+    t.string "week_day"
     t.index ["program_id"], name: "index_meals_on_program_id"
   end
 
@@ -71,6 +81,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_095131) do
   end
 
   add_foreign_key "ingredients", "meals"
-  add_foreign_key "meals", "programs"
+  add_foreign_key "meal_assignements", "meals"
+  add_foreign_key "meal_assignements", "programs"
   add_foreign_key "programs", "users"
 end

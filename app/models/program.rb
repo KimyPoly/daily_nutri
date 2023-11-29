@@ -5,7 +5,8 @@ class Program < ApplicationRecord
                "Shellfish", "Peanuts", "Wheat", "Soybeans", "Sesame"]
 
   belongs_to :user
-  has_many :meals, through: :meal_assignments
+  has_many :meal_assignements
+  has_many :meals, through: :meal_assignements
   validates :goal, presence: true, inclusion: { in: GOAL }
   validates :diet, presence: true, inclusion: { in: DIET }
   validates :allergies, presence: true, inclusion: { in: ALLERGIES }

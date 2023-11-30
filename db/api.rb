@@ -5,17 +5,18 @@ require 'open-uri'
 class Api
   def initialize
     @conn = Faraday.new(
-      url: 'https://api.spoonacular.com/recipes/complexSearch?&number=1&addRecipeInformation=true&addRecipeNutrition=true&apiKey=a8dc1c3728f44954911b146a8a6d120f'
+      url: 'https://api.spoonacular.com/recipes/complexSearch?&number=25&addRecipeInformation=true&addRecipeNutrition=true&apiKey=9bd4287b6eee44e4b1dda7d49cd153aa'
     )
-    # @conn = 'https://api.spoonacular.com/recipes/complexSearch?&number=1&addRecipeInformation=true&addRecipeNutrition=true&apiKey=a8dc1c3728f44954911b146a8a6d120f'
   end
 
-  def test
-    @conn.get('').body
+  def test(offset)
+    @conn.get('', { offset: offset }).body
   end
 
-  def search_meals
-    JSON.parse(test)['results'].each do |meal|
+  def search_meals(offset)
+    JSON.parse(test(offset))['results'].each do |meal|
+      next unless meal["analyzedInstructions"].length > 0
+
       recipe_steps_length = meal["analyzedInstructions"][0]["steps"].length
       recipe_steps = []
 
@@ -25,6 +26,8 @@ class Api
       end
 
       ingredients_length = meal["nutrition"]["ingredients"].length
+      next unless ingredients_length > 0
+
       ingredients = []
 
       ingredients_length.times do |i|
@@ -32,8 +35,10 @@ class Api
         ingredients << ingredient_name
       end
 
+      next if Meal.where(name: meal["title"]).count > 0
       days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
       random_index = rand(days_of_week.length)
+
 
       meal = Meal.create!(
         name: meal["title"],
@@ -42,10 +47,11 @@ class Api
         price: meal["pricePerServing"],
         meal_type: meal["dishTypes"].join(","),
         ingredients: ingredients.join(", "),
-        time: meal["readyInMinutes"],
+        time: meal["readyInMinutes"].to_i,
         diet: meal["diets"].join(","),
         day: rand(1..7),
-        week_day: days_of_week[random_index]
+        week_day: days_of_week[random_index],
+        photo_url: meal["image"]
       )
 
       puts "#{meal.name} created"

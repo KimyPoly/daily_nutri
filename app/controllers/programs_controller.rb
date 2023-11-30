@@ -5,6 +5,7 @@ class ProgramsController < ApplicationController
 
   def show
     @meals = Meal.all
+    @user = current_user
   end
 
   def new

@@ -9,7 +9,10 @@ require_relative 'api'
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-
+Meal.destroy_all
+Program.destroy_all
+User.destroy_all
+MealAssignement.destroy_all
 
 
 User.create!(
@@ -56,7 +59,6 @@ Program.create!(
   weight: 60,
   user_id: User.first.id
 )
-
 
 api = Api.new
 offset = 0

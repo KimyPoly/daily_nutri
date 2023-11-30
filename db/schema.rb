@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_29_140106) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_30_080814) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,7 +36,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_140106) do
     t.string "name"
     t.text "recipe"
     t.integer "day"
-    t.bigint "program_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "calories"
@@ -46,7 +45,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_140106) do
     t.boolean "selected", default: false
     t.string "ingredients"
     t.string "week_day"
-    t.index ["program_id"], name: "index_meals_on_program_id"
+    t.string "diet"
+    t.string "photo_url"
   end
 
   create_table "programs", force: :cascade do |t|

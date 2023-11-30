@@ -8,25 +8,21 @@ require_relative 'api'
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-api = Api.new
-offset = 0
-4.times do
-  offset += 25
-  api.search_meals(offset)
-end
 
 MealAssignement.delete_all
 Meal.delete_all
 Program.delete_all
 User.delete_all
 
+
+
 api = Api.new
 offset = 0
 4.times do
   offset += 25
   api.search_meals(offset)
 end
-return
+
 User.create!(
   first_name: "Canelo",
   last_name: "Alvarez",
@@ -55,3 +51,24 @@ User.create!(
   email: "ali@lewagon.fr",
   password: "123456"
 )
+
+Program.create!(
+  sexe: "Female",
+  goal: "Weight maintenance",
+  diet: "Vegetarian",
+  allergies: "None",
+  nb_of_meals_by_day: 3,
+  nb_of_days: 7,
+  nb_of_snacks: 1,
+  height: 168,
+  weight: 60,
+  user_id: User.first.id
+)
+
+
+api = Api.new
+offset = 0
+4.times do
+  offset += 25
+  api.search_meals(offset)
+end

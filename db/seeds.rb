@@ -8,6 +8,10 @@ require_relative 'api'
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Program.destroy_all
+
+
 api = Api.new
 offset = 0
 4.times do
@@ -15,7 +19,7 @@ offset = 0
   api.search_meals(offset)
 end
 
-return
+
 
 User.create!(
   first_name: "Canelo",
@@ -48,3 +52,4 @@ User.create!(
   email: "ali@lewagon.fr",
   password: "123456"
 )
+

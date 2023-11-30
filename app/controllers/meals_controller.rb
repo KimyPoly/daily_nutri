@@ -11,13 +11,18 @@ class MealsController < ApplicationController
     selected_meal_ids = params[:selected_meals]
 
     if selected_meal_ids.present?
+      @program = Program.find(params[:program_id])
       selected_meals = Meal.where(id: selected_meal_ids)
+
       selected_meals.each do |meal|
-        meal.save
+        @program.meals << meal
       end
-      redirect_to root_path, notice: "Vos sélections ont été enregistrées avec succès."
+
+      @program.save!
+
+      redirect_to dashboard_path, notice: "Vos sélections ont été enregistrées avec succès."
     else
-      redirect_to root_path, alert: "Veuillez sélectionner au moins un repas."
+      redirect_to dashboard_path, alert: "Veuillez sélectionner au moins un repas."
     end
   end
 

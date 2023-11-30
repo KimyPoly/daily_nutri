@@ -70,3 +70,7 @@ offset = 0
   offset += 25
   api.search_meals(offset)
 end
+2.times do
+  offset += 25
+  api.search_meals(offset, true)
+end

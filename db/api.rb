@@ -9,12 +9,16 @@ class Api
     )
   end
 
-  def test(offset)
-    @conn.get('', { offset: offset }).body
+  def test(offset, breakfast = false)
+    if breakfast
+      @conn.get('', { offset: offset, type: "breakfast" }).body
+    else
+      @conn.get('', { offset: offset}).body
+    end
   end
 
-  def search_meals(offset)
-    JSON.parse(test(offset))['results'].each do |meal|
+  def search_meals(offset, breakfast = false)
+    JSON.parse(test(offset, breakfast))['results'].each do |meal|
       next unless meal["analyzedInstructions"].length > 0
 
       recipe_steps_length = meal["analyzedInstructions"][0]["steps"].length

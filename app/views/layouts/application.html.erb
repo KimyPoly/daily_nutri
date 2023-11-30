@@ -11,6 +11,7 @@
   <div>
     <body>
       <%= render "shared/navbar" %>
+      <%= render "shared/footer" %>
       <% if params[:action] != "home" %>
         <div class="container">
         <% end %>
@@ -18,7 +19,6 @@
         <% if params[:action] != "home" %>
         </div>
       <% end %>
-      <%= render "shared/footer" %>
     </body>
   </div>
 </html>

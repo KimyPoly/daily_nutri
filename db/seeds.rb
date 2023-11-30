@@ -47,6 +47,7 @@ User.create!(
 )
 
 Program.create!(
+  sexe: "Female",
   goal: "Weight maintenance",
   diet: "Vegetarian",
   allergies: "None",
@@ -55,9 +56,8 @@ Program.create!(
   nb_of_snacks: 1,
   height: 168,
   weight: 60,
-  user_id: 2
+  user_id: User.first.id
 )
-return
 
 api = Api.new
 offset = 0

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   get "dashboard", to: "pages#programs_dashboard"
-  resources :programs do
+  resources :programs, except: :edit do
     resources :meals do
       resources :meal_assignments, only: [:index, :create, :destroy]
       post 'process_meals', on: :collection

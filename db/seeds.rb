@@ -9,11 +9,18 @@ require_relative 'api'
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-Meal.destroy_all
-Program.destroy_all
-User.destroy_all
-MealAssignement.destroy_all
+MealAssignement.delete_all
+Meal.delete_all
+Program.delete_all
+User.delete_all
 
+
+api = Api.new
+offset = 0
+4.times do
+  offset += 25
+  api.search_meals(offset)
+end
 
 User.create!(
   first_name: "Canelo",
@@ -22,7 +29,6 @@ User.create!(
   email: "canelo@lewagon.fr",
   password: "123456"
 )
-
 User.create!(
   first_name: "Mike",
   last_name: "Tyson",
@@ -30,7 +36,6 @@ User.create!(
   email: "tyson@lewagon.fr",
   password: "123456"
 )
-
 User.create!(
   first_name: "Cassius",
   last_name: "Clay",
@@ -38,7 +43,6 @@ User.create!(
   email: "clay@lewagon.fr",
   password: "123456"
 )
-
 User.create!(
   first_name: "Mohamed",
   last_name: "Ali",

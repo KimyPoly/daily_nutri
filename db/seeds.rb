@@ -10,18 +10,6 @@ require_relative 'api'
 #   end
 
 
-Program.create!(
-  goal: "Weight maintenance",
-  diet: "Vegetarian",
-  allergies: "None",
-  nb_of_meals_by_day: 3,
-  nb_of_days: 7,
-  nb_of_snacks: 1,
-  height: 168,
-  weight: 60,
-  user_id: 13
-)
-return
 
 
 User.create!(
@@ -54,6 +42,19 @@ User.create!(
   age: "28",
   email: "ali@lewagon.fr",
   password: "123456"
+)
+
+Program.create!(
+  sexe: "Female",
+  goal: "Weight maintenance",
+  diet: "Vegetarian",
+  allergies: "None",
+  nb_of_meals_by_day: 3,
+  nb_of_days: 7,
+  nb_of_snacks: 1,
+  height: 168,
+  weight: 60,
+  user_id: User.first.id
 )
 
 

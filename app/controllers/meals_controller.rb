@@ -4,10 +4,17 @@ class MealsController < ApplicationController
 
   def index
     set_program_options
-    raise
-    @meals = Meal.where()
+    @meals = Meal.where("diet ~* ?", @diet)
+    # Split @allergies en un array de valeurs
+    @allergies = @aller
+    # foreach sur chaque allergies
+    # pour chaque allergie
+    # En fonction de la clé allergies, convertie en minuscules, on accède au dictionnaire
+    # j'obtiens une liste des forbidden_ingredients, sous la forme d'un array
+    # Pour chaque forbidden_ingredient, each
+    # @meals = Meal.where("ingredients ~* ?", forbidden_ingredient)
   end
-  
+
   def show
   end
 
@@ -80,5 +87,42 @@ class MealsController < ApplicationController
     @diet = @program.diet
     @allergies = @program.allergies
   end
+
+  def allergies_dictionary
+    {
+      nuts: [
+        "Almonds", "Cashews", "Walnuts", "Pecans", "Brazil nuts",
+        "Macadamia nuts", "Pistachios", "Pine nuts", "Hazelnuts", "Chestnuts"
+      ],
+      crustaceans: [
+        "Shrimp", "Crab", "Lobster", "Crayfish", "Prawns", "Scampi", "Langoustines"
+      ],
+      milk: [
+        "milk", "butter", "cream", "cheese"
+      ],
+      eggs: [
+        "eggs"
+      ],
+      fish: [
+        "Salmon", "Tuna", "Cod", "Trout", "Haddock",
+        "Sardines", "Mackerel", "Anchovies", "Herring", "Bass", "Mahi Mahi", "Swordfish", "Perch", "Pollock", "Snapper", "Eel"
+      ],
+      shellfish: [
+        "clams", "crab", "lobster", "mussels", "oysters", "scallops", "shrimp", "snails", "squid"
+      ],
+      peanuts: [
+        "Peanuts"
+      ],
+      wheat: [
+        "Wheat flour", "bread", "pasta", "couscous", "crackers", "cookies", "cakes", "muffins", "pastries", "cereals", "beer"
+      ],
+      soybeans: [
+        "Soybeans", "tofu", "tempeh", "edamame", "soy milk", "soy sauce"
+      ],
+      sesame: [
+        "Sesame seeds", "Sesame oil", "Tahini"
+      ]
+    };
+    end
 
 end

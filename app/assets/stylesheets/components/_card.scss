@@ -31,3 +31,41 @@
 .program-card li {
   list-style-type: none;
 }
+
+.meal-card {
+  display: flex;
+  background-color: #ffe5cc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 10px ;
+  margin-bottom: 13px;
+  padding: 3px;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+.meal-card-info {
+  width: 200px;
+}
+
+.meal-card-info h3 {
+  margin-top: 0;
+  color: #333;
+  text-align: center;
+}
+
+.meal-card img {
+  width: 150px;
+  height: 110px;
+  object-fit: cover;
+}
+
+.meal-card ul {
+  color: #666;
+  list-style-type: none;
+  padding: 0;
+  margin-left: 10px;
+}

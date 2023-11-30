@@ -1,6 +1,7 @@
 class ProgramsController < ApplicationController
-  # skip_before_action :authenticate_user!, only: :home
-  before_action :set_program, only: %i[show]
+
+  skip_before_action :authenticate_user!, only: :new
+  before_action :set_program, only: %i[show edit]
 
   def show
     @meals = Meal.all

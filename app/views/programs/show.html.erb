@@ -24,6 +24,44 @@
 </div>
 <h1>Meal plan </h1>
 
+<div>
+  <h2>Meals</h2>
+  <h3>Breakfast</h3>
+   <%= "Oeuf" %>
+  <%= "5 min" %>
+  <%= "2,50 €" %>
+  <% @meals.each do |meal| %>
+    <% if meal.meal_type == "breakfast" %>
+      <%= meal.name %>
+      <%= meal.time %>
+      <%= meal.price %>
+    <% end %>
+  <% end %>
+  <h3>Lunch</h3>
+   <%= "Lasagne" %>
+  <%= "12 min" %>
+  <%= "3,50 €" %>
+  <% @meals.each do |meal| %>
+    <% if meal.meal_type == "Lunch" %>
+      <%= meal.name %>
+      <%= meal.time %>
+      <%= meal.price %>
+    <% end %>
+  <% end %>
+  <h3>Dinner</h3>
+  <%= "Quinoa" %>
+  <%= "10 min" %>
+  <%= "5,50 €" %>
+  <% @meals.each do |meal| %>
+    <% if meal.meal_type == "Dinner" %>
+      <%= meal.name %>
+      <%= meal.time %>
+      <%= meal.price %>
+    <% end %>
+  <% end %>
+</div>
+
+
 <div class="">
   <h2>Meals</h2>
   <div class="meal-card">
@@ -80,7 +118,19 @@
     </div>
   </div>
 
+<%= link_to "Back", dashboard_path, class: "btn-home" %>
+<%= link_to "Groceries list", "#", class: "btn-home" %>
+ </div>
+
+   <div data-controller="toggle">
+      <button data-action="click->toggle#action" class="btn-home">Edit</button>
+      <div class="display-none" data-toggle-target="form">
+        <%= render partial: 'shared/form_new', locals: { program: @program } %>
+      </div>
+    </div>
+
 <div class=btn-back-and-groceries>
   <%= link_to "Back", dashboard_path, class: "btn-home" %>
   <%= link_to "Groceries list", "#", class: "btn-home" %>
 </div>
+

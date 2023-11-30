@@ -5,14 +5,16 @@ class MealsController < ApplicationController
   def index
     set_program_options
     @meals = Meal.where("diet ~* ?", @diet)
-    # Split @allergies en un array de valeurs
-    @allergies = @aller
-    # foreach sur chaque allergies
-    # pour chaque allergie
-    # En fonction de la clé allergies, convertie en minuscules, on accède au dictionnaire
-    # j'obtiens une liste des forbidden_ingredients, sous la forme d'un array
-    # Pour chaque forbidden_ingredient, each
-    # @meals = Meal.where("ingredients ~* ?", forbidden_ingredient)
+    @allergies = @allergies.split(",")
+    @allergies.each do |allergy|
+      downcase_allergy = allergy.downcase
+      forbidden_ingredients = allergies_dictionary[downcase_allergy.to_s]
+      break unless forbidden_ingredients
+
+      forbidden_ingredients.each do |forbidden_ingredient|
+        @meals = @meals.where("ingredients ~* ?", forbidden_ingredient)
+      end
+    end
   end
 
   def show
@@ -89,7 +91,8 @@ class MealsController < ApplicationController
   end
 
   def allergies_dictionary
-    {
+      {
+
       nuts: [
         "Almonds", "Cashews", "Walnuts", "Pecans", "Brazil nuts",
         "Macadamia nuts", "Pistachios", "Pine nuts", "Hazelnuts", "Chestnuts"
@@ -101,7 +104,7 @@ class MealsController < ApplicationController
         "milk", "butter", "cream", "cheese"
       ],
       eggs: [
-        "eggs"
+        "eggs", "pancakes"
       ],
       fish: [
         "Salmon", "Tuna", "Cod", "Trout", "Haddock",
@@ -122,7 +125,15 @@ class MealsController < ApplicationController
       sesame: [
         "Sesame seeds", "Sesame oil", "Tahini"
       ]
-    };
+    }
     end
 
 end
+
+   # foreach sur chaque allergies
+    # Split @allergies en un array de valeurs
+    # pour chaque allergie
+    # En fonction de la clé allergies, convertie en minuscules, on accède au dictionnaire
+    # j'obtiens une liste des forbidden_ingredients, sous la forme d'un array
+    # Pour chaque forbidden_ingredient, each
+    # @meals = Meal.where("ingredients ~* ?", forbidden_ingredient)

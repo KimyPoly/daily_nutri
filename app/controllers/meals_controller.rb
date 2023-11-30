@@ -1,8 +1,11 @@
 class MealsController < ApplicationController
   before_action :set_meal, only: %i[show]
+  before_action :set_program, only: %i[index]
 
   def index
-    @meals = Meal.all
+    set_program_options
+    raise
+    @meals = Meal.where()
   end
   def show
   end
@@ -35,8 +38,41 @@ class MealsController < ApplicationController
     @meal = Meal.find(params[:id])
   end
 
+  def set_program
+    @program = Program.find(params[:program_id])
+  end
+
+
   def meal_params
-    params.require(:meal).permit(:program_id,)
+    params.require(:meal).permit(:program_id)
+  end
+
+  def calculated_goal
+    @genre = params[:program][:sexe]
+    @asked_goal = params[:program][:goal]
+    @calories = 0
+
+    case @calories
+    when @genre == "Male" && @asked_goal == "Weight maintenance"
+      @calories = 2600
+    when @genre == "Male" && @asked_goal == "Lose weight"
+      @calories = 2300
+    when @genre == "Male" && @asked_goal == "Take weight"
+      @calories = 3100
+    when @genre == "Female" && @asked_goal == "Weight maintenance"
+      @calories = 2000
+    when @genre == "Female" && @asked_goal == "Lose weight"
+      @calories = 1800
+    when @genre == "Female" && @asked_goal == "Take weight"
+      @calories = 2500
+    end
+
+    return @calories
+  end
+
+  def set_program_options
+    @diet = @program.diet
+    @allergies = @program.allergies
   end
 
 end

@@ -9,16 +9,19 @@ require_relative 'api'
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-Program.destroy_all
 
-
-api = Api.new
-offset = 0
-4.times do
-  offset += 25
-  api.search_meals(offset)
-end
-
+Program.create!(
+  goal: "Weight maintenance",
+  diet: "Vegetarian",
+  allergies: "None",
+  nb_of_meals_by_day: 3,
+  nb_of_days: 7,
+  nb_of_snacks: 1,
+  height: 168,
+  weight: 60,
+  user_id: 13
+)
+return
 
 
 User.create!(
@@ -53,3 +56,10 @@ User.create!(
   password: "123456"
 )
 
+
+api = Api.new
+offset = 0
+4.times do
+  offset += 25
+  api.search_meals(offset)
+end

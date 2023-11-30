@@ -1,0 +1,562 @@
+[1mdiff --git a/app/views/programs/show.html.erb b/app/views/programs/show.html.erb[m
+[1mindex 07010dd..21a6b4d 100644[m
+[1m--- a/app/views/programs/show.html.erb[m
+[1m+++ b/app/views/programs/show.html.erb[m
+[36m@@ -23,9 +23,6 @@[m
+   <% end %>[m
+ </div>[m
+ <h1>Meal plan </h1>[m
+[31m-[m
+[31m-[m
+[31m-<div class="">[m
+   <h2>Meals</h2>[m
+   <div class="meal-card">[m
+   <img src="data:image/jpeg;base64,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" alt="Test un deux">[m
+[36m@@ -85,5 +82,3 @@[m
+   <%= link_to "Back", dashboard_path, class: "btn-home" %>[m
+   <%= link_to "Groceries list", "#", class: "btn-home" %>[m
+ </div>[m
+[31m-[m
+[31m-[m
+[1mdiff --git a/db/seeds.rb b/db/seeds.rb[m
+[1mindex 1c65970..ab10550 100644[m
+[1m--- a/db/seeds.rb[m
+[1m+++ b/db/seeds.rb[m
+[36m@@ -1,18 +1,10 @@[m
+[31m-# This file should ensure the existence of records required to run the application in every environment (production,[m
+[31m-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.[m
+[31m-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).[m
+[31m-#[m
+[31m-# Example:[m
+[31m-#[m
+[31m-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|[m
+[31m-#     MovieGenre.find_or_create_by!(name: genre_name)[m
+[31m-#   end[m
+[31m-[m
+[31m-Ingredient.delete_all[m
+[31m-Meal.delete_all[m
+[31m-Program.delete_all[m
+[31m-User.delete_all[m
+[31m-[m
+[32m+[m[32mapi = Api.new[m
+[32m+[m[32moffset = 0[m
+[32m+[m[32m4.times do[m
+[32m+[m[32m  offset += 25[m
+[32m+[m[32m  api.search_meals(offset)[m
+[32m+[m[32mend[m
+[32m+[m[32mreturn[m
+ User.create!([m
+   first_name: "Canelo",[m
+   last_name: "Alvarez",[m
+[36m@@ -20,7 +12,6 @@[m [mUser.create!([m
+   email: "canelo@lewagon.fr",[m
+   password: "123456"[m
+ )[m
+[31m-[m
+ User.create!([m
+   first_name: "Mike",[m
+   last_name: "Tyson",[m
+[36m@@ -28,7 +19,6 @@[m [mUser.create!([m
+   email: "tyson@lewagon.fr",[m
+   password: "123456"[m
+ )[m
+[31m-[m
+ User.create!([m
+   first_name: "Cassius",[m
+   last_name: "Clay",[m
+[36m@@ -36,7 +26,6 @@[m [mUser.create!([m
+   email: "clay@lewagon.fr",[m
+   password: "123456"[m
+ )[m
+[31m-[m
+ User.create!([m
+   first_name: "Mohamed",[m
+   last_name: "Ali",[m
+[36m@@ -44,487 +33,3 @@[m [mUser.create!([m
+   email: "ali@lewagon.fr",[m
+   password: "123456"[m
+ )[m
+[31m-[m
+[31m-existing_user_ids = User.pluck(:id)[m
+[31m-[m
+[31m-program = Program.create!([m
+[31m-  user_id: existing_user_ids.sample,[m
+[31m-  goal: "weight maintenance",[m
+[31m-  diet: "Vegan",[m
+[31m-  allergies: "Crusta",[m
+[31m-  nb_of_meals_by_day: 4,[m
+[31m-  nb_of_days: 7,[m
+[31m-  nb_of_snacks: 2,[m
+[31m-  height: 186,[m
+[31m-  weight: 80.5[m
+[31m-)[m
+[31m-[m
+[31m-# Create meals for the program directly[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Quinoa Salad",[m
+[31m-  recipe: "Cook quinoa and let it cool. Mix quinoa with chopped vegetables like cucumbers, tomatoes, and bell peppers. Drizzle with olive oil and lemon juice, and season with salt and pepper.",[m
+[31m-  day: 2,[m
+[31m-  type_of_meal: "lunch/dinner"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.create([[m
+[31m-  { name: "Quinoa" },[m
+[31m-  { name: "Lemon" }[m
+[31m-])[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Stuffed Bell Peppers",[m
+[31m-  recipe: "Cut bell peppers in half and remove seeds.[m
+[31m-  Fill each half with a mixture of cooked quinoa, black beans, corn, and diced tomatoes.[m
+[31m-  Bake in the oven until peppers are tender.",[m
+[31m-  day: 3,[m
+[31m-  type_of_meal: "lunch/dinner"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([m
+[31m-  name: "Peppers"[m
+[31m-)[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Tofu Stir-Fry",[m
+[31m-  recipe: "Press and cube tofu, stir-fry until golden.[m
+[31m-  Add broccoli, bell peppers, and carrots to the pan.[m
+[31m-  Mix in minced ginger and garlic, stir-fry until vegetables are tender.[m
+[31m-  Season with soy sauce and serve over rice.",[m
+[31m-  day: 4,[m
+[31m-  type_of_meal: "lunch/dinner"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  { name: "Tofu" },[m
+[31m-  { name: "Ginger" }[m
+[31m-])[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Chickpea Salad",[m
+[31m-  recipe: "Combine chickpeas with chopped cucumber, cherry tomatoes, and red onion.[m
+[31m-  Dress with olive oil, lemon juice, and your favorite herbs.",[m
+[31m-  day: 5,[m
+[31m-  type_of_meal: "lunch/dinner"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "Tomato"},[m
+[31m-  {name: "Oil"}[m
+[31m-])[m
+[31m-[m
+[31m-program =  Program.create!([m
+[31m-  user_id: existing_user_ids.sample,[m
+[31m-  goal: "gain weight",[m
+[31m-  diet: "Vegetarian",[m
+[31m-  allergies: "Sesame",[m
+[31m-  nb_of_meals_by_day: 3,[m
+[31m-  nb_of_days: 6,[m
+[31m-  nb_of_snacks: 1,[m
+[31m-  height: 165,[m
+[31m-  weight: 52[m
+[31m-)[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Banana Oat Pancakes",[m
+[31m-  recipe: "Mix all ingredients and cook on a hot griddle",[m
+[31m-  day: 1,[m
+[31m-  type_of_meal: "breakfast"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "Banana"},[m
+[31m-  {name: "Salt"}[m
+[31m-])[m
+[31m-[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Quinoa Chickpea Salad",[m
+[31m-  recipe: "Combine 1 cup of cooked quinoa with a can of rinsed and drained chickpeas.[m
+[31m-  Add assorted vegetables like cucumbers, tomatoes, and bell peppers.[m
+[31m-  Drizzle with olive oil and lemon vinaigrette",[m
+[31m-  day: 2,[m
+[31m-  type_of_meal: "lunch/dinner"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "Quinoa"},[m
+[31m-  {name: "lemon"}[m
+[31m-])[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Dinner: Stir-Fried Tofu with Vegetable",[m
+[31m-  recipe: "Sauté 200g of cubed tofu in a pan until golden.[m
+[31m-  Add mixed vegetables (broccoli, carrots, mushrooms) and stir-fry until tender.[m
+[31m-  Season with soy sauce, ginger, and garlic.",[m
+[31m-  day: 3,[m
+[31m-  type_of_meal: "lunch/dinner"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "Tofu"},[m
+[31m-  {name: "Brocoli"}[m
+[31m-])[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Protein Smoothie",[m
+[31m-  recipe: "Blend 1 cup of plant-based milk with 1 scoop of plant-based protein powder, 1 banana, and 1 tablespoon of almond butter.[m
+[31m-  Add ice and blend until smooth.",[m
+[31m-  day: 4,[m
+[31m-  type_of_meal: "breakfast"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "protein-powder"},[m
+[31m-  {name: "Banana"}[m
+[31m-])[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Vegetarian Burrito",[m
+[31m-  recipe: "Fill a whole wheat tortilla with black beans, brown rice, avocado, and salsa.[m
+[31m-  Optionally, add shredded cheese.",[m
+[31m-  day: 5,[m
+[31m-  type_of_meal: "lunch/dinner"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "black beans"},[m
+[31m-  {name: "avocado"}[m
+[31m-])[m
+[31m-[m
+[31m-program.meals.build([m
+[31m-  name: "Lentils with Vegetables",[m
+[31m-  recipe: "Cook 1 cup of lentils.[m
+[31m-  Sauté mixed vegetables (peas, carrots, spinach) and mix with the lentils.[m
+[31m-  Season with a herbed tomato sauce.",[m
+[31m-  day: 6,[m
+[31m-  type_of_meal: "lunch/dinner"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "lentils"},[m
+[31m-  {name: "tomato sauce"}[m
+[31m-])[m
+[31m-[m
+[31m-program =  Program.create!([m
+[31m-  user_id: existing_user_ids.sample,[m
+[31m-  goal: "lose weight",[m
+[31m-  diet: "Omnivorous",[m
+[31m-  allergies: "Milk",[m
+[31m-  nb_of_meals_by_day: 3,[m
+[31m-  nb_of_days: 7,[m
+[31m-  nb_of_snacks: 3,[m
+[31m-  height: 178,[m
+[31m-  weight: 95[m
+[31m-)[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Vegetable Omelette",[m
+[31m-  recipe: "Whisk 2 eggs and pour into a heated, non-stick skillet.[m
+[31m-  Add chopped spinach, tomatoes, and mushrooms.[m
+[31m-  Cook until the eggs are set, then fold in half.",[m
+[31m-  day: 1,[m
+[31m-  type_of_meal: "breakfast"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "Egg"},[m
+[31m-  {name: "Spinach"}[m
+[31m-])[m
+[31m-[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Grilled Chicken Salad",[m
+[31m-  recipe: "Grill chicken breast with your favorite seasonings.[m
+[31m-  Toss lettuce, cucumbers, and peppers in a bowl.[m
+[31m-  Top with grilled chicken and drizzle with olive oil and lemon vinaigrette.",[m
+[31m-  day: 2,[m
+[31m-  type_of_meal: "lunch/dinner"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "Chicken"},[m
+[31m-  {name: "Cucumber"}[m
+[31m-])[m
+[31m-[m
+[31m-program.meals.build([m
+[31m-  name: "Baked Salmon",[m
+[31m-  recipe: "Preheat the oven and bake seasoned salmon fillets until cooked through.[m
+[31m-  Steam broccoli and cook quinoa according to package instructions.",[m
+[31m-  day: 3,[m
+[31m-  type_of_meal: "lunch/dinner"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "Salmon"},[m
+[31m-  {name: "Brocoli"}[m
+[31m-])[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Protein Smoothie",[m
+[31m-  recipe: "Blend almond milk, a banana, lactose-free protein powder, and a handful of berries until smooth.[m
+[31m-  Add ice if desired.",[m
+[31m-  day: 4,[m
+[31m-  type_of_meal: "breakfast"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "almond milk"},[m
+[31m-  {name: "lactose-free protein powder"}[m
+[31m-])[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Turkey Wrap",[m
+[31m-  recipe: "Lay out a whole wheat tortilla.[m
+[31m-  Add slices of turkey, avocado, lettuce, and tomato.[m
+[31m-  Roll it up and enjoy with raw carrots on the side.",[m
+[31m-  day: 5,[m
+[31m-  type_of_meal: "lunch/dinner"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "Tortilla"},[m
+[31m-  {name: "Turkey"}[m
+[31m-])[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Stir-Fried Beef with Vegetables",[m
+[31m-  recipe: "Stir-fry beef strips with bell peppers, broccoli, and mushrooms.[m
+[31m-  Add a light soy sauce for flavor.[m
+[31m-  Serve over brown rice.",[m
+[31m-  day: 6,[m
+[31m-  type_of_meal: "lunch/dinner"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "Broccoli"},[m
+[31m-  {name: "Beef"}[m
+[31m-])[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Lactose-Free Yogurt with Fruits and Nuts",[m
+[31m-  recipe: "Mix lactose-free yogurt with fresh strawberries and a handful of almonds.",[m
+[31m-  day: 7,[m
+[31m-  type_of_meal: "breakfast"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "Lactose-Free yogurt"},[m
+[31m-  {name: "Almond"}[m
+[31m-])[m
+[31m-[m
+[31m-program =  Program.create!([m
+[31m-  user_id: existing_user_ids.sample,[m
+[31m-  goal: "weight maintenance",[m
+[31m-  diet: "Omnivorous",[m
+[31m-  allergies: "Shellfish",[m
+[31m-  nb_of_meals_by_day: 2,[m
+[31m-   nb_of_days: 6,[m
+[31m-  nb_of_snacks: 0,[m
+[31m-  height: 176,[m
+[31m-  weight: 70[m
+[31m-)[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: " Mushroom and Spinach Omelette",[m
+[31m-  recipe: "Whisk 2 eggs and pour into a heated, non-stick skillet.[m
+[31m-  Add chopped mushrooms, spinach, and grated cheese.[m
+[31m-  Cook until the eggs are set, then fold in half.[m
+[31m-  Serve with a slice of whole wheat toasted bread.",[m
+[31m-  day: 1,[m
+[31m-  type_of_meal: "breakfast"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "Egg"},[m
+[31m-  {name: "Mushroom"}[m
+[31m-])[m
+[31m-[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Roasted Chicken with Quinoa and Vegetables",[m
+[31m-  recipe: "Roast chicken seasoned with herbs.[m
+[31m-  Cook quinoa according to package instructions.[m
+[31m-  Roast vegetables (carrots, zucchini, bell peppers) with olive oil.",[m
+[31m-  day: 2,[m
+[31m-  type_of_meal: "lunch/dinner"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "Rosted Chiken"},[m
+[31m-  {name: "carrots"}[m
+[31m-])[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: " Greek Yogurt with Almonds and Berries",[m
+[31m-  recipe: "Mix natural Greek yogurt with almonds and fresh berries.",[m
+[31m-  day: 3,[m
+[31m-  type_of_meal: "breakfast"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "Greek yogurt"},[m
+[31m-  {name: "Berries"}[m
+[31m-])[m
+[31m-[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Beef Stir-Fry with Vegetables",[m
+[31m-  recipe: "Stir-fry beef strips with broccoli, bell peppers, and mushrooms.[m
+[31m-  Add soy sauce for flavor.[m
+[31m-  Serve over brown rice.",[m
+[31m-  day: 4,[m
+[31m-  type_of_meal: "lunch/dinner"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "Beef"},[m
+[31m-  {name: "Broccoli"}[m
+[31m-])[m
+[31m-[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Spinach Banana Smoothies",[m
+[31m-  recipe: "Blend spinach, banana, and almond milk until smooth.[m
+[31m-  Toast a slice of whole wheat bread and spread almond butter.",[m
+[31m-  day: 5,[m
+[31m-  type_of_meal: "breakfast"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "Spinach"},[m
+[31m-  {name: "Banana"}[m
+[31m-])[m
+[31m-[m
+[31m-[m
+[31m-program =  Program.create!([m
+[31m-  user_id: existing_user_ids.sample,[m
+[31m-  goal: "weight maintenance",[m
+[31m-  diet: "Keto",[m
+[31m-  allergies: "Shellfish",[m
+[31m-  nb_of_meals_by_day: 2,[m
+[31m-   nb_of_days: 6,[m
+[31m-  nb_of_snacks: 0,[m
+[31m-  height: 176,[m
+[31m-  weight: 70[m
+[31m-)[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Scrambled Eggs with Cheese and Avocado",[m
+[31m-  recipe: "Whisk 2-3 eggs, add salt, pepper, and a pinch of herbs.[m
+[31m-  Cook in a pan over medium heat until scrambled.[m
+[31m-  Sprinkle with shredded cheese and serve with sliced avocado.",[m
+[31m-  day: 1,[m
+[31m-  type_of_meal: "breakfast"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "Egg"},[m
+[31m-  {name: "Avocado"}[m
+[31m-])[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Grilled Salmon with Keto Vegetables",[m
+[31m-  recipe: "Season salmon with salt, pepper, and lemon juice.[m
+[31m-  Grill until cooked through.[m
+[31m-  Roast broccoli and cauliflower with olive oil.",[m
+[31m-  day: 1,[m
+[31m-  type_of_meal: "lunch/dinner"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "Salmon"},[m
+[31m-  {name: "Pepper"}[m
+[31m-])[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Keto Chicken Caesar Salad",[m
+[31m-  recipe: "Grill chicken breast with your preferred keto-friendly seasonings.[m
+[31m-  Toss with romaine lettuce and keto Caesar dressing.[m
+[31m-  Garnish with parmesan shavings.",[m
+[31m-  day: 2,[m
+[31m-  type_of_meal: "breakfast"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "Chicken"},[m
+[31m-  {name: "Lettuce "}[m
+[31m-])[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Pulled Pork with Sautéed Kale",[m
+[31m-  recipe: "Pulled Pork with Sautéed Kale",[m
+[31m-  day: 3,[m
+[31m-  type_of_meal: "lunch/dinner"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "Pork"},[m
+[31m-  {name: "Sautéed Kale"}[m
+[31m-])[m
+[31m-[m
+[31m-meal = program.meals.build([m
+[31m-  name: "Turkey Lettuce Wrap",[m
+[31m-  recipe: "Wrap slices of turkey, cheese, mayo, and lettuce in large lettuce leaves.",[m
+[31m-  day: 1,[m
+[31m-  type_of_meal: "breakfast"[m
+[31m-)[m
+[31m-[m
+[31m-meal.save[m
+[31m-[m
+[31m-meal.ingredients.build([[m
+[31m-  {name: "Turkey"},[m
+[31m-  {name: "cheese"}[m
+[31m-])[m

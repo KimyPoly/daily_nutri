@@ -29,49 +29,17 @@
 
 <div>
   <h2>Meals</h2>
-  <h3>Breakfast</h3>
-   <%= "Oeuf" %>
-  <%= "5 min" %>
-  <%= "2,50 €" %>
-  <% @meals.each do |meal| %>
-    <% if meal.meal_type == "breakfast" %>
-      <%= meal.name %>
-      <%= meal.time %>
-      <%= meal.price %>
+  <h1>Repas associés au programme :</h1>
+  <ul>
+    <% @program.meal_assignements.each do |meal_assignment| %>
+      <li>
+        <%= link_to meal_assignment.meal.name, program_meal_path(meal_assignment.meal) %>
+      </li>
+      <li><%= meal_assignment.meal.time %></li>
+      <li><%= meal_assignment.meal.price %></li>
     <% end %>
-  <% end %>
-  <h3>Lunch</h3>
-   <%= "Lasagne" %>
-  <%= "12 min" %>
-  <%= "3,50 €" %>
-  <% @meals.each do |meal| %>
-    <% if meal.meal_type == "Lunch" %>
-      <%= meal.name %>
-      <%= meal.time %>
-      <%= meal.price %>
-    <% end %>
-  <% end %>
-  <h3>Dinner</h3>
-  <%= "Quinoa" %>
-  <%= "10 min" %>
-  <%= "5,50 €" %>
-  <% @meals.each do |meal| %>
-    <% if meal.meal_type == "Dinner" %>
-      <%= meal.name %>
-      <%= meal.time %>
-      <%= meal.price %>
-    <% end %>
-  <% end %>
+  </ul>
 </div>
-
-<h1>Repas associés au programme :</h1>
-<ul>
-  <% @program.meal_assignements.each do |meal_assignment| %>
-    <li><%= meal_assignment.meal.name %></li>
-    <li><%= meal_assignment.meal.time %></li>
-    <li><%= meal_assignment.meal.price%></li>
-  <% end %>
-</ul>
 
 <div class="">
   <h2>Meals</h2>

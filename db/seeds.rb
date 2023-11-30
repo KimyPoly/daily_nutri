@@ -9,6 +9,7 @@ require_relative 'api'
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+
 Program.create!(
   goal: "Weight maintenance",
   diet: "Vegetarian",
@@ -21,6 +22,7 @@ Program.create!(
   user_id: 13
 )
 return
+
 
 User.create!(
   first_name: "Canelo",
@@ -53,7 +55,6 @@ User.create!(
   email: "ali@lewagon.fr",
   password: "123456"
 )
-
 
 
 api = Api.new

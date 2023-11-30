@@ -118,19 +118,14 @@
     </div>
   </div>
 
-<%= link_to "Back", dashboard_path, class: "btn-home" %>
-<%= link_to "Groceries list", "#", class: "btn-home" %>
- </div>
-
-   <div data-controller="toggle">
-      <button data-action="click->toggle#action" class="btn-home">Edit</button>
-      <div class="display-none" data-toggle-target="form">
-        <%= render partial: 'shared/form_new', locals: { program: @program } %>
-      </div>
-    </div>
-
 <div class=btn-back-and-groceries>
   <%= link_to "Back", dashboard_path, class: "btn-home" %>
   <%= link_to "Groceries list", "#", class: "btn-home" %>
 </div>
-
+  <div data-controller="toggle">
+    <button data-action="click->toggle#action" class="btn-home">Edit</button>
+    <div class="display-none" data-toggle-target="form">
+    <%= render partial: 'shared/form_new', locals: { program: @program } %>
+  </div>
+</div>
+ </div>

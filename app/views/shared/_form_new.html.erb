@@ -1,8 +1,8 @@
 <%= simple_form_for(@program) do |f| %>
-  <%= f.input :goal, collection: Program::GOAL, selected: @program.goal %>
-  <%= f.input :diet, collection: Program::DIET %>
+  <%= f.input :goal, collection: Program::GOAL, selected: @program.goal, label: "Goal" %>
+  <%= f.input :diet, collection: Program::DIET, label: "Diet" %>
   <%= f.input :nb_of_days, collection: (2..7).to_a, label: 'Number of days' %>
   <%= f.input :nb_of_snacks, collection: (0..3).to_a, label: 'Number of snacks' %>
-  <%= f.input :weight, label: 'Weigth' %>
-  <%= f.button :submit, "Confirmer", class: "btn-edit" %>
+  <%= f.input :weight, label: 'Weight' %>
+  <%= f.button :submit, "Confirmer", class: "btn-home" %>
 <% end %>

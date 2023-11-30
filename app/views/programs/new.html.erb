@@ -1,4 +1,4 @@
-<div  data-controller="checked" class="big-style">
+<div  data-controller="checked" class="big-style form-container">
   <%= simple_form_for(@program) do |f| %>
     <% if @step == 1 %>
       <h2>What is your goal ? </h2>
@@ -9,37 +9,43 @@
                           item_wrapper_class: 'btn-program'%>
       </div>
     <% end %>
-    <% if @step == 2 %>
+     <% if @step == 2 %>
+      <h2>What is your gender? </h2>
+      <div>
+        <%= f.input :sexe, collection: ["Male","Female"], as: :radio_buttons, label_method: :to_s, item_wrapper_class: 'btn-program' %>
+      </div>
+    <% end %>
+    <% if @step == 3 %>
       <h2>What is your diet ? </h2>
       <div>
         <%= f.input :diet, collection: Program::DIET, as: :radio_buttons, label_method: :to_s, item_wrapper_class: 'btn-program' %>
       </div>
     <% end %>
-    <% if @step == 3 %>
+    <% if @step == 4 %>
       <h2>Do you have any allergies ? </h2>
       <div>
         <%= f.input :allergies, collection: Program::ALLERGIES, as: :check_boxes, label_method: :to_s, item_wrapper_class: 'btn-program', input_html: { multiple: true } %>
       </div>
     <% end %>
-    <% if @step == 4 %>
+    <% if @step == 5 %>
       <h2> How many meals a day ? </h2>
       <div>
         <%= f.input :nb_of_meals_by_day, collection: [2, 3, 4], as: :radio_buttons, label_method: :to_s, item_wrapper_class: 'btn-program '%>
       </div>
     <% end %>
-    <% if @step == 5 %>
+    <% if @step == 6 %>
       <h2> For how many days? </h2>
       <div>
         <%= f.input :nb_of_days, collection: (2..7).to_a, as: :radio_buttons, label_method: :to_s, item_wrapper_class: 'btn-program'%>
       </div>
     <% end %>
-    <% if @step == 6 %>
+    <% if @step == 7 %>
       <h2> Any snacks ? </h2>
       <div>
         <%= f.input :nb_of_snacks, collection: (0..3).to_a, as: :radio_buttons, label_method: :to_s, item_wrapper_class: 'btn-program'%>
       </div>
     <% end %>
-    <% if @step == 7 %>
+    <% if @step == 8 %>
       <h2> Height ? </h2>
       <%= f.input :height %>
       <h2> Weight ? </h2>
@@ -53,6 +59,7 @@
         <span class="step <%= @step > 4 ? "step-fill" : "" %>"></span>
         <span class="step <%= @step > 5 ? "step-fill" : "" %>"></span>
         <span class="step <%= @step > 6 ? "step-fill" : "" %>"></span>
+        <span class="step <%= @step > 7 ? "step-fill" : "" %>"></span>
         <span class="step"></span>
       </div>
       <% unless @step == 7 %>

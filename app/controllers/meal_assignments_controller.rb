@@ -1,25 +1,9 @@
 class MealAssignmentsController < ApplicationController
   def index
-    @meal = Meal.find(params[:meal_id])
-    @meal_assignments = @meal.meal_assignments
+    @meal_assignment = Meal.all
   end
 
-  def create
-    @meal = Meal.find(params[:meal_id])
-    @meal_assignment = @meal.meal_assignments.build(meal_assignment_params)
-
-    if @meal_assignment.save
-      redirect_to dashboard_path
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
-
-  def destroy
-    @meal_assignment = MealAssignment.find(params[:id])
-    @meal_assignment.destroy
-    redirect_to dashboard_path, status: :see_other
-  end
+  
 
   private
 

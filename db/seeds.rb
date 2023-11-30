@@ -11,7 +11,8 @@ require_relative 'api'
 
 Meal.destroy_all
 Program.destroy_all
-
+User.destroy_all
+MealAssignement.destroy_all
 
 
 User.create!(

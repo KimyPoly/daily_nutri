@@ -42,15 +42,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_105729) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "ingredients", force: :cascade do |t|
-    t.bigint "meal_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "title"
-    t.string "name"
-    t.index ["meal_id"], name: "index_ingredients_on_meal_id"
-  end
-
   create_table "meal_assignements", force: :cascade do |t|
     t.bigint "meal_id", null: false
     t.bigint "program_id", null: false
@@ -110,7 +101,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_105729) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "ingredients", "meals"
   add_foreign_key "meal_assignements", "meals"
   add_foreign_key "meal_assignements", "programs"
   add_foreign_key "programs", "users"

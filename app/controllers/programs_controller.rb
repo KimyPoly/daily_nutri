@@ -1,6 +1,7 @@
 class ProgramsController < ApplicationController
-  # skip_before_action :authenticate_user!, only: :home
-  before_action :set_program, only: %i[show edit]
+
+  skip_before_action :authenticate_user!, only: :new
+  before_action :set_program, only: %i[show]
 
   def show
     @meals = Meal.all
@@ -36,7 +37,16 @@ class ProgramsController < ApplicationController
     end
   end
 
-  def edit
+  def update
+    @program = Program.find(params[:id])
+
+    if @program.update(program_params)
+      @program.assign_attributes(allergies: program_params[:allergies], diet: program_params[:diet], height: program_params[:height])
+
+      redirect_to program_path, notice: "Les modifications ont été enregistrées avec succès."
+    else
+      render :edit
+    end
   end
 
   private

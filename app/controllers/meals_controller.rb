@@ -19,23 +19,24 @@ class MealsController < ApplicationController
   end
 
   def process_meals
-    selected_meal_ids = params[:selected_meals]
+    @program = Program.find(params[:program_id])
 
-    if selected_meal_ids.present?
-      @program = Program.find(params[:program_id])
-      selected_meals = Meal.where(id: selected_meal_ids)
-
-      selected_meals.each do |meal|
-        @program.meals << meal
+    if params[:selected_meals].present?
+      @meals = Meal.where(id: params[:selected_meals])
+      @meals.each do |meal|
+        # @program.meals << meal
+        MealAssignement.create(
+          program: @program,
+          meal:
+        )
       end
-
-      @program.save!
-
+      # @program.save!
       redirect_to dashboard_path, notice: "Vos sélections ont été enregistrées avec succès."
     else
       redirect_to dashboard_path, alert: "Veuillez sélectionner au moins un repas."
     end
   end
+
 
   def update
     if @meal.update(meal_params)
@@ -54,7 +55,6 @@ class MealsController < ApplicationController
   def set_program
     @program = Program.find(params[:program_id])
   end
-
 
   def meal_params
     params.require(:meal).permit(:program_id)

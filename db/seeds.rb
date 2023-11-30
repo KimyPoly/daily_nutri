@@ -15,7 +15,6 @@ Program.delete_all
 User.delete_all
 
 
-
 api = Api.new
 offset = 0
 4.times do
@@ -64,7 +63,6 @@ Program.create!(
   weight: 60,
   user_id: User.first.id
 )
-
 
 api = Api.new
 offset = 0

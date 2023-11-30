@@ -15,6 +15,7 @@ offset = 0
   api.search_meals(offset)
 end
 
+MealAssignement.delete_all
 Meal.delete_all
 Program.delete_all
 User.delete_all

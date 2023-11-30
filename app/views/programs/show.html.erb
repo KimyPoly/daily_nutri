@@ -61,6 +61,14 @@
   <% end %>
 </div>
 
+<h1>Repas associés au programme :</h1>
+<ul>
+  <% @program.meal_assignements.each do |meal_assignment| %>
+    <li><%= meal_assignment.meal.name %></li>
+    <li><%= meal_assignment.meal.time %></li>
+    <li><%= meal_assignment.meal.price%></li>
+  <% end %>
+</ul>
 
 <div class="">
   <h2>Meals</h2>

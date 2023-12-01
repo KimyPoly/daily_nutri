@@ -5,7 +5,7 @@ require 'open-uri'
 class Api
   def initialize
     @conn = Faraday.new(
-      url: 'https://api.spoonacular.com/recipes/complexSearch?&number=25&addRecipeInformation=true&addRecipeNutrition=true&apiKey=9bd4287b6eee44e4b1dda7d49cd153aa'
+      url: 'https://api.spoonacular.com/recipes/complexSearch?&number=25&addRecipeInformation=true&addRecipeNutrition=true&apiKey=93602ad3417f4a3b96b1d0988d767adc'
     )
   end
 

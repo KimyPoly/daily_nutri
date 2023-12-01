@@ -63,7 +63,14 @@ legend {
 }
 
 .btn-back-and-groceries {
-  display: flex;
+ display: inline;
   justify-content: end;
   align-items: end;
+  padding: 0;
+  margin-top: 10%;
+}
+
+.btn-back-and-groceries a {
+  text-decoration: none;
+  color: $orange;
 }

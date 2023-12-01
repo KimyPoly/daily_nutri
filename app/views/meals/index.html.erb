@@ -1,4 +1,5 @@
 <div class="container">
+  
   <h1 class="title">All The Meals</h1>
 
   <%= form_tag(process_meals_program_meals_path, method: :post) do %>
@@ -14,6 +15,6 @@
       <% end %>
     </div>
 
-    <%= submit_tag "Enregistrer mes sélections", class: "btn-home" %>
+    <%= submit_tag "Save the meals", class: "btn-home" %>
   <% end %>
 </div>

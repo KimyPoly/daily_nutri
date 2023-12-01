@@ -4,7 +4,8 @@ class ProgramsController < ApplicationController
   before_action :set_program, only: %i[show]
 
   def show
-    @meals = current_user.programs.first.meals
+    # @meals = current_user.programs.first.meals
+    @meals = Meal.all
     @user = current_user
   end
 

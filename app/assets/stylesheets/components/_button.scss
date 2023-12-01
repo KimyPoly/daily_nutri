@@ -9,8 +9,22 @@
   transition: opacity 0.3s ease;
   background-color: $light-gray;
   text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.btn-home-main {
+  font-weight: bold ;
+  color: $light-gray;
+  border: 1px solid $orange;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  transition: opacity 0.3s ease;
+  background-color: $orange;
+  text-decoration: none;
   margin-top: 10px;
   margin-bottom: 10px;
+  font-size: 20px;
 }
 
 .btn-home:hover {
@@ -63,7 +77,14 @@ legend {
 }
 
 .btn-back-and-groceries {
-  display: flex;
+ display: inline;
   justify-content: end;
   align-items: end;
+  padding: 0;
+  margin-top: 10%;
+}
+
+.btn-back-and-groceries a {
+  text-decoration: none;
+  color: $orange;
 }

@@ -3,6 +3,7 @@
   background-position: center;
   padding: 150px 0;
   width: 100%;
+  height: calc(100vh - 60px)
 }
 
 .banner h1 {
@@ -14,8 +15,18 @@
 }
 
 .banner p {
-  font-size: 20px;
+  font-size: 25px;
   color: white;
-  opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.home-style p {
+  padding: 1rem;
+  background-color: $orange;
+  opacity: 0.9;
+}
+
+.home-main-button {
+  text-align: center;
+  padding-top: 60px;
 }

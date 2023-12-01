@@ -24,9 +24,11 @@
 </div>
 
 
+
 <div class="btn-back-and-groceries">
   <i class="fa-solid fa-backward"><%= link_to "Back", dashboard_path, class: "" %></i>
   <i class="fa-solid fa-cart-shopping"><%= link_to "Groceries list", "#", class: "" %></i>
+
 </div>
 <br>
 <br>
@@ -39,12 +41,14 @@
   <div class="img-container" style="background-image: url('https://breakfast-in-america.com/wp-content/uploads/2023/06/BreakfastinAmerica_Pancakes.webp')"></div>
     <div class="meal-card-info">
       <% found_breakfast = false %>
-      <% @meals.each do |meal| %>
-        <% if meal.meal_type == "breakfast" && !found_breakfast %>
+      <% @program.meal_assignements.each do |meal_assignment| %>
+        <% if meal_assignment.meal.meal_type == "breakfast" && !found_breakfast %>
         <% found_breakfast = true %>
           <ul>
+
             <li><span>🍽️</span> <%=  meal.name %> </li>
             <li><span>⌛</span> <%= meal.time %></li>
+
           </ul>
 
         <% end %>
@@ -64,8 +68,10 @@
           <% found_dish = true %>
 
           <ul>
+
             <li><span>🍽️</span> <%= meal.name %></li>
             <li><span>⌛</span> <%= meal.time %> min</li>
+
 
           </ul>
 
@@ -73,6 +79,7 @@
       <% end %>
      </div>
     </div>
+
 
     <h3><strong>Diner</strong></h3>
     <div class="meal-card">
@@ -93,7 +100,6 @@
           </div>
   </div>
     </div>
-  </div>
 
 
   <div data-controller="toggle">

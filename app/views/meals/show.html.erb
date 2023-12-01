@@ -1,1 +1,27 @@
-<h1>show</h1>
+
+<div class="card-category" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @meal.photo_url%>)'>
+  <h1><%= @meal.name %></h1>
+</div>
+<div class="container">
+  <div class="info_recipe">
+    <h4>🏋️: <%= @meal.calories %>Kcal</h4>
+    <h4>⏲️: <%= @meal.time %>min</h4>
+    <h4>💵: <%= @meal.price %>$</h4>
+  </div>
+ <ul class="ingredients-list">
+  <% @meal.ingredients.split(',').each do |ingredient| %>
+    <li class="ingredient-ecart"><span>🍤</span> <%= ingredient.strip.capitalize%></li>
+  <% end %>
+</ul>
+</div>
+
+ <div data-controller="toggle">
+    <button data-action="click->toggle#action" class="btn-home">Recipes</button>
+    <div class="display-none" data-toggle-target="form">
+    <ol class="recipe-steps">
+      <% @meal.recipe.split('.,').each_with_index do |recipe_step, index| %>
+        <li class="recipe-ecart"> <%= recipe_step.strip %></li>
+      <% end %>
+    </ol>
+  </div>
+</div>

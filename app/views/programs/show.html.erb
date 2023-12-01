@@ -42,7 +42,7 @@
   <div class="meal-card">
   <div class="img-container" style="background-image: url('https://breakfast-in-america.com/wp-content/uploads/2023/06/BreakfastinAmerica_Pancakes.webp')"></div>
      <div class="meal-card-info img-meal" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://breakfast-in-america.com/wp-content/uploads/2023/06/BreakfastinAmerica_Pancakes.webp'); width: 100%; height: 100%;">
-       
+
       <% found_breakfast = false %>
       <% @meals.each do |meal| %>
         <% if meal.meal_type == "breakfast" && !found_breakfast %>
@@ -69,7 +69,7 @@
         <% if meal.meal_type == "dish" && !found_dish %>
           <% found_dish = true %>
           <ul>
-            <li><span>🍽️</span> <%= meal.name %></li>
+            <li><span>🍽️</span> <%= link_to meal.name, meal_path(meal) %></li>
             <li><span>⌛</span> <%= meal.time %></li>
           </ul>
 
@@ -89,7 +89,7 @@
         <% if meal.meal_type == "dish" && !found_dish %>
           <% found_dish = true %>
           <ul>
-            <li><span>🍽️</span> <%= meal.name %></li>
+            <li><span>🍽️</span> <%= link_to meal.name, meal_path(meal) %></li>
             <li><span>⌛</span> <%= meal.time %></li>
 
           </ul>

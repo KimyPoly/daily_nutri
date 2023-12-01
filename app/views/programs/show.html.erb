@@ -31,7 +31,7 @@
   <ul>
     <% @meals.each do |meal| %>
       <li>
-        <%= link_to meal.name, program_meal_path(meal) %>
+        <%= link_to meal.name, meal_path(meal) %>
       </li>
       <li><%= meal.time %></li>
       <li><%= meal.price %></li>
@@ -89,7 +89,7 @@
         <ul>
           <li><span>🍽️</span> <%= meal_assignment.meal.name %></li>
           <li><span>⌛</span> <%= meal_assignment.meal.time %></li>
-          <li><span>💰</span> <%= meal_assignment.meal.price %></li> 
+          <li><span>💰</span> <%= meal_assignment.meal.price %></li>
         </ul>
       <% end %>
     <% end %>

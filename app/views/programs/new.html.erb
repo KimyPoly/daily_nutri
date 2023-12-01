@@ -23,8 +23,8 @@
     <% end %>
     <% if @step == 4 %>
       <h2>Do you have any allergies ? </h2>
-      <div>
-        <%= f.input :allergies, collection: Program::ALLERGIES, as: :check_boxes, label_method: :to_s, item_wrapper_class: 'btn-program', input_html: { multiple: true } %>
+      <div class="allergies-container">
+        <%= f.input :allergies, collection: Program::ALLERGIES, as: :check_boxes, label_method: :to_s, item_wrapper_class: 'btn-program allergie-button', input_html: { multiple: true } %>
       </div>
     <% end %>
     <% if @step == 5 %>

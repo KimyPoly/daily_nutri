@@ -38,7 +38,6 @@ class MealsController < ApplicationController
     end
   end
 
-
   def update
     if @meal.update(meal_params)
       redirect_to @meal, notice: 'Meal was successfully updated.'

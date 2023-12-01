@@ -46,7 +46,7 @@
         <% if meal.meal_type == "breakfast" && !found_breakfast %>
         <% found_breakfast = true %>
           <ul>
-            <li><span>🍽️</span> <%= meal.name %></li>
+            <li><span>🍽️</span> <%= link_to meal.name, meal_path(meal) %></li>
             <li><span>⌛</span> <%= meal.time %></li>
           </ul>
 

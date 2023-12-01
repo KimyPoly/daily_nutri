@@ -1,0 +1,54 @@
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+h4{
+  font-size: 15px;
+  color: rgb(87, 83, 83);
+}
+
+.info_recipe{
+  display: flex;
+  justify-content: space-between;
+}
+
+.ingredients-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.recipe-paragraph {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-steps{
+  font-size: 15px;
+}
+
+.recipe-ecart{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+

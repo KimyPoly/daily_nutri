@@ -23,86 +23,87 @@
   <% end %>
 </div>
 
-<h1>Meal plan </h1>
 
-<div>
-  <h2>Meals</h2>
-  <h1>Repas associés au programme :</h1>
-  <ul>
-    <% @meals.each do |meal| %>
-      <li>
-        <%= link_to meal.name, meal_path(meal) %>
-      </li>
-      <li><%= meal.time %></li>
-      <li><%= meal.price %></li>
-    <% end %>
-  </ul>
+
+<div class="btn-back-and-groceries">
+  <i class="fa-solid fa-backward"><%= link_to "Back", dashboard_path, class: "" %></i>
+  <i class="fa-solid fa-cart-shopping"><%= link_to "Groceries list", "#", class: "" %></i>
+
 </div>
+<br>
+<br>
+<div class="container">
 
-<div class="">
-  <h2>Meals</h2>
   <div class="meal-container">
+
+  <h3><strong>Breakfast</strong></h3>
   <div class="meal-card">
-  <div class="img-container" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8qIyI-mJ5SOYBT69LczTLjLrnJhCC0Sc9JA&usqp=CAU')"></div>
+  <div class="img-container" style="background-image: url('https://breakfast-in-america.com/wp-content/uploads/2023/06/BreakfastinAmerica_Pancakes.webp')"></div>
     <div class="meal-card-info">
-      <h3>Breakfast</h3>
       <% found_breakfast = false %>
       <% @program.meal_assignements.each do |meal_assignment| %>
         <% if meal_assignment.meal.meal_type == "breakfast" && !found_breakfast %>
         <% found_breakfast = true %>
           <ul>
-            <li><span>🍽️</span> <%= meal_assignment.meal.name %></li>
-            <li><span>⌛</span> <%= meal_assignment.meal.time %></li>
-            <li><span>💰</span> <%= meal_assignment.meal.price %></li>
+
+            <li><span>🍽️</span> <%=  meal.name %> </li>
+            <li><span>⌛</span> <%= meal.time %></li>
+
           </ul>
+
         <% end %>
       <% end %>
     </div>
   </div>
+
+  <h3><strong>Lunch</strong></h3>
   <div class="meal-card">
-  <div class="img-container"></div>
-    <div class="meal-card-info">
-    <h3>Lunch</h3>
+  <div class="img-container" style="background-image: url('https://www.acouplecooks.com/wp-content/uploads/2022/01/Hummus-Bowl-016.jpg')"></div>
+   <div class="meal-card-info img-meal" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://www.acouplecooks.com/wp-content/uploads/2022/01/Hummus-Bowl-016.jpg'); width: 100%;">
+
     <% found_dish = false %>
     <% @meals.each_with_index do |meal, index| %>
       <% next if index.even? %>
         <% if meal.meal_type == "dish" && !found_dish %>
           <% found_dish = true %>
+
           <ul>
-            <li><span>🍽️</span> <%= meal_assignment.meal.name %></li>
-            <li><span>⌛</span> <%= meal_assignment.meal.time %></li>
-            <li><span>💰</span> <%= meal.price %></li>
+
+            <li><span>🍽️</span> <%= meal.name %></li>
+            <li><span>⌛</span> <%= meal.time %> min</li>
+
+
+          </ul>
+
+        <% end %>
+      <% end %>
+     </div>
+    </div>
+
+
+    <h3><strong>Diner</strong></h3>
+    <div class="meal-card">
+    <div class="img-container" style="background-image: url('https://cache.marieclaire.fr/data/photo/w1000_ci/6g/lasagnes-aux-3-viandes-pate-maison.jpg')"></div>
+    <div class="meal-card-info img-meal" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://cache.marieclaire.fr/data/photo/w1000_ci/6g/lasagnes-aux-3-viandes-pate-maison.jpg'); width: 100%;">
+      <% found_dish = false %>
+      <% @meals.each_with_index do |meal, index| %>
+      <% next if index.odd? %>
+        <% if meal.meal_type == "dish" && !found_dish %>
+          <% found_dish = true %>
+          <ul>
+            <li><span>🍽️</span> <%= meal.name %></li>
+            <li><span>⌛</span> <%= meal.time %></li>
+
           </ul>
         <% end %>
       <% end %>
+          </div>
+  </div>
     </div>
-  </div>
-<div class="meal-card">
-  <div class="img-container"></div>
-  <div class="meal-card-info">
-    <h3>Dinner</h3>
-    <% found_dish = false %>
-    <% @program.meal_assignements.each_with_index do |meal_assignment, index| %>
-      <% next if index.odd? %>
-      <% if meal_assignment.meal.meal_type == "dish" && !found_dish %>
-        <% found_dish = true %>
-        <ul>
-          <li><span>🍽️</span> <%= meal_assignment.meal.name %></li>
-          <li><span>⌛</span> <%= meal_assignment.meal.time %></li>
-          <li><span>💰</span> <%= meal_assignment.meal.price %></li>
-        </ul>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-<div class=btn-back-and-groceries>
-  <%= link_to "Back", dashboard_path, class: "btn-home" %>
-  <%= link_to "Groceries list", "#", class: "btn-home" %>
-</div>
+
+
   <div data-controller="toggle">
     <button data-action="click->toggle#action" class="btn-home">Edit</button>
     <div class="display-none" data-toggle-target="form">
     <%= render partial: 'shared/form_new', locals: { program: @program } %>
   </div>
-</div>
- </div>

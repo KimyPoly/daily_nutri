@@ -1,5 +1,12 @@
 .sign_up_form {
   color: $orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .form-label {
+    display: none;
+  }
 }
 
 .sign_up_form h2 {
@@ -8,4 +15,19 @@
 
 .sign_up_form input {
   color: $orange
+}
+
+.sign_up_form_btn {
+  display: flex;
+  justify-content: center;
+}
+
+.sign_up_form_a {
+  text-decoration: none;
+  color: $orange;
+}
+
+.sign_up_display {
+  display: flex;
+  justify-content: space-between;
 }

@@ -7,7 +7,7 @@ class PagesController < ApplicationController
 
   def programs_dashboard
     @user = current_user
-    @programs = Program.all
+    @programs = current_user.programs
     @program = Program.new
   end
 end

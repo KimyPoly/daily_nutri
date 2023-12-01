@@ -60,9 +60,10 @@
         <span class="step <%= @step > 5 ? "step-fill" : "" %>"></span>
         <span class="step <%= @step > 6 ? "step-fill" : "" %>"></span>
         <span class="step <%= @step > 7 ? "step-fill" : "" %>"></span>
+        <span class="step <%= @step > 8 ? "step-fill" : "" %>"></span>
         <span class="step"></span>
       </div>
-      <% unless @step == 7 %>
+      <% unless @step == 8 %>
         <%= f.button :submit, "Next", class:"btn-submit" %>
       <% else  %>
         <%= f.button :submit, "Create program", class:"btn-submit" %>

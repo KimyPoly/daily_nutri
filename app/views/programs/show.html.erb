@@ -29,12 +29,12 @@
   <h2>Meals</h2>
   <h1>Repas associés au programme :</h1>
   <ul>
-    <% @program.meal_assignements.each do |meal_assignment| %>
+    <% @meals.each do |meal| %>
       <li>
-        <%= link_to meal_assignment.meal.name, program_meal_path(meal_assignment.meal) %>
+        <%= link_to meal.name, program_meal_path(meal) %>
       </li>
-      <li><%= meal_assignment.meal.time %></li>
-      <li><%= meal_assignment.meal.price %></li>
+      <li><%= meal.time %></li>
+      <li><%= meal.price %></li>
     <% end %>
   </ul>
 </div>

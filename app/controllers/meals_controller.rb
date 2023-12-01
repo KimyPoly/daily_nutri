@@ -5,16 +5,20 @@ class MealsController < ApplicationController
   def index
     set_program_options
     @meals = Meal.where("diet ~* ?", @diet)
-    @allergies = @allergies.split(",")
-    @allergies.each do |allergy|
+    conditions = []
+
+    @allergies.split(",").each do |allergy|
       downcase_allergy = allergy.downcase
       forbidden_ingredients = allergies_dictionary[downcase_allergy.to_s]
-      break unless forbidden_ingredients
+
+      next unless forbidden_ingredients
 
       forbidden_ingredients.each do |forbidden_ingredient|
-        @meals = @meals.where("ingredients ~* ?", forbidden_ingredient)
+        conditions << "ingredients !~* '#{forbidden_ingredient}'"
       end
     end
+
+    @meals = @meals.where(conditions.join(' AND ')) unless conditions.empty?
   end
 
   def show

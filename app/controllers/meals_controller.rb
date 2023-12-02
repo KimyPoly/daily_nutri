@@ -3,17 +3,18 @@ class MealsController < ApplicationController
   before_action :set_program, only: %i[index]
 
   def index
-    set_program_options
-    @meals = Meal.where("diet ~* ?", @diet)
-    @allergies = @allergies.split(",")
-    @allergies.each do |allergy|
-      downcase_allergy = allergy.downcase
-      forbidden_ingredients = allergies_dictionary[downcase_allergy.to_s]
-      break unless forbidden_ingredients
-      forbidden_ingredients.each do |forbidden_ingredient|
-        @meals = @meals.where.not("ingredients ~* ?", forbidden_ingredient)
-      end
-    end
+    @meals = Meal.all
+    # set_program_options
+    # @meals = Meal.where("diet ~* ?", @diet)
+    # @allergies = @allergies.split(",")
+    # @allergies.each do |allergy|
+    #   downcase_allergy = allergy.downcase
+    #   forbidden_ingredients = allergies_dictionary[downcase_allergy.to_s]
+    #   break unless forbidden_ingredients
+    #   forbidden_ingredients.each do |forbidden_ingredient|
+    #     @meals = @meals.where.not("ingredients ~* ?", forbidden_ingredient)
+    #   end
+    # end
   end
 
   def show
@@ -32,9 +33,9 @@ class MealsController < ApplicationController
         )
       end
       # @program.save!
-      redirect_to dashboard_path, notice: "Vos sélections ont été enregistrées avec succès."
+      redirect_to dashboard_path, notice: "Your choices have been saved."
     else
-      redirect_to dashboard_path, alert: "Veuillez sélectionner au moins un repas."
+      redirect_to dashboard_path, alert: "Select at least one meal."
     end
   end
 

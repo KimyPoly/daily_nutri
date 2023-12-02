@@ -37,6 +37,10 @@
 <div class="container">
 
   <div class="meal-container">
+  <% @meals.each do |meal| %>
+    <p>Program ID: <%= meal.programs.first.id %>
+    <%= meal.name %>
+  <% end %>
 
   <h3><strong>Breakfast</strong></h3>
   <div class="meal-card">

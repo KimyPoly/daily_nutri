@@ -4,8 +4,9 @@ class MealsController < ApplicationController
 
   def index
     @meals = Meal.all
-    # set_program_options
-    # @meals = Meal.where("diet ~* ?", @diet)
+    set_program_options
+    # le filter @diet fonctionne mais pas sur omnivorious
+    @meals = Meal.where("diet ~* ?", @diet)
     # @allergies = @allergies.split(",")
     # @allergies.each do |allergy|
     #   downcase_allergy = allergy.downcase

@@ -44,7 +44,8 @@
   <div class="meal-card-info img-meal" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://breakfast-in-america.com/wp-content/uploads/2023/06/BreakfastinAmerica_Pancakes.webp'); width: 100%; height: 100%;">
 
     <%# Breakfast %>
-    <%= @breakfast.name if @breakfasts != [] %>
+    <li><span>🍽️</span> <%= link_to @breakfast.name,meal_path(@breakfast),class: "white-link"  if @breakfasts != [] %></li>
+    <li class="white-link"><span>⌛</span> <%= @breakfast.time %></li>
 
   </div>
   </div>
@@ -55,7 +56,7 @@
   <div class="meal-card-info img-meal" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://www.acouplecooks.com/wp-content/uploads/2022/01/Hummus-Bowl-016.jpg'); width: 100%; height: 100%;">
   <%# Dinner 1 %>
     <li><span>🍽️</span> <%= link_to @dishes[@index_day][0].name, meal_path(@dishes[@index_day][0]),class: "white-link" %></li>
-    <li><span>⌛</span><%= @dishes[@index_day][0].time %></li>
+    <li class="white-link"><span>⌛</span><%= @dishes[@index_day][0].time%></li>
 
   </div>
   </div>
@@ -68,7 +69,11 @@
   <%# Dinner 2  %>
       <% if @program.nb_of_meals_by_day > 1 %>
         <li><span>🍽️</span> <%= link_to @dishes[@index_day][1].name, meal_path(@dishes[@index_day][1]),class: "white-link" %></li>
-        <li><span>⌛</span><%= @dishes[@index_day][1].time %></li>
+
+        <li class="white-link"><span>⌛</span><%= @dishes[@index_day][1].time %></li>
+
+  
+
 
       <% end %>
   </div>

@@ -1,6 +1,7 @@
-<h1>Welcome to your dashboard <%= @user.first_name %> <%= @user.last_name %>!</h1>
-
-<h2>All your programs (<%= @programs.count %>): </h2>
+<div class="dashboard-header">
+  <h1>Welcome <%= @user.first_name %> <%= @user.last_name %>!</h1>
+  <p>All your programs (<%= @programs.count %>): </p>
+</div>
 
 <div class="program-card-container">
   <% @programs.each do |program| %>
@@ -8,11 +9,9 @@
       <%= render partial: 'pages/goal_image', locals: { goal: program.goal } %>
       <div class="program-card-info">
         <p><strong>Goal:</strong> <%= program.goal.capitalize %></p>
-        <p><strong>Diet:</strong> <%= program.diet %></p>
-        <p> <strong>Calories:</strong> <%= program.total_calories %></p>
-        <p> <strong>Caloric goal:</strong> <%= program.calories_goal %></p>
+        <p><strong>Calories:</strong> <%= program.total_calories %></p>
         <p><strong>Number of days:</strong> <%= program.nb_of_days %></p>
-        <%= link_to "More info", program_path(program) %>
+        <%= link_to "More info", program_path(program), class: "btn-home" %>
       </div>
     </div>
   <% end %>

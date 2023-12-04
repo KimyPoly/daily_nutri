@@ -14,8 +14,8 @@ Rails.application.routes.draw do
       post 'process_meals', on: :collection
     end
   end
-  resources :meals, only: :show
 
+  resources :meals, only: :show
 
 end
 

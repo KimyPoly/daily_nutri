@@ -8,22 +8,27 @@
 
 .banner h1 {
   margin: 0;
+  margin-bottom: 20px;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+  font-size: 87px;
   font-weight: bold;
+  font-family: 'Dancing Script';
 }
 
 .banner p {
   font-size: 25px;
+  font-style: oblique;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  margin-top: 173px;
+  margin-bottom: 0;
 }
 
 .home-style p {
   padding: 1rem;
-  background-color: $orange;
-  opacity: 0.9;
+  font-size: 20px;
+
 }
 
 .home-main-button {

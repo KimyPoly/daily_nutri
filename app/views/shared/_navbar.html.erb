@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to dashboard_path, class: "navbar-brand" do %>
-      <%= image_tag "https://th.bing.com/th/id/OIG.h9vbbgBiBBRKV0KeWyrK?pid=ImgGn" %>
+      <%= image_tag "Daily_Nutri.png" %>
       <h2>DailyNutri</h2>
     <% end %>
 
@@ -20,7 +20,7 @@
             <% if current_user.profile_picture.attached? %>
               <%= image_tag current_user.profile_picture, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
             <% else %>
-              <%= image_tag 'https://t4.ftcdn.net/jpg/05/89/93/27/360_F_589932782_vQAEAZhHnq1QCGu5ikwrYaQD0Mmurm0N.jpg', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= image_tag 'https://www.modesettravaux.fr/wp-content/uploads/modesettravaux/2021/07/shutterstock_1652270995.jpg', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>

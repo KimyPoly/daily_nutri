@@ -1,19 +1,22 @@
 <div class="container">
- <h1 class="title">All The Meals</h1>
+  <h1 class="title">All The Meals</h1>
 
-  <%= form_tag(process_meals_program_meals_path, method: :post) do %>
-    <div class="cards-container" data-controller='checked'>
+  <div class="cards-container" data-controller="borderColor">
+    <%= form_tag(process_meals_program_meals_path, method: :post) do %>
       <% @meals.each do |meal| %>
-        <div class="card">
-          <img src="<%= meal.photo_url %>" alt="">
-          <h1 class="taille"><strong><%= meal.name %></strong></h1>
-          <h4 class="meal-calories">🏋️ <%= meal.calories %> Kcal</h4>
-          <input type="checkbox" id="selected_meals_<%= meal.id %>" name="selected_meals[]" value="<%= meal.id %>" class="hidden-checkbox">
-          <label for="selected_meals_<%= meal.id %>" class="custom-checkbox"></label>
+        <div class="card-trip" data-border-Color-target="card">
+          <img src="<%= meal.photo_url %>" alt="<%= meal.name %>" >
+          <div class="card-info">
+            <h1 class="meal-name"><strong><%= meal.name %></strong></h1>
+            <div class="additional-info">
+              <h4 class="meal-calories">🏋️ <%= meal.calories %> Kcal</h4>
+              <input type="checkbox" id="selected_meals_<%= meal.id %>" name="selected_meals[]" value="<%= meal.id %>" class="hidden-checkbox" data-action="change->borderColor#toggleStyle" >
+              <label for="selected_meals_<%= meal.id %>" class="custom-checkbox"></label>
+            </div>
+          </div>
         </div>
       <% end %>
-    </div>
-
-    <%= submit_tag "Save the meals", class: "btn-home" %>
-  <% end %>
+      <%= submit_tag "Save the meals", class: "btn-home" %>
+    <% end %>
+  </div>
 </div>

@@ -28,7 +28,7 @@ class MealsController < ApplicationController
         # @program.meals << meal
         MealAssignement.create(
           program: @program,
-          meal:
+          meal: meal
         )
       end
       # @program.save!

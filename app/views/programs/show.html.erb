@@ -69,7 +69,12 @@
   <%# Dinner 2  %>
       <% if @program.nb_of_meals_by_day > 1 %>
         <li><span>🍽️</span> <%= link_to @dishes[@index_day][1].name, meal_path(@dishes[@index_day][1]),class: "white-link" %></li>
+
         <li class="white-link"><span>⌛</span><%= @dishes[@index_day][1].time %></li>
+
+  
+
+
       <% end %>
   </div>
   </div>

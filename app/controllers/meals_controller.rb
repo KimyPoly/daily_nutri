@@ -3,6 +3,7 @@ class MealsController < ApplicationController
   before_action :set_program, only: %i[index]
 
   def index
+    # it would be interesting to have a multiple-step form for the selection, so for 2 days & 2 meals per day, slide 1 day 1 select 2 meals, then slide 2 day 2 select 2 meals 
     @meals = Meal.all
     set_program_options
     # le filter @diet fonctionne mais pas sur omnivorious
@@ -16,6 +17,7 @@ class MealsController < ApplicationController
     #     @meals = @meals.where.not("ingredients ~* ?", forbidden_ingredient)
     #   end
     # end
+
   end
 
   def show

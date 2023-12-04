@@ -2,10 +2,10 @@
 
 <ul class="ingredients-list" data-controller="ingredient">
   <% @ingredients.each do |ingredient| %>
-    <li class="grocery-list" data-ingredient="<%= ingredient %>">
+    <li class="grocery-list">
       <label>
-        <input type="checkbox" class="ingredient-checkbox" data-action="change->ingredient#toggleChecked" />
-        <span>🍤</span> <%= ingredient %>
+        <input type="checkbox" class="custom-checkbox" data-action="click->ingredient#toggleChecked" />
+        🔍 <span><%= ingredient %></span>
       </label>
     </li>
   <% end %>

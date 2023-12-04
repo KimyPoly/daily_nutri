@@ -3,9 +3,13 @@ class MealsController < ApplicationController
   before_action :set_program, only: %i[index]
 
   def index
+    @meals = Meal.all
     set_program_options
+
+    @calories_goal = @program.calories_goal
+
     nb_of_meals = (@nb_of_meals_by_day * @nb_of_days) + 4
-  
+
     if @diet == "Omnivorous" && @allergies == "None"
       @meals = Meal.order('RANDOM()').limit(nb_of_meals)
 
@@ -51,7 +55,6 @@ class MealsController < ApplicationController
 
   def process_meals
     @program = Program.find(params[:program_id])
-
     if params[:selected_meals].present?
       @meals = Meal.where(id: params[:selected_meals])
       @meals.each do |meal|
@@ -62,9 +65,9 @@ class MealsController < ApplicationController
         )
       end
       # @program.save!
-      redirect_to dashboard_path, notice: "Vos sélections ont été enregistrées avec succès."
+      redirect_to dashboard_path, notice: "Your choices have been saved."
     else
-      redirect_to dashboard_path, alert: "Veuillez sélectionner au moins un repas."
+      redirect_to dashboard_path, alert: "Select at least one meal."
     end
   end
 
@@ -90,28 +93,6 @@ class MealsController < ApplicationController
     params.require(:meal).permit(:program_id)
   end
 
-  def calculated_goal
-    @genre = params[:program][:sexe]
-    @asked_goal = params[:program][:goal]
-    @calories = 0
-
-    case @calories
-    when @genre == "Male" && @asked_goal == "Weight maintenance"
-      @calories = 2600
-    when @genre == "Male" && @asked_goal == "Lose weight"
-      @calories = 2300
-    when @genre == "Male" && @asked_goal == "Take weight"
-      @calories = 3100
-    when @genre == "Female" && @asked_goal == "Weight maintenance"
-      @calories = 2000
-    when @genre == "Female" && @asked_goal == "Lose weight"
-      @calories = 1800
-    when @genre == "Female" && @asked_goal == "Take weight"
-      @calories = 2500
-    end
-
-    return @calories
-  end
 
   def set_program_options
     @diet = @program.diet

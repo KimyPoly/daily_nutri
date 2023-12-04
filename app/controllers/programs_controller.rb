@@ -4,9 +4,7 @@ class ProgramsController < ApplicationController
   before_action :set_program, only: %i[show]
 
   def show
-    # @meals = current_user.programs.first.meals
-    @meals = Meal.all
-    @user = current_user
+    @meals = current_user.programs.last.meals
   end
 
   def new
@@ -61,7 +59,7 @@ class ProgramsController < ApplicationController
     if @program.update(program_params)
       @program.assign_attributes(allergies: program_params[:allergies], diet: program_params[:diet], height: program_params[:height])
 
-      redirect_to program_path, notice: "Les modifications ont été enregistrées avec succès."
+      redirect_to program_path, notice: "Your changes have been saved."
     else
       render :edit
     end

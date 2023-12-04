@@ -17,8 +17,8 @@ class ProgramsController < ApplicationController
     @breakfast = @breakfasts[@index_day]
     return unless @breakfasts.count > @program.nb_of_days
 
-    @breakfasts.each_with_index { |breakfast, index| dishes.push(breakfast) if index > (@program.nb_of_days - 1) }
-    
+    @breakfasts.each_with_index { |breakfast, index| @dishes.push(breakfast) if index > (@program.nb_of_days - 1) }
+
     @meals = current_user.programs.last.meals
 
   end

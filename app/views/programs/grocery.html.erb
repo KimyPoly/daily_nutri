@@ -1,6 +1,6 @@
 <h1>Groceries List 🧾</h1>
-
 <ul class="ingredients-list" data-controller="ingredient">
+<strong><p>All ingredients (<%= @ingredients.count %>): </p></strong>
   <% @ingredients.each do |ingredient| %>
     <li class="grocery-list">
       <label>
@@ -10,5 +10,6 @@
     </li>
   <% end %>
 </ul>
-
-<%= link_to "Back", program_path, class: "btn-home" %>
+<div class="btn-back-and-groceries">
+<i class="fa-solid fa-backward"> <%= link_to "Back", program_path%></i>
+</div>

@@ -4,13 +4,13 @@
   <div class="cards-container" data-controller="card-selector calories" data-calories-calories-goal-value='<%= @calories_goal %>'>
     <%= form_tag(process_meals_program_meals_path, method: :post) do %>
       <% @meals.each do |meal| %>
-        <div class="card-trip" data-card-selector-target="card" data-action="click->card-selector#toggleStyle" data-calories-target='card'>
+        <div class="card-trip" data-card-selector-target="card" data-action="click->calories#updateCalories" data-calories-target='card' data-calories="<%= meal.calories %>">
           <img src="<%= meal.photo_url %>" alt="<%= meal.name %>" >
           <div class="card-info">
             <h1 class="meal-name"><strong><%= meal.name %></strong></h1>
             <div class="additional-info">
               <h4 class="meal-calories">🏋️ <%= meal.calories %> Kcal</h4>
-              <input type="checkbox" id="selected_meals_<%= meal.id %>" name="selected_meals[]" value="<%= meal.id %>" class="hidden-checkbox" data-action="change->calories#updateCalories">
+              <input type="checkbox" id="selected_meals_<%= meal.id %>" name="selected_meals[]" value="<%= meal.id %>" class="hidden-checkbox">
               <label for="selected_meals_<%= meal.id %>" class="custom-checkbox"></label>
             </div>
           </div>

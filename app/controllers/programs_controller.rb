@@ -1,10 +1,26 @@
 class ProgramsController < ApplicationController
-
   skip_before_action :authenticate_user!, only: :new
   before_action :set_program, only: %i[show]
 
   def show
+    if params[:index].present?
+      @index_day = params[:index].to_i
+    else
+      @index_day = 0
+    end
+    # @meals = current_user.programs.first.meals
+    @meals = Meal.all
+    @user = current_user
+    @dishes = @program.meals.where(meal_type: "dish")
+    @breakfasts = @program.meals.where(meal_type: "breakfast")
+    @dishes = @dishes.each_slice(@program.nb_of_meals_by_day - 1).to_a
+    @breakfast = @breakfasts[@index_day]
+    return unless @breakfasts.count > @program.nb_of_days
+
+    @breakfasts.each_with_index { |breakfast, index| dishes.push(breakfast) if index > (@program.nb_of_days - 1) }
+    
     @meals = current_user.programs.last.meals
+
   end
 
   def new

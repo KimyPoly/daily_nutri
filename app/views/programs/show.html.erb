@@ -4,7 +4,7 @@
 <% y = Time.now.year %>
 <% m31 = [1,3,5,7,8,10,12] %>
 <% fev = 2 %>
-<% we = (d..d + 6).to_a %>
+<% we = (d..d + (@program.nb_of_days - 1)).to_a %>
 
 <%if m31.include?(m)%>
   <% we.map! { |valeur| valeur > 31 ? valeur -= 31 : valeur } %>
@@ -18,8 +18,8 @@
   <% we.map! { |valeur| valeur > 30 ? valeur -= 30 : valeur } %>
 <% end %>
 <div class="bubble_list">
-  <% we.each do |day| %>
-    <div class="bubble_container"><a class="calendar_bubble" href="http://127.0.0.1:3000/dashboard"><%= day %></a></div>
+  <% we.each_with_index do |day, index| %>
+    <div class="bubble_container"><%= link_to day, program_path(@program, index: index ), class:'calendar_bubble' %></div>
   <% end %>
 </div>
 
@@ -37,64 +37,43 @@
 
 <div class="container">
   <div class="meal-container">
+
   <h3><strong>Breakfast</strong></h3>
   <div class="meal-card">
   <div class="img-container" style="background-image: url('https://breakfast-in-america.com/wp-content/uploads/2023/06/BreakfastinAmerica_Pancakes.webp')"></div>
-     <div class="meal-card-info img-meal" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://breakfast-in-america.com/wp-content/uploads/2023/06/BreakfastinAmerica_Pancakes.webp'); width: 100%; height: 100%;">
+  <div class="meal-card-info img-meal" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://breakfast-in-america.com/wp-content/uploads/2023/06/BreakfastinAmerica_Pancakes.webp'); width: 100%; height: 100%;">
 
-      <% found_breakfast = false %>
-      <% @meals.each do |meal|  %>
-        <% if meal.meal_type == "breakfast" && !found_breakfast %>
-        <% found_breakfast = true %>
-          <ul>
-            <li><span>🍽️</span> <%= link_to meal.name, meal_path(meal),class: "white-link" %></li>
-            <li><span>⌛</span><%= meal.time %></li>
-          </ul>
-        <% end %>
-      <% end %>
-    </div>
+    <%# Breakfast %>
+    <%= @breakfast.name if @breakfasts != [] %>
+
+  </div>
   </div>
 
   <h3><strong>Lunch</strong></h3>
   <div class="meal-card">
   <div class="img-container" style="background-image: url('https://www.acouplecooks.com/wp-content/uploads/2022/01/Hummus-Bowl-016.jpg')"></div>
-   <div class="meal-card-info img-meal" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://www.acouplecooks.com/wp-content/uploads/2022/01/Hummus-Bowl-016.jpg'); width: 100%; height: 100%;">
+  <div class="meal-card-info img-meal" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://www.acouplecooks.com/wp-content/uploads/2022/01/Hummus-Bowl-016.jpg'); width: 100%; height: 100%;">
+  <%# Dinner 1 %>
+    <li><span>🍽️</span> <%= link_to @dishes[@index_day][0].name, meal_path(@dishes[@index_day][0]),class: "white-link" %></li>
+    <li><span>⌛</span><%= @dishes[@index_day][0].time %></li>
 
-    <% found_dish = false %>
-    <% @meals.each_with_index do |meal, index| %>
-      <% next if index.even? %>
-        <% if meal.meal_type == "dish" && !found_dish %>
-          <% found_dish = true %>
-          <ul>
-            <li><span>🍽️</span><%= link_to meal.name, meal_path(meal),class: "white-link" %></li>
-            <li><span>⌛</span> <%= meal.time %></li>
-          </ul>
-
-        <% end %>
-      <% end %>
-     </div>
-    </div>
-
-
-    <h3><strong>Diner</strong></h3>
-    <div class="meal-card">
-    <div class="img-container" style="background-image: url('https://cache.marieclaire.fr/data/photo/w1000_ci/6g/lasagnes-aux-3-viandes-pate-maison.jpg')"></div>
-    <div class="meal-card-info img-meal" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://cache.marieclaire.fr/data/photo/w1000_ci/6g/lasagnes-aux-3-viandes-pate-maison.jpg'); width: 100%; height: 100%;">
-      <% found_dish = false %>
-
-      <% @meals.each_with_index do |meal, index| %>
-      <% next if index.odd? %>
-        <% if meal.meal_type == "dish" && !found_dish %>
-          <% found_dish = true %>
-          <ul>
-            <li><span>🍽️</span> <%= link_to meal.name, meal_path(meal),class: "white-link" %></li>
-            <li><span>⌛</span> <%= meal.time %></li>
-          </ul>
-        <% end %>
-      <% end %>
-          </div>
   </div>
-    </div>
+  </div>
+
+
+  <h3><strong>Diner</strong></h3>
+  <div class="meal-card">
+  <div class="img-container" style="background-image: url('https://cache.marieclaire.fr/data/photo/w1000_ci/6g/lasagnes-aux-3-viandes-pate-maison.jpg')"></div>
+    <div class="meal-card-info img-meal" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://cache.marieclaire.fr/data/photo/w1000_ci/6g/lasagnes-aux-3-viandes-pate-maison.jpg'); width: 100%; height: 100%;">
+  <%# Dinner 2  %>
+      <% if @program.nb_of_meals_by_day > 1 %>
+        <li><span>🍽️</span> <%= link_to @dishes[@index_day][1].name, meal_path(@dishes[@index_day][1]),class: "white-link" %></li>
+        <li><span>⌛</span><%= @dishes[@index_day][1].time %></li>
+
+      <% end %>
+  </div>
+  </div>
+  </div>
 
 
   <div data-controller="toggle">

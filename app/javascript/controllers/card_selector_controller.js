@@ -9,7 +9,7 @@ export default class extends Controller {
   }
 
   toggleStyle(event) {
-    console.log(event.currentTarget);
+    // console.log(event.currentTarget);
     event.currentTarget.classList.toggle('selected')
     // const checkbox = this.element.querySelector('.hidden-checkbox');
 

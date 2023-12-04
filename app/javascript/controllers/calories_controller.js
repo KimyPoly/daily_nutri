@@ -9,24 +9,26 @@ export default class extends Controller {
   }
 
   connect() {
-
+    this.totalCalories = 0;
   }
 
   initialize() {
-    this.totalCalories = 0;
+
   }
 
-  updateCalories() {
-    this.totalCalories = 0;
-    this.cardTargets.forEach((card) => {
-      const checkbox = card.querySelector('input[type="checkbox"]');
-      const calories = card.querySelector('.meal-calories');
-      if (checkbox.checked) {
-        const caloriesValue = parseInt(calories.innerText.split(" ")[1]);
-        this.totalCalories += caloriesValue;
+  updateCalories(event) {
+
+      // const checkbox = card.querySelector('input[type="checkbox"]');
+      const cardClicked = event.currentTarget;
+      cardClicked.classList.toggle('selected')
+      // console.log(cardClicked);
+      const calories = cardClicked.dataset.calories;
+      if (cardClicked.classList.contains('selected')){
+        this.totalCalories += Number.parseInt(calories);
+      } else {
+        this.totalCalories -= Number.parseInt(calories);
       }
 
-    });
     this.caloriesTotalTarget.textContent = this.totalCalories;
     this.compareCalories(this.totalCalories, this.caloriesGoalValue);
   }

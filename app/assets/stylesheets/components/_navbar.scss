@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: $light-gray;
+  background: white;
   width: 100%;
 }
 
@@ -20,8 +20,9 @@
 }
 
 .navbar-lewagon .navbar-brand h2 {
-  font-size: 20px;
+  font-size: 22px;
   color: $orange;
+  font-family: 'Dancing Script';
   margin: 10px;
 }
 

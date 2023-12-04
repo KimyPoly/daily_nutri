@@ -320,6 +320,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activesupport
   autoprefixer-rails
   bootsnap
   bootstrap (~> 5.2)

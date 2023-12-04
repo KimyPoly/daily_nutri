@@ -1,0 +1,14 @@
+<h1>Groceries List 🧾</h1>
+
+<ul class="ingredients-list" data-controller="ingredient">
+  <% @ingredients.each do |ingredient| %>
+    <li class="grocery-list" data-ingredient="<%= ingredient %>">
+      <label>
+        <input type="checkbox" class="ingredient-checkbox" data-action="change->ingredient#toggleChecked" />
+        <span>🍤</span> <%= ingredient %>
+      </label>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Back", program_path, class: "btn-home" %>

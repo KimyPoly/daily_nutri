@@ -27,7 +27,8 @@
 
 <div class="btn-back-and-groceries">
   <i class="fa-solid fa-backward"><%= link_to "Back", dashboard_path, class: "" %></i>
-  <i class="fa-solid fa-cart-shopping"><%= link_to "Groceries list", "#", class: "" %></i>
+  <i class="fa-solid fa-cart-shopping"><%=link_to "Groceries list", grocery_program_path(@program)%>
+</i>
 
 </div>
 

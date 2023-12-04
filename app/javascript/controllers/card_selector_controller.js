@@ -5,20 +5,22 @@ export default class extends Controller {
   static targets = ["card"];
 
   connect() {
-    this.toggleStyle(); // Appel de la méthode au chargement pour initier les styles
+     // Appel de la méthode au chargement pour initier les styles
   }
 
-  toggleStyle() {
-    const checkbox = this.element.querySelector('.hidden-checkbox');
+  toggleStyle(event) {
+    console.log(event.currentTarget);
+    event.currentTarget.classList.toggle('selected')
+    // const checkbox = this.element.querySelector('.hidden-checkbox');
 
-    if (checkbox.checked) {
-      this.cardTargets.forEach(card => {
-        card.classList.add('selected');
-      });
-    } else {
-      this.cardTargets.forEach(card => {
-        card.classList.remove('selected');
-      });
-    }
+    // if (checkbox.checked) {
+    //   this.cardTargets.forEach(card => {
+    //     card.classList.add('selected');
+    //   });
+    // } else {
+    //   this.cardTargets.forEach(card => {
+    //     card.classList.remove('selected');
+    //   });
+    // }
   }
 }

@@ -37,10 +37,6 @@
 
 <div class="container">
   <div class="meal-container">
-  <% @meals.each do |meal| %>
-    <p>-<%= meal.name %></p>
-  <% end %>
-
   <h3><strong>Breakfast</strong></h3>
   <div class="meal-card">
   <div class="img-container" style="background-image: url('https://breakfast-in-america.com/wp-content/uploads/2023/06/BreakfastinAmerica_Pancakes.webp')"></div>
@@ -54,8 +50,6 @@
             <li><span>🍽️</span> <%= link_to meal.name, meal_path(meal),class: "white-link" %></li>
             <li><span>⌛</span><%= meal.time %></li>
           </ul>
-
-
         <% end %>
       <% end %>
     </div>
@@ -95,7 +89,6 @@
           <ul>
             <li><span>🍽️</span> <%= link_to meal.name, meal_path(meal),class: "white-link" %></li>
             <li><span>⌛</span> <%= meal.time %></li>
-
           </ul>
         <% end %>
       <% end %>

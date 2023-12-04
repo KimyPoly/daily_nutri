@@ -17,17 +17,17 @@ export default class extends Controller {
   }
 
   updateCalories(event) {
-
-      // const checkbox = card.querySelector('input[type="checkbox"]');
-      const cardClicked = event.currentTarget;
-      cardClicked.classList.toggle('selected')
-      // console.log(cardClicked);
-      const calories = cardClicked.dataset.calories;
-      if (cardClicked.classList.contains('selected')){
-        this.totalCalories += Number.parseInt(calories);
-      } else {
-        this.totalCalories -= Number.parseInt(calories);
-      }
+    const cardClicked = event.currentTarget;
+    cardClicked.classList.toggle('selected');
+    const calories = cardClicked.dataset.calories;
+    const checkbox = cardClicked.querySelector('input[type="checkbox"]');
+    if (cardClicked.classList.contains('selected')) {
+      this.totalCalories += Number.parseInt(calories);
+      checkbox.checked = true;
+    } else {
+      this.totalCalories -= Number.parseInt(calories);
+      checkbox.checked = false;
+    }
 
     this.caloriesTotalTarget.textContent = this.totalCalories;
     this.compareCalories(this.totalCalories, this.caloriesGoalValue);

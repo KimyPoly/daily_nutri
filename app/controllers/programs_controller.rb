@@ -16,6 +16,20 @@ class ProgramsController < ApplicationController
     session[:step] = @step
   end
 
+  def grocery
+    @program = Program.find(params[:id])
+    @ingredients = []
+
+    # Parcourir tous les repas associés au programme
+    @program.meals.each do |meal|
+      # Récupérer les ingrédients du repas et les ajouter à la liste des ingrédients
+      @ingredients += meal.ingredients.split(',').map(&:strip)
+    end
+
+    # Créer une liste unique des ingrédients
+    @ingredients = @ingredients.uniq
+  end
+
   def create
     options = session[:program_params].deep_merge!(program_params)
     if options["allergies"].kind_of?(Array)

@@ -9,11 +9,13 @@ Rails.application.routes.draw do
 
   get "dashboard", to: "pages#programs_dashboard"
   resources :programs, except: :edit do
+    get 'grocery', on: :member, to: 'programs#grocery' # Définit la route 'grocery' pour un programme spécifique
     resources :meals, except: :show do
       resources :meal_assignments, only: %i[index create]
       post 'process_meals', on: :collection
     end
   end
+
 
   resources :meals, only: :show
 

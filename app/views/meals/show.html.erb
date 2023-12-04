@@ -10,7 +10,7 @@
   </div>
  <ul class="ingredients-list">
   <% @meal.ingredients.split(',').each do |ingredient| %>
-    <li class="ingredient-ecart"><span>🍤</span> <%= ingredient.strip.capitalize%></li>
+    <li><span>🍤</span> <%= ingredient.strip.capitalize%></li>
   <% end %>
 </ul>
 </div>

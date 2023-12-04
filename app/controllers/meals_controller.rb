@@ -4,15 +4,44 @@ class MealsController < ApplicationController
 
   def index
     set_program_options
-    @meals = Meal.where("diet ~* ?", @diet)
-    @allergies = @allergies.split(",")
-    @allergies.each do |allergy|
-      downcase_allergy = allergy.downcase
-      forbidden_ingredients = allergies_dictionary[downcase_allergy.to_s]
-      break unless forbidden_ingredients
-      forbidden_ingredients.each do |forbidden_ingredient|
-        @meals = @meals.where.not("ingredients ~* ?", forbidden_ingredient)
+    nb_of_meals = (@nb_of_meals_by_day * @nb_of_days) + 4
+  
+    if @diet == "Omnivorous" && @allergies == "None"
+      @meals = Meal.order('RANDOM()').limit(nb_of_meals)
+
+    elsif @diet == "Omnivorous"
+      @meals = Meal.order('RANDOM()').limit(nb_of_meals)
+      @allergies = @allergies.split(",")
+
+      conditions = []
+
+      @allergies.each do |allergy|
+        downcase_allergy = allergy.downcase
+        forbidden_ingredients = allergies_dictionary[downcase_allergy.singularize.to_s]
+        next unless forbidden_ingredients
+
+        forbidden_ingredients.each do |forbidden_ingredient|
+          conditions << "ingredients !~* '#{forbidden_ingredient}'"
+        end
       end
+      @meals = @meals.where(conditions.join(' AND ')) unless conditions.empty?
+
+    else
+      @meals = Meal.where("diet ~* ?", @diet).order('RANDOM()').limit(@nb_of_meals)
+      @allergies = @allergies.split(",")
+
+      conditions = []
+
+      @allergies.each do |allergy|
+        downcase_allergy = allergy.downcase
+        forbidden_ingredients = allergies_dictionary[downcase_allergy.singularize.to_s]
+        next unless forbidden_ingredients
+
+        forbidden_ingredients.each do |forbidden_ingredient|
+          conditions << "ingredients !~* '#{forbidden_ingredient}'"
+        end
+      end
+      @meals = @meals.where(conditions.join(' AND ')) unless conditions.empty?
     end
   end
 
@@ -87,10 +116,12 @@ class MealsController < ApplicationController
   def set_program_options
     @diet = @program.diet
     @allergies = @program.allergies
+    @nb_of_days = @program.nb_of_days
+    @nb_of_meals_by_day = @program.nb_of_meals_by_day
   end
 
   def allergies_dictionary
-      {
+    {
 
       nuts: [
         "Almonds", "Cashews", "Walnuts", "Pecans", "Brazil nuts",
@@ -113,7 +144,7 @@ class MealsController < ApplicationController
         "clams", "crab", "lobster", "mussels", "oysters", "scallops", "shrimp", "snails", "squid"
       ],
       peanuts: [
-        "Peanuts"
+        "Peanuts", "peanut", "Peanut", "peanuts"
       ],
       wheat: [
         "Wheat flour", "bread", "pasta", "couscous", "crackers", "cookies", "cakes", "muffins", "pastries", "cereals", "beer"
@@ -125,14 +156,5 @@ class MealsController < ApplicationController
         "Sesame seeds", "Sesame oil", "Tahini"
       ]
     }
-    end
-
+  end
 end
-
-   # foreach sur chaque allergies
-    # Split @allergies en un array de valeurs
-    # pour chaque allergie
-    # En fonction de la clé allergies, convertie en minuscules, on accède au dictionnaire
-    # j'obtiens une liste des forbidden_ingredients, sous la forme d'un array
-    # Pour chaque forbidden_ingredient, each
-    # @meals = Meal.where("ingredients ~* ?", forbidden_ingredient)

@@ -39,8 +39,10 @@ class ProgramsController < ApplicationController
     @program.user = current_user
     @step = session[:step]
 
-    if @step == 8
+    if @step == 6
+
       empty_cookies
+
       if @program.save
         redirect_to program_meals_path(@program)
       else

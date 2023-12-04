@@ -9,6 +9,8 @@
       <div class="program-card-info">
         <p><strong>Goal:</strong> <%= program.goal.capitalize %></p>
         <p><strong>Diet:</strong> <%= program.diet %></p>
+        <p> <strong>Calories:</strong> <%= program.total_calories %></p>
+        <p> <strong>Caloric goal:</strong> <%= program.calories_goal %></p>
         <p><strong>Number of days:</strong> <%= program.nb_of_days %></p>
         <%= link_to "More info", program_path(program) %>
       </div>

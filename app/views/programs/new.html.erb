@@ -39,18 +39,7 @@
         <%= f.input :nb_of_days, collection: (2..7).to_a, as: :radio_buttons, label_method: :to_s, item_wrapper_class: 'btn-program'%>
       </div>
     <% end %>
-    <% if @step == 7 %>
-      <h2> Any snacks ? </h2>
-      <div>
-        <%= f.input :nb_of_snacks, collection: (0..3).to_a, as: :radio_buttons, label_method: :to_s, item_wrapper_class: 'btn-program'%>
-      </div>
-    <% end %>
-    <% if @step == 8 %>
-      <h2> Height ? </h2>
-      <%= f.input :height %>
-      <h2> Weight ? </h2>
-      <%= f.input :weight %>
-    <% end %>
+
     <div class="submit_container">
       <div style="text-align:center;margin-top:40px;">
         <span class="step step-fill"></span>
@@ -59,10 +48,8 @@
         <span class="step <%= @step > 4 ? "step-fill" : "" %>"></span>
         <span class="step <%= @step > 5 ? "step-fill" : "" %>"></span>
         <span class="step <%= @step > 6 ? "step-fill" : "" %>"></span>
-        <span class="step <%= @step > 7 ? "step-fill" : "" %>"></span>
-        <span class="step <%= @step > 8 ? "step-fill" : "" %>"></span>
       </div>
-      <% unless @step == 8 %>
+      <% unless @step == 6 %>
         <%= f.button :submit, "Next", class:"btn-submit" %>
       <% else  %>
         <%= f.button :submit, "Create program", class:"btn-submit" %>

@@ -18,6 +18,9 @@ class ProgramsController < ApplicationController
     return unless @breakfasts.count > @program.nb_of_days
 
     @breakfasts.each_with_index { |breakfast, index| dishes.push(breakfast) if index > (@program.nb_of_days - 1) }
+    
+    @meals = current_user.programs.last.meals
+
   end
 
   def new
@@ -25,6 +28,20 @@ class ProgramsController < ApplicationController
     @program = Program.new(session[:program_params])
     @step = session[:step] || 1
     session[:step] = @step
+  end
+
+  def grocery
+    @program = Program.find(params[:id])
+    @ingredients = []
+
+    # Parcourir tous les repas associés au programme
+    @program.meals.each do |meal|
+      # Récupérer les ingrédients du repas et les ajouter à la liste des ingrédients
+      @ingredients += meal.ingredients.split(',').map(&:strip)
+    end
+
+    # Créer une liste unique des ingrédients
+    @ingredients = @ingredients.uniq
   end
 
   def create
@@ -36,8 +53,10 @@ class ProgramsController < ApplicationController
     @program.user = current_user
     @step = session[:step]
 
-    if @step == 8
+    if @step == 6
+
       empty_cookies
+
       if @program.save
         redirect_to program_meals_path(@program)
       else
@@ -56,7 +75,7 @@ class ProgramsController < ApplicationController
     if @program.update(program_params)
       @program.assign_attributes(allergies: program_params[:allergies], diet: program_params[:diet], height: program_params[:height])
 
-      redirect_to program_path, notice: "Les modifications ont été enregistrées avec succès."
+      redirect_to program_path, notice: "Your changes have been saved."
     else
       render :edit
     end

@@ -1,0 +1,22 @@
+.grocery-list{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.ingre-select{
+  text-decoration-line: line-through;
+}
+
+.custom-checkbox::after {
+  content: "\2713";
+  font-size: 16px;
+  color: transparent;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hidden-checkbox:checked + .custom-checkbox::after {
+  color: rgb(168, 57, 57);
+}

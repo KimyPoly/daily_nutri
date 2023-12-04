@@ -17,4 +17,30 @@ class Program < ApplicationRecord
   validates :height, presence: true
   validates :weight, presence: true
   validates :sexe, presence: true, inclusion: { in: ["Male", "Female"] }
+
+  def total_calories
+    meals.pluck(:calories).sum
+  end
+
+  def calories_goal
+    @genre = sexe
+    @asked_goal = goal
+    @calories_goal = case
+    when @genre == "Male" && @asked_goal == "Weight maintenance"
+      @calories_goal = 2600
+    when @genre == "Male" && @asked_goal == "Lose weight"
+      @calories_goal = 2300
+    when @genre == "Male" && @asked_goal == "Take weight"
+      @calories_goal = 3100
+    when @genre == "Female" && @asked_goal == "Weight maintenance"
+      @calories_goal = 2000
+    when @genre == "Female" && @asked_goal == "Lose weight"
+      @calories_goal = 1800
+    when @genre == "Female" && @asked_goal == "Take weight"
+      @calories_goal = 2500
+    else
+      0
+    end
+    return @calories_goal * nb_of_days
+  end
 end

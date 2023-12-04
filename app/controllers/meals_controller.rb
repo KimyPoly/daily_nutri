@@ -16,6 +16,7 @@ class MealsController < ApplicationController
     #     @meals = @meals.where.not("ingredients ~* ?", forbidden_ingredient)
     #   end
     # end
+     @calories_goal = @program.calories_goal
   end
 
   def show
@@ -23,7 +24,6 @@ class MealsController < ApplicationController
 
   def process_meals
     @program = Program.find(params[:program_id])
-
     if params[:selected_meals].present?
       @meals = Meal.where(id: params[:selected_meals])
       @meals.each do |meal|
@@ -62,28 +62,6 @@ class MealsController < ApplicationController
     params.require(:meal).permit(:program_id)
   end
 
-  def calculated_goal
-    @genre = params[:program][:sexe]
-    @asked_goal = params[:program][:goal]
-    @calories = 0
-
-    case @calories
-    when @genre == "Male" && @asked_goal == "Weight maintenance"
-      @calories = 2600
-    when @genre == "Male" && @asked_goal == "Lose weight"
-      @calories = 2300
-    when @genre == "Male" && @asked_goal == "Take weight"
-      @calories = 3100
-    when @genre == "Female" && @asked_goal == "Weight maintenance"
-      @calories = 2000
-    when @genre == "Female" && @asked_goal == "Lose weight"
-      @calories = 1800
-    when @genre == "Female" && @asked_goal == "Take weight"
-      @calories = 2500
-    end
-
-    return @calories
-  end
 
   def set_program_options
     @diet = @program.diet

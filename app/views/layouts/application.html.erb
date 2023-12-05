@@ -16,7 +16,7 @@
     <body>
       <% if params[:action] != "home" %>
       <%= render "shared/navbar" %>
-      <%= render partial: 'shared/navbar_bottom' %>
+      <%= render partial: 'shared/navbar_bottom' unless ["home", "new"].include?(params[:action]) %>
         <div class="container daily-container">
         <% end %>
         <%= yield %>

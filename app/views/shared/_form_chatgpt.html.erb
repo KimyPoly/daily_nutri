@@ -1,0 +1,12 @@
+<div id="chat-container">
+  <%= simple_form_for '', url: dashboard_path, method: :get, id: "chat-form" do |f| %>
+    <%= f.input :options, placeholder: "Give me only ingredients", label: "Your ingredients",  id: "message-input"%>
+    <%= f.submit "Submit", class: "btn-home-main" %>
+  <% end %>
+
+
+  <% if @response_from_content_method.present? %>
+    <h3>Recipe Idea</h3>
+    <%= @response_from_content_method %>
+  <% end %>
+</div>

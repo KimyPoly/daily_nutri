@@ -17,12 +17,9 @@
   <% end %>
 </div>
 
-<%= simple_form_for '', url: dashboard_path, method: :get do |f|%>
-  <%= f.input :options, placeholder: "Give me only ingredients", label: "Your ingredients"  %>
-  <%= f.submit :submit, class: "btn-home" %>
-<% end %>
-
-<% if @response_from_content_method.present? %>
-  <h3>Bot Answer:</h3>
-  <%= @response_from_content_method %>
-<% end %>
+<div data-controller="toggle">
+  <button data-action="click->toggle#action" class="btn-home"><i class="fa-solid fa-robot"></i></button>
+  <div class="display-none" data-toggle-target="form">
+    <%= render partial: 'shared/form_chatgpt'%>
+   </div>
+</div>

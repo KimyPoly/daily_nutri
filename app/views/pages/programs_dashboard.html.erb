@@ -16,3 +16,13 @@
     </div>
   <% end %>
 </div>
+
+<%= simple_form_for '', url: dashboard_path, method: :get do |f|%>
+  <%= f.input :options, placeholder: "Give me only ingredients", label: "Your ingredients"  %>
+  <%= f.submit :submit, class: "btn-home" %>
+<% end %>
+
+<% if @response_from_content_method.present? %>
+  <h3>Bot Answer:</h3>
+  <%= @response_from_content_method %>
+<% end %>

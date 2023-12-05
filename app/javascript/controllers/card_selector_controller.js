@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["card"];
 
   connect() {
-     // Appel de la méthode au chargement pour initier les styles
+
   }
 
   toggleStyle(event) {

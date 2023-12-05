@@ -16,8 +16,10 @@
           </div>
         </div>
       <% end %>
-      <p>Total calories: <span data-calories-target="caloriesTotal"></span>/ <span><%= @calories_goal %></span>  </p>
-      <%= submit_tag "Save the meals", class: "btn-home" %>
+      <div id="caloriesCounter">
+        <p class="sticky-p"><i class="fa-solid fa-person"></i><span data-calories-target="caloriesTotal"></span>/ <span><%= @calories_goal %></span></p>
+        <%= submit_tag "Save the meals", class: "btn-meals-sticky" %>
+      </div>
     <% end %>
   </div>
 </div>

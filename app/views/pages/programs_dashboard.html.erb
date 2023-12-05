@@ -1,6 +1,6 @@
 <div class="dashboard-header">
-  <h1>Welcome <%= @user.first_name %> <%= @user.last_name %>!</h1>
-  <p>All your programs (<%= @programs.count %>): </p>
+  <h1 style="margin-top: 1.5em;">Welcome <%= @user.first_name %> <%= @user.last_name %>  🍊</h1>
+
 </div>
 
 <div class="program-card-container">
@@ -8,11 +8,11 @@
     <div class="program-card">
       <%= render partial: 'pages/goal_image', locals: { goal: program.goal } %>
       <div class="program-card-info">
-        <p><strong>Goal:</strong> <%= program.goal.capitalize %></p>
-        <p><strong>Calories:</strong> <%= program.total_calories %></p>
-        <p><strong>Number of days:</strong> <%= program.nb_of_days %></p>
-        <%= link_to "More info", program_path(program), class: "btn-home" %>
+        <p><strong><i class="fa-solid fa-bullseye"></i></strong> <%= program.goal.capitalize %></p>
+        <p><strong><i class="fa-solid fa-person"></i></strong> <%= program.total_calories %> c.</p>
+        <p><strong><i class="fa-regular fa-calendar"></i></strong> <%= program.nb_of_days %> d.</p>
       </div>
+        <%= link_to "More", program_path(program), class: "btn-home-main" %>
     </div>
   <% end %>
 </div>

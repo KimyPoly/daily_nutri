@@ -47,6 +47,14 @@ class MealsController < ApplicationController
       end
       @meals = @meals.where(conditions.join(' AND ')) unless conditions.empty?
     end
+    case @goal
+    when "Lose weight"
+      @meals = @meals.where("calories < ?", 400)
+    when "Weight maintenance"
+      @meals
+    when "Gain weight"
+      @meals = @meals.where("calories > ?", 400)
+    end
   end
 
   def show
@@ -95,6 +103,7 @@ class MealsController < ApplicationController
 
 
   def set_program_options
+    @goal = @program.goal
     @diet = @program.diet
     @allergies = @program.allergies
     @nb_of_days = @program.nb_of_days

@@ -1,20 +1,18 @@
 .btn-home {
-  font-weight: bold ;
+  font-weight: bold;
   color: $orange;
   border: 1px solid $orange;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
-  opacity: 0.6;
   transition: opacity 0.3s ease;
   background-color: $light-gray;
   text-decoration: none;
   margin-bottom: 10px;
-
 }
 
 .btn-home-main {
-  font-weight: bold ;
+  font-weight: bold;
   color: $light-gray;
   border: 1px solid $orange;
   padding: 58px;
@@ -30,6 +28,38 @@
   font-size: 20px;
 
 }
+
+.btn-meals-sticky {
+  font-weight: bold;
+  background-color: $orange;
+  color: $light-gray;
+  border: 1px solid $orange;
+  padding-bottom: 0;
+  border-radius: 10px;
+  font-weight: lighter;
+  transition: opacity 0.3s ease;
+  text-decoration: none;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.btn-sign-up {
+  font-weight: bold;
+  color: $light-gray;
+  border: 1px solid $orange;
+  padding: 58px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  border-radius: 10px;
+  font-weight: lighter;
+  background-color: $orange;
+  text-decoration: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
 .home-main-button {
   padding: 0px;
 }
@@ -47,7 +77,7 @@ legend {
 }
 
 .btn-submit {
-  font-weight: bold ;
+  font-weight: bold;
   color: $light-gray;
   border: 1px solid $light-gray;
   padding: 8px 24px;
@@ -60,31 +90,39 @@ legend {
 }
 
 .btn-program {
-  font-weight: bold ;
-  color: $orange;
+  font-weight: bold!important;
+  color: white;
   border: 1px solid $orange;
   padding: 8px 22px;
   border-radius: 50px;
   font-weight: lighter;
   opacity: 0.6;
-  transition: opacity 0.3s ease;
-  background-color: $light-gray;
+  background-color: $orange;
   text-decoration: none;
   margin-top: 10px;
   text-align: center;
+  letter-spacing: 1px;
 
   input {
     display: none;
   }
 
+  &:has(input:checked) {
+    opacity: 1;
+  }
+
+  &:has(input:selected) {
+    opacity: 1;
+  }
 }
 
-.btn-program:hover {
-  opacity: 1;
-}
+// .btn-program:active,
+// .btn-program:focus {
+//   opacity: 1;
+// }
 
 .btn-back-and-groceries {
- display: inline;
+  display: inline;
   justify-content: end;
   align-items: end;
   padding: 0;

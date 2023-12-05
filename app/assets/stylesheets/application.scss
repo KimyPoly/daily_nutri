@@ -13,8 +13,14 @@
 
 body {
   position: relative;
+  background-color: #FFF9EC;
 }
 
 html, body {
   min-height: 100vh;
+}
+
+.daily-container {
+  min-height: calc(100vh - 60px);
+  padding-bottom: 70px;
 }

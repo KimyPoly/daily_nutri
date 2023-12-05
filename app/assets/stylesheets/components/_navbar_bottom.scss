@@ -3,7 +3,7 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  padding: 25px;
+  padding: 35px;
   z-index: 500;
 }
 
@@ -24,4 +24,10 @@
   position: sticky;
   bottom: 0;
   z-index: 505;
+}
+
+.sticky-p {
+  margin: 0;
+  color: white;
+  font-size: 17px;
 }

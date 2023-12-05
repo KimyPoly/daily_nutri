@@ -1,6 +1,7 @@
+
 .calendar_bubble {
   text-decoration: none;
-  color: orange;
+  color: inherit;
   font-weight: bold;
 }
 
@@ -12,8 +13,13 @@
   padding: 5px;
   width: 40px;
   border-radius: 50%;
+  color: $orange;
   border: solid $orange 0.5px;
 
+  &.fill {
+    background-color: $orange;
+    color: white;
+  }
 }
 
 .bubble_list{
@@ -22,5 +28,4 @@
   border-top: solid black 0.5px;
   border-bottom: solid black 0.5px;
   margin-top: 6%;
-
 }

@@ -10,7 +10,6 @@
   background-color: $light-gray;
   text-decoration: none;
   margin-bottom: 10px;
-
 }
 
 .btn-home-main {
@@ -30,6 +29,23 @@
   font-size: 20px;
 
 }
+
+.btn-sign-up {
+  font-weight: bold ;
+  color: $light-gray;
+  border: 1px solid $orange;
+  padding: 58px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  border-radius: 10px;
+  font-weight: lighter;
+  background-color: $orange;
+  text-decoration: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
 .home-main-button {
   padding: 0px;
 }

@@ -2,7 +2,29 @@
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 20px;
+  border-bottom: 1px solid;
 }
 .ingre-select{
   text-decoration-line: line-through;
+}
+.grocery-list label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grocery-i {
+  display: flex;
+  align-items: center;
+}
+
+.grocery-i i {
+  color: $orange;
+  font-size: 20px;
+  padding-top: 10px;
+}
+
+.grocery-title {
+  font-weight: bold;
+  margin-bottom: 20px;
 }

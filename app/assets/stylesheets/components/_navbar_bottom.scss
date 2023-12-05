@@ -1,9 +1,17 @@
-.navbar-app {
+.navbar-app-meals {
   background-color: $orange;
   position: fixed;
   bottom: 0;
   width: 100%;
   padding: 35px;
+  z-index: 500;
+}
+.navbar-app {
+  background-color: $orange;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
   z-index: 500;
 }
 

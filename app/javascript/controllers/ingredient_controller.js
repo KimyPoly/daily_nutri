@@ -6,7 +6,6 @@ export default class extends Controller {
   }
 
   toggleChecked(event) {
-    console.log(event.currentTarget.nextElementSibling);
-    event.currentTarget.nextElementSibling.classList.toggle('ingre-select')
+    event.currentTarget.previousElementSibling.classList.toggle('ingre-select')
   }
 }

@@ -1,8 +1,16 @@
-.allergies-container{
-  overflow-x: scroll;
+.allergies_container {
+  display: flex;
+  justify-content: center;
+
+  fieldset {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    width: 100%;
+  }
 }
 
 .allergie-button {
- margin: 3px;
- width: 50%;
+  margin: 3px;
+  width: 100%;
 }

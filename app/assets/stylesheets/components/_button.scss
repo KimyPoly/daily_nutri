@@ -1,5 +1,5 @@
 .btn-home {
-  font-weight: bold ;
+  font-weight: bold;
   color: $orange;
   border: 1px solid $orange;
   padding: 8px 24px;
@@ -13,7 +13,7 @@
 }
 
 .btn-home-main {
-  font-weight: bold ;
+  font-weight: bold;
   color: $light-gray;
   border: 1px solid $orange;
   padding: 58px;
@@ -31,7 +31,7 @@
 }
 
 .btn-sign-up {
-  font-weight: bold ;
+  font-weight: bold;
   color: $light-gray;
   border: 1px solid $orange;
   padding: 58px;
@@ -63,7 +63,7 @@ legend {
 }
 
 .btn-submit {
-  font-weight: bold ;
+  font-weight: bold;
   color: $light-gray;
   border: 1px solid $light-gray;
   padding: 8px 24px;
@@ -76,31 +76,39 @@ legend {
 }
 
 .btn-program {
-  font-weight: bold ;
-  color: $orange;
+  font-weight: bold!important;
+  color: white;
   border: 1px solid $orange;
   padding: 8px 22px;
   border-radius: 50px;
   font-weight: lighter;
   opacity: 0.6;
-  transition: opacity 0.3s ease;
-  background-color: $light-gray;
+  background-color: $orange;
   text-decoration: none;
   margin-top: 10px;
   text-align: center;
+  letter-spacing: 1px;
 
   input {
     display: none;
   }
 
+  &:has(input:checked) {
+    opacity: 1;
+  }
+
+  &:has(input:selected) {
+    opacity: 1;
+  }
 }
 
-.btn-program:hover {
-  opacity: 1;
-}
+// .btn-program:active,
+// .btn-program:focus {
+//   opacity: 1;
+// }
 
 .btn-back-and-groceries {
- display: inline;
+  display: inline;
   justify-content: end;
   align-items: end;
   padding: 0;

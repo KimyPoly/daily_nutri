@@ -17,6 +17,14 @@
 <% else %>
   <% we.map! { |valeur| valeur > 30 ? valeur -= 30 : valeur } %>
 <% end %>
+
+
+<div class="btn-back">
+  <i class="fa-solid fa-backward"><%= link_to "Back", dashboard_path, class: "" %></i>
+  <h3>Week's menus </h3>
+</div>
+
+
 <div class="bubble_list">
   <% we.each_with_index do |day, index| %>
     <div class="bubble_container <%= @index_day == index ? "fill" : "" %>">
@@ -24,18 +32,14 @@
     </div>
   <% end %>
 </div>
-
-
-
-<div class="btn-back-and-groceries">
-  <i class="fa-solid fa-backward"><%= link_to "Back", dashboard_path, class: "" %></i>
-  <i class="fa-solid fa-cart-shopping"><%=link_to "Groceries list", grocery_program_path(@program)%>
-</i>
-
+<div class="d-flex justify-content-end">
+<div class="btn-home-main groceries">
+<%=link_to "Shopping", grocery_program_path(@program)%></i>
+</div>
 </div>
 
 <br>
-<br>
+
 
 <div>
   <div class="meal-container">

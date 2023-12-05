@@ -29,6 +29,21 @@
 
 }
 
+.btn-meals-sticky {
+  font-weight: bold;
+  background-color: $orange;
+  color: $light-gray;
+  border: 1px solid $orange;
+  padding-bottom: 0;
+  border-radius: 10px;
+  font-weight: lighter;
+  transition: opacity 0.3s ease;
+  text-decoration: none;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
 .btn-sign-up {
   font-weight: bold;
   color: $light-gray;

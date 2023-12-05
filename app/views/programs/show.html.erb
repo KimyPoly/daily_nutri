@@ -35,7 +35,7 @@
 <br>
 <br>
 
-<div class="container">
+<div>
   <div class="meal-container">
 
   <h3><strong>Breakfast</strong></h3>
@@ -76,13 +76,13 @@
     <% end %>
   </div>
   </div>
+    <div data-controller="toggle">
+      <button data-action="click->toggle#action" class="btn-home">Edit</button>
+      <div class="display-none" data-toggle-target="form">
+      <%= render partial: 'shared/form_new', locals: { program: @program } %>
+      </div>
+    </div>
   </div>
 
 
-  <div data-controller="toggle">
-    <button data-action="click->toggle#action" class="btn-home">Edit</button>
-    <div class="display-none" data-toggle-target="form">
-    <%= render partial: 'shared/form_new', locals: { program: @program } %>
-  </div>
-</div>
 </div>

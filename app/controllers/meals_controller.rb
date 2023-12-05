@@ -4,6 +4,7 @@ class MealsController < ApplicationController
 
   def index
     @meals = Meal.all
+    @min_calorie = @meals.map { |meal| meal.calories }.min
     set_program_options
 
     @calories_goal = @program.calories_goal

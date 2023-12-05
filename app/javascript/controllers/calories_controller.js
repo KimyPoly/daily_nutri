@@ -7,7 +7,8 @@ export default class extends Controller {
   static values = {
     caloriesGoal: Number,
     days: Number,
-    mealsDay: Number
+    mealsDay: Number,
+    minCalorie: Number
   }
 
   connect() {
@@ -19,7 +20,11 @@ export default class extends Controller {
   initialize() {
 
   }
-
+  alert(countMeal, maxMeals){
+    if (countMeal == maxMeals) {
+      alert("You've selected enough meals")
+    }
+  }
   updateCalories(event) {
     const cardClicked = event.currentTarget;
     cardClicked.classList.toggle('selected');
@@ -34,15 +39,15 @@ export default class extends Controller {
       checkbox.checked = false;
       this.countMeal += 1
     }
-    if (this.countMeal >= this.maxMeals) {
-      alert("You've selected enough meals")
-    }
+    this.alert(this.countMeal, this.maxMeals)
+
     this.caloriesTotalTarget.textContent = this.totalCalories;
     this.compareCalories(this.totalCalories, this.caloriesGoalValue);
   }
 
   compareCalories(selectedCalories, totalCalories) {
-    if (selectedCalories > totalCalories) {
+    if (selectedCalories - totalCalories > 0 && selectedCalories - totalCalories < this.minCalorieValue) {
+      //
       alert("You're above the recommended calories goal for your program")
     }
   }

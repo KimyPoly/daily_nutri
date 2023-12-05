@@ -1,0 +1,9 @@
+<%= simple_form_for @program do |f|%>
+  <%= f.input :content, label: "left your in your fridge:"  %>
+  <%= f.button :submit %>
+<% end %>
+
+<% if @response_from_content_method.present? %>
+  <h3>Response:</h3>
+  <%= @response_from_content_method %>
+<% end %>

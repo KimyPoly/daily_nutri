@@ -3,6 +3,7 @@ class ProgramsController < ApplicationController
   before_action :set_program, only: %i[show]
 
   def show
+
     if params[:index].present?
       @index_day = params[:index].to_i
     else
@@ -40,6 +41,10 @@ class ProgramsController < ApplicationController
 
     # Créer une liste unique des ingrédients
     @ingredients = @ingredients.uniq
+  end
+
+  def meals_options
+    redirect_to dashboard_path
   end
 
   def create

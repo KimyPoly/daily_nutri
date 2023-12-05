@@ -55,11 +55,22 @@ h2 {
   border-radius: 8px;
 }
 
-.allergies {
+.allergies_container {
   display: flex;
 }
 
 .form-container {
   position: relative;
   height: 85vh;
+}
+
+.question {
+  margin-top: 8em;
+}
+
+.question h2 {
+  margin-bottom: 35px;
+  color: $orange;
+  font-weight: bold;
+  font-size: 30px;
 }

@@ -6,7 +6,6 @@ class Meal < ApplicationRecord
   def fix_meal_type
     types = meal_type
     types = types.split(",")
-    # dish_types = "lunch,main course,main dish,dinner,antipasti,condiment,starter,appetizer,dip,antipasto,hor d'oeuvre,spread,salad, side dish".split(",")
     breakfast_types = "snack,breakfast".split(",")
     types.map do |type|
       if breakfast_types.include?(type)

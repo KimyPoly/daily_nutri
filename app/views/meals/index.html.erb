@@ -1,7 +1,7 @@
 <div class="container">
   <h1 class="title">All The Meals</h1>
 
-  <div class="cards-container" data-controller="calories" data-calories-calories-goal-value='<%= @calories_goal %>'>
+  <div class="cards-container" data-controller="calories" data-calories-calories-goal-value='<%= @calories_goal %>' data-calories-days-value="<%=@nb_of_meals_by_day%>" data-calories-meals-day-value="<%=@nb_of_days%>">
     <%= form_tag(process_meals_program_meals_path, method: :post) do %>
       <% @meals.each do |meal| %>
         <div class="card-trip"data-action="click->calories#updateCalories" data-calories-target='card' data-calories="<%= meal.calories %>">

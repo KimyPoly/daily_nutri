@@ -55,7 +55,7 @@
   <div class="img-container" style="background-image: url('https://www.acouplecooks.com/wp-content/uploads/2022/01/Hummus-Bowl-016.jpg')"></div>
   <div class="meal-card-info img-meal" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://www.acouplecooks.com/wp-content/uploads/2022/01/Hummus-Bowl-016.jpg'); width: 100%; height: 100%;">
   <%# Dinner 1 %>
-  <% if @dishes[@index_day] != [] %>
+  <% if @dishes[@index_day][0] != [] %>
     <li><span>🍽️</span> <%= link_to @dishes[@index_day][0].name, meal_path(@dishes[@index_day][0]),class: "white-link" %></li>
     <li class="white-link"><span>⌛</span><%= @dishes[@index_day][0].time%></li>
   <% end %>
@@ -68,7 +68,7 @@
   <div class="img-container" style="background-image: url('https://cache.marieclaire.fr/data/photo/w1000_ci/6g/lasagnes-aux-3-viandes-pate-maison.jpg')"></div>
     <div class="meal-card-info img-meal" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://cache.marieclaire.fr/data/photo/w1000_ci/6g/lasagnes-aux-3-viandes-pate-maison.jpg'); width: 100%; height: 100%;">
   <%# Dinner 2  %>
-    <% if @dishes[@index_day] != [] %>
+    <% if @dishes[@index_day][1] != [] %>
       <% if @program.nb_of_meals_by_day > 1 %>
         <li><span>🍽️</span> <%= link_to @dishes[@index_day][1].name, meal_path(@dishes[@index_day][1]),class: "white-link" %></li>
         <li class="white-link"><span>⌛</span><%= @dishes[@index_day][1].time %></li>

@@ -1,9 +1,6 @@
-<div class="grocery-i">
-  <%= link_to program_path do %>
-    <i class="fa-solid fa-backward"></i>
-  <% end %>
-</div>
-  <h1 class="grocery-title">Groceries List </h1>
+
+<h1 class="grocery-title">Groceries List 🧾</h1>
+
 <ul class="ingredients-list" data-controller="ingredient">
 <strong><p>All ingredients (<%= @ingredients.count %>): </p></strong>
   <% @ingredients.each do |ingredient| %>

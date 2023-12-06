@@ -7,7 +7,15 @@
       <%= link_to dashboard_path, class: "navbar-brand" do %>
         <i class="fa-solid fa-house fa-xl" style="color: #ffffff;"></i>
       <% end %>
-      <% if params[:action] == "meals" %>
+      <% if params[:action] == "programs_dashboard" %>
+        <%=link_to grocery_program_path(@programs.last.id) do %>
+          <i class="fa-solid fa-list fa-xl" style="color: #ffffff;"></i>
+        <% end %>
+      <% elsif params[:action] == "grocery" %>
+        <%=link_to grocery_program_path(@program) do %>
+          <i class="fa-solid fa-list fa-xl" style="color: #ffffff;"></i>
+        <% end %>
+      <% elsif params[:action] == "show" && params[:controller] == "programs" %>
         <%=link_to grocery_program_path(@program) do %>
           <i class="fa-solid fa-list fa-xl" style="color: #ffffff;"></i>
         <% end %>

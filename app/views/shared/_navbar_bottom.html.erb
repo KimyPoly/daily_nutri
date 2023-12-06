@@ -1,8 +1,18 @@
-<div class="navbar-app">
-  <div class="navbar-app-display">
-    <%= link_to dashboard_path, class: "navbar-brand" do %>
-      <i class="fa-solid fa-house fa-xl" style="color: #ffffff;"></i>
-    <% end %>
-    <i class="fa-solid fa-list fa-xl" style="color: #ffffff;"></i>
+<% if params[:action] == "index"%>
+  <div class="navbar-app-meals">
+<% else %>
+  <div class="navbar-app">
+<% end %>
+    <div class="navbar-app-display">
+      <%= link_to dashboard_path, class: "navbar-brand" do %>
+        <i class="fa-solid fa-house fa-xl" style="color: #ffffff;"></i>
+      <% end %>
+      <% if params[:action] == "meals" %>
+        <%=link_to grocery_program_path(@program) do %>
+          <i class="fa-solid fa-list fa-xl" style="color: #ffffff;"></i>
+        <% end %>
+      <% else %>
+        <i class="fa-solid fa-list fa-xl" style="color: #ffffff;"></i>
+      <% end %>
+    </div>
   </div>
-</div>

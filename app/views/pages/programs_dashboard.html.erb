@@ -16,3 +16,10 @@
     </div>
   <% end %>
 </div>
+
+<div data-controller="toggle">
+  <button data-action="click->toggle#action" class="btn-home"><i class="fa-solid fa-robot"></i></button>
+  <div class="display-none" data-toggle-target="form">
+    <%= render partial: 'shared/form_chatgpt'%>
+   </div>
+</div>

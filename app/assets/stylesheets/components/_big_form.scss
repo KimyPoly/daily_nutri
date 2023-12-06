@@ -6,9 +6,16 @@
   justify-content: space-between;
 }
 
-.custom-checkbox {
+.custom-checkbox-b {
   width: 35%;
   margin: 8px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
   background-color: $orange;
 }
 

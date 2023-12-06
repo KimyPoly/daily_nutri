@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_30_105729) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_05_200656) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -81,6 +81,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_105729) do
     t.float "height"
     t.float "weight"
     t.string "sexe"
+    t.integer "age"
+    t.float "mb"
+    t.string "meta"
     t.index ["user_id"], name: "index_programs_on_user_id"
   end
 

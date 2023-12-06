@@ -12,7 +12,7 @@
         <p><strong><i class="fa-solid fa-person"></i></strong> <%= program.total_calories %> c.</p>
         <p><strong><i class="fa-regular fa-calendar"></i></strong> <%= program.nb_of_days %> d.</p>
       </div>
-        <%= link_to "More", program_path(program), class: "btn-home-main" %>
+        <%= link_to "+", program_path(program), class: "btn-more" %>
     </div>
   <% end %>
 </div>
@@ -21,5 +21,5 @@
   <button data-action="click->toggle#action" class="btn-home"><i class="fa-solid fa-robot"></i></button>
   <div class="display-none" data-toggle-target="form">
     <%= render partial: 'shared/form_chatgpt'%>
-   </div>
+  </div>
 </div>

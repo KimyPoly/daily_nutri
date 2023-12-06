@@ -9,7 +9,7 @@ class MealsController < ApplicationController
 
     @calories_goal = @program.calories_goal
 
-    nb_of_meals = (@nb_of_meals_by_day * @nb_of_days) + 4
+    nb_of_meals = (@nb_of_meals_by_day * @nb_of_days) + 5
 
     if @diet == "Omnivorous" && @allergies == "None"
       @meals = Meal.order('RANDOM()').limit(nb_of_meals)

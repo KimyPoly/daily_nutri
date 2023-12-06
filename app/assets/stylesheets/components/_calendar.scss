@@ -12,9 +12,10 @@
   margin: 5px;
   padding: 5px;
   width: 40px;
-  border-radius: 50%;
+  border-left: solid $orange 0.5px;
+  border-right: solid $orange 0.5px;
   color: $orange;
-  border: solid $orange 0.5px;
+
 
   &.fill {
     background-color: $orange;
@@ -23,13 +24,23 @@
 }
 
 .bubble_list{
-  display: flex;
+  display: block;
   justify-content: center;
-  border: solid white 0.5px;
-  padding: 1em;
+  border: solid white 1px;
+  padding: 0.5em;
   margin-top: 6%;
   background-color: white;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+
+}
+.days {
+  display: flex;
+  justify-content: center;
+}
+.month {
+  font-style: bold;
+  font-size: 18px;
+  font-family: "Playfair Display";
 
 }

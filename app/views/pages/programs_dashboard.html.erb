@@ -9,8 +9,8 @@
       <%= render partial: 'pages/goal_image', locals: { goal: program.goal } %>
       <div class="program-card-info">
         <p><strong><i class="fa-solid fa-bullseye"></i></strong> <%= program.goal.capitalize %></p>
-        <p><strong><i class="fa-solid fa-person"></i></strong> <%= program.total_calories %> Kc.</p>
-        <p><strong><i class="fa-regular fa-calendar"></i></strong> <%= program.nb_of_days %> d.</p>
+        <p><strong><i class="fa-solid fa-person"></i></strong> <%= program.total_calories %> Kc</p>
+        <p><strong><i class="fa-regular fa-calendar"></i></strong> <%= program.nb_of_days %> </p>
       </div>
         <%= link_to "More", program_path(program), class: "btn-home-main" %>
     </div>

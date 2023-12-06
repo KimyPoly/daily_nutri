@@ -36,6 +36,7 @@
 
 .card-info {
   padding: 10px;
+
 }
 
 .meal-name {
@@ -48,6 +49,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  float: right;
+  i {
+    color: $orange;
+    font-size: 23px;
+  }
+  h4 {
+    font-weight: bold;
+  }
 }
 
 .meal-calories {

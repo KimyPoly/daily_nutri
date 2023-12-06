@@ -26,8 +26,8 @@
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 20px;
-
 }
+
 .groceries {
   a {
     text-decoration: none;
@@ -159,4 +159,17 @@ legend {
     text-decoration: none;
     color: $orange;
   }
+}
+
+.btn-more{
+  font-weight: bold;
+  color: $orange;
+  padding: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 35px;
 }

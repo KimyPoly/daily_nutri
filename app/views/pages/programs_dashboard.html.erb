@@ -9,7 +9,7 @@
       <%= render partial: 'pages/goal_image', locals: { goal: program.goal } %>
       <div class="program-card-info">
         <p><strong><i class="fa-solid fa-bullseye"></i></strong> <%= program.goal.capitalize %></p>
-        <p><strong><i class="fa-solid fa-person"></i></strong> <%= program.total_calories %> c.</p>
+        <p><strong><i class="fa-solid fa-person"></i></strong> <%= program.total_calories %> Kc.</p>
         <p><strong><i class="fa-regular fa-calendar"></i></strong> <%= program.nb_of_days %> d.</p>
       </div>
         <%= link_to "More", program_path(program), class: "btn-home-main" %>
@@ -18,7 +18,9 @@
 </div>
 
 <div data-controller="toggle">
-  <button data-action="click->toggle#action" class="btn-home"><i class="fa-solid fa-robot"></i></button>
+
+  <button data-action="click->toggle#action" class="btn-home" style="background-color: #FFF9EC; border: #FFF9EC;"><i class="fa-solid fa-robot fa-beat" style="font-size: 60px;"></i></button>
+
   <div class="display-none" data-toggle-target="form">
     <%= render partial: 'shared/form_chatgpt'%>
    </div>

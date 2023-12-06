@@ -1,6 +1,5 @@
 <div class="dashboard-header">
   <h1 style="margin-top: 2em;">Welcome <%= @user.first_name %> <%= @user.last_name %> 🍊 </h1>
-
 </div>
 <% if @programs.count == 0 %>
   <div class="empty-dashboard">
@@ -18,9 +17,10 @@
           <p><strong><i class="fa-regular fa-calendar"></i></strong> <%= program.nb_of_days %> d.</p>
          </div>
         <%= link_to "+", program_path(program), class: "btn-more" %>
-    </div>
-  <% end %>
-</div>
+      </div>
+    <% end %>
+<% end %>
+  </div>
 <br>
 <br>
 

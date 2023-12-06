@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import Swal from 'sweetalert2'
 
 // Connects to data-controller="checked"
 export default class extends Controller {
@@ -22,7 +23,7 @@ export default class extends Controller {
   }
   alert(countMeal, maxMeals){
     if (countMeal == maxMeals) {
-      alert("You've selected enough meals")
+      Swal.fire("You've selected enough meals")
     }
   }
   updateCalories(event) {
@@ -52,7 +53,7 @@ export default class extends Controller {
   compareCalories(selectedCalories, totalCalories) {
     if (selectedCalories > totalCalories) {
       console.log("This is working");
-      alert("You're above the recommended calories goal for your program")
+      Swal.fire("You're above the recommended calories goal for your program")
     }
   }
 }

@@ -3,8 +3,10 @@
 
 </div>
 <% if @programs.count == 0 %>
-  <p>You don't have any programs yet ! </p>
-  <%= link_to "Create a program", new_program_path, class: 'btn-home-main' %>
+  <div class="empty-dashboard">
+    <p>You don't have any programs yet ! </p>
+  </div>
+  <%= link_to "Create a program", new_program_path, class: 'btn-home-main', style: "margin-bottom: 20px" %>
 <% else %>
   <div class="program-card-container">
     <% @programs.each do |program| %>
@@ -20,6 +22,8 @@
     <% end %>
   </div>
 <% end %>
+<br>
+<br>
 <div data-controller="toggle">
 
   <button data-action="click->toggle#action" class="btn-home" style="background-color: #FFF9EC; border: #FFF9EC;"><i class="fa-solid fa-robot fa-beat" style="font-size: 60px;"></i></button>

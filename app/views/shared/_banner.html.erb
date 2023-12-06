@@ -5,7 +5,11 @@
       <p>Every meal, every day !</p>
         <%# <br> %>
       <div class="home-main-button">
-        <%= link_to "Start", new_user_registration_path, class: "btn-home-main" %>
+        <% if user_signed_in? && current_user.program_ids == [] %>
+          <%= link_to "Start", new_program_path, class: "btn-home-main" %>
+        <% else %>
+          <%= link_to "Start", new_user_registration_path, class: "btn-home-main" %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -9,7 +9,7 @@
           <div class="card-info">
             <h1 class="meal-name"><strong><%= meal.name %></strong></h1>
             <div class="additional-info">
-              <h4 class="meal-calories">🏋️ <%= meal.calories %> Kcal</h4>
+              <h4 class="meal-calories"><i class="fa-solid fa-person"></i> <%= meal.calories %> Kcal</h4>
               <input type="checkbox" id="selected_meals_<%= meal.id %>" name="selected_meals[]" value="<%= meal.id %>" class="hidden-checkbox">
               <label for="selected_meals_<%= meal.id %>" class="custom-checkbox"></label>
             </div>

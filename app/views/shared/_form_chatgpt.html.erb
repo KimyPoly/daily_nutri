@@ -1,6 +1,8 @@
 <div id="chat-container">
+  <h4><strong>Hey ! I'm Chat Cooking</strong></h4>
+  <p>I'll create a recipe for you with your leftovers ingeredients.</p>
   <%= simple_form_for '', url: dashboard_path, method: :get, id: "chat-form" do |f| %>
-    <%= f.input :options, placeholder: "Give me only ingredients", label: "Your ingredients",  id: "message-input"%>
+    <%= f.input :options, placeholder: "Give me only ingredients", label: "",  id: "message-input"%>
     <%= f.submit "Submit", class: "btn-home-main" %>
   <% end %>
 

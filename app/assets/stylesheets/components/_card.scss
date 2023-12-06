@@ -67,6 +67,7 @@
 .meal-card-info {
   flex-grow: 1;
   padding-block: 1rem;
+
   li {
     list-style-type: none;
     text-align: left;
@@ -75,13 +76,7 @@
 
 }
 
-.meal-card-info h3 {
-  margin-top: 0;
-  color: #333;
-  text-align: center;
-}
-
-.meal-card ul {
+.meal-card li {
   color: white;
   padding: 0;
   margin-left: 10px;
@@ -94,6 +89,7 @@
 
   h3 {
 
+
     font-size: bold;
     float: left;
     margin-bottom: 0.5em;
@@ -103,6 +99,7 @@
       list-style-type: none;
       text-align: left;
     }
+
   }
 }
 

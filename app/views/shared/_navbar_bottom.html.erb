@@ -7,7 +7,7 @@
       <%= link_to dashboard_path, class: "navbar-brand" do %>
         <i class="fa-solid fa-house fa-xl" style="color: #ffffff;"></i>
       <% end %>
-      <% if params[:action] == "programs_dashboard" %>
+      <% if params[:action] == "programs_dashboard" && @program.id != nil %>
         <%=link_to grocery_program_path(@programs.last.id) do %>
           <i class="fa-solid fa-list fa-xl" style="color: #ffffff;"></i>
         <% end %>

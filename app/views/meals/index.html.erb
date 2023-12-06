@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="title">All The Meals</h1>
+  <h1 class="title">Choose your meals :</h1>
 
   <div class="cards-container" data-controller="calories" data-calories-calories-goal-value='<%= @calories_goal %>' data-calories-days-value="<%=@nb_of_meals_by_day%>" data-calories-meals-day-value="<%=@nb_of_days%>" data-calories-min-calorie-value="<%=@min_calorie%>" >
     <%= form_tag(process_meals_program_meals_path, method: :post) do %>
@@ -17,8 +17,8 @@
         </div>
       <% end %>
       <div id="caloriesCounter">
-        <p class="sticky-p"><i class="fa-solid fa-person"></i><span data-calories-target="caloriesTotal"></span>/ <span><%= @calories_goal %></span></p>
         <%= submit_tag "Save the meals", class: "btn-meals-sticky" %>
+        <p class="sticky-p"><i class="fa-solid fa-person"></i><span data-calories-target="caloriesTotal"></span>/ <span><%= @calories_goal %></span></p>
       </div>
     <% end %>
   </div>

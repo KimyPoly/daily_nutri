@@ -3,17 +3,18 @@
 
 </div>
 
-<div class="program-card-container">
+<div class="program-card-container" data-controler="card-selector">
   <% @programs.each do |program| %>
-    <div class="program-card">
-      <%= render partial: 'pages/goal_image', locals: { goal: program.goal } %>
-      <div class="program-card-info">
-        <p><strong><i class="fa-solid fa-bullseye"></i></strong> <%= program.goal.capitalize %></p>
-        <p><strong><i class="fa-solid fa-person"></i></strong> <%= program.total_calories %> Kc.</p>
-        <p><strong><i class="fa-regular fa-calendar"></i></strong> <%= program.nb_of_days %> d.</p>
+    <%= link_to program_path(program), class: "program-card", data: { action: "click->card-selector#toggleStyle"} do%>
+      <div class="program-card">
+        <%= render partial: 'pages/goal_image', locals: { goal: program.goal } %>
+        <div class="program-card-info">
+          <p><i class="fa-solid fa-bullseye"></i><%= program.goal.capitalize %></p>
+          <p><i class="fa-solid fa-person"></i><%= program.total_calories %> Kc.</p>
+          <p><i class="fa-regular fa-calendar"></i><%= program.nb_of_days %> d.</p>
+        </div>
       </div>
-        <%= link_to "+", program_path(program), class: "btn-more" %>
-    </div>
+    <% end %>
   <% end %>
 </div>
 

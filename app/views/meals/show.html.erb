@@ -4,11 +4,12 @@
 </div>
 <div class="container">
   <div class="info_recipe">
-    <h4>🏋️: <%= @meal.calories %>Kcal</h4>
-    <h4>⏲️: <%= @meal.time %>min</h4>
-    <h4>💵: <%= @meal.price %>$</h4>
+    <h4><%= @meal.calories %>Kcal</h4>
+    <h4> <%= @meal.time %> min</h4>
+    <h4> <%= @meal.price %> $</h4>
   </div>
  <ul class="ingredients-list">
+ <h2>Ingredients</h2>
   <% @meal.ingredients.split(',').each do |ingredient| %>
     <li><span>🍤</span> <%= ingredient.strip.capitalize%></li>
   <% end %>
@@ -16,7 +17,7 @@
 </div>
 
  <div data-controller="toggle">
-    <button data-action="click->toggle#action" class="btn-home">Recipes</button>
+    <button data-action="click->toggle#action" class="btn-home-main">Recipes</button>
     <div class="display-none" data-toggle-target="form">
     <ol class="recipe-steps">
       <% @meal.recipe.split('.,').each_with_index do |recipe_step, index| %>

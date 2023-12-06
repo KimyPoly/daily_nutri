@@ -28,6 +28,19 @@
   font-size: 20px;
 
 }
+.groceries {
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.btn-home-main.groceries {
+  align-items: end;
+  width: 35%;
+  padding: 5px;
+  margin-top: 1em;
+}
 
 .btn-meals-sticky {
   font-weight: bold;
@@ -121,15 +134,29 @@ legend {
 //   opacity: 1;
 // }
 
-.btn-back-and-groceries {
+.btn-back {
   display: inline;
-  justify-content: end;
-  align-items: end;
+  justify-content: start;
+  align-items: start;
   padding: 0;
   margin-top: 10%;
+  display: flex;
+  align-items: baseline;
+
+  a {
+    text-decoration: none;
+    color: $orange;
+  }
+
+  h3 {
+    margin-left: 58px;
+  }
 }
 
-.btn-back-and-groceries a {
-  text-decoration: none;
-  color: $orange;
+.btn-groceries {
+  
+  a {
+    text-decoration: none;
+    color: $orange;
+  }
 }

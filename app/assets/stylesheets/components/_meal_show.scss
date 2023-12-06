@@ -1,0 +1,61 @@
+.info_recipe {
+
+  h4 {
+    font-weight: bold;
+    font-size: 20px;
+    font-style: oblique;
+  }
+
+  i {
+    color: $orange;
+  }
+
+}
+.info_recipe{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+.recipe-paragraph {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-steps{
+  font-size: 15px;
+}
+
+.recipe-ecart{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.recipe-ecart::marker {
+}
+
+
+.ingredients-list {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+
+  h2 {
+    font-weight: bold;
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+    border-bottom: 3px solid $orange;
+  }
+}
+
+.recipe-steps {
+  text-align: left;
+}

@@ -13,12 +13,8 @@ class ProgramsController < ApplicationController
     @user = current_user
     @dishes = @program.meals.where(meal_type: "dish").to_a
     @breakfasts = @program.meals.where(meal_type: "breakfast").to_a
-    @breakfasts.each_with_index { |breakfast, index| @dishes.push(breakfast) if index > (@program.nb_of_days - 1) } if @breakfasts.count > @program.nb_of_days
-    if @dishes.count > @program.nb_of_days * 2
-      @dishes.each_with_index do |dishe, index|
-        @breakfasts << dishe if index > ((@program.nb_of_days * 2) - 1)
-      end
-    end
+    @breakfasts.each_with_index {|breakfast, index| @dishes.push(breakfast) if index > (@program.nb_of_days - 1) } if @breakfasts.count > @program.nb_of_days
+    @dishes.each_with_index { |dishe, index| @breakfasts << dishe if index > ((@program.nb_of_days * 2) - 1)} if @dishes.count > @program.nb_of_days * 2
     @breakfast = @breakfasts[@index_day]
     @dishes = @dishes.each_slice(@program.nb_of_meals_by_day - 1).to_a
     @meals = current_user.programs.last.meals

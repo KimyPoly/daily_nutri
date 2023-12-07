@@ -98,10 +98,8 @@
   </div>
   </div>
 
-    <div data-controller="toggle" class="d-none">
-      <button data-action="click->toggle#action" class="btn-home">Edit</button>
-      <div class="display-none" data-toggle-target="form">
-      <%= render partial: 'shared/form_new', locals: { program: @program } %>
-      </div>
-    </div>
 </div>
+<%= link_to program_path(@program), method: :delete, class: 'delete-link', data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' } do %>
+  <i class="fa-solid fa-trash "></i>
+<% end %>
+<br>

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get "dashboard", to: "pages#programs_dashboard"
   resources :programs, except: :edit do
+    delete 'programs/:id', to: 'programs#destroy', as: :delete_program
     collection do
       get :meals_options
     end

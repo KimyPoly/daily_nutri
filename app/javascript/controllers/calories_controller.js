@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import Swal from 'sweetalert2'
 
 // Connects to data-controller="checked"
 export default class extends Controller {
@@ -14,7 +15,8 @@ export default class extends Controller {
   connect() {
     this.totalCalories = 0;
     this.countMeal = 0;
-    this.maxMeals = this.daysValue * this.mealsDayValue
+    this.maxMeals = this.daysValue * this.mealsDayValue;
+    this.alertCaloriesShown = false;
   }
 
   initialize() {
@@ -22,7 +24,12 @@ export default class extends Controller {
   }
   alert(countMeal, maxMeals){
     if (countMeal == maxMeals) {
-      alert("You've selected enough meals")
+      // Swal.fire("You've selected enough meals")
+      Swal.fire({
+        title: "You have enough meals",
+        text: "We suggest matching your recommended calories",
+        icon: "success"
+      });
     }
   }
   updateCalories(event) {
@@ -42,17 +49,22 @@ export default class extends Controller {
     this.alert(this.countMeal, this.maxMeals)
 
     this.caloriesTotalTarget.textContent = this.totalCalories;
-    console.log(this.caloriesGoalValue, this.totalCalories)
-    console.log(this.minCalorieValue);
-    if (this.totalCalories - this.minCalorieValue < this.caloriesGoalValue) {
-      this.compareCalories(this.totalCalories, this.caloriesGoalValue);
-    }
+    this.compareCalories(this.totalCalories, this.caloriesGoalValue);
   }
 
   compareCalories(selectedCalories, totalCalories) {
     if (selectedCalories > totalCalories) {
-      console.log("This is working");
-      alert("You're above the recommended calories goal for your program")
+      if (!this.alertCaloriesShown) {
+        Swal.fire("You're above the recommended calories goal for your program");
+        Swal.fire({
+          title: "Well done !",
+          text: "You've reached your recommended calories",
+          icon: "success"
+        });
+        this.alertCaloriesShown = true;
+      }
+    } else {
+      this.alertCaloriesShown = false;
     }
   }
 }

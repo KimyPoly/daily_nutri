@@ -30,7 +30,7 @@ class Program < ApplicationRecord
     when @genre == "Male" && @asked_goal == "Weight maintenance"
       @calories_goal = 2600
     when @genre == "Male" && @asked_goal == "Lose weight"
-      @calories_goal = 2300
+      @calories_goal = 1800
     when @genre == "Male" && @asked_goal == "Take weight"
       @calories_goal = 3100
     when @genre == "Female" && @asked_goal == "Weight maintenance"

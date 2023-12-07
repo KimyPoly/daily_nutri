@@ -8,13 +8,10 @@ export default class extends Controller {
   }
 
   toggleStyle() {
-    this.cardTargets.forEach(card => {
-      card.classList.add("active");
 
-      const programPath = card.dataset.programPath;
-      if (programPath) {
-        window.location.href = programPath;
-      }
-    });
+    const programPath = card.dataset.programPath;
+    if (programPath) {
+      window.location.href = programPath;
+    }
   }
 }

@@ -1,17 +1,27 @@
 <% if params[:action] == "index"%>
   <div class="navbar-app-meals">
-<% else %>
-  <div class="navbar-app">
-<% end %>
-    <div class="navbar-app-display">
+  
+  <% else %>
+    <div class="navbar-app">
+    <% end %>
+    <div class="navbar-app-display" ::before>
       <%= link_to dashboard_path, class: "navbar-brand" do %>
         <i class="fa-solid fa-house fa-xl" style="color: #ffffff;"></i>
       <% end %>
-      <% if params[:action] == "programs_dashboard" && @programs.present? && @programs.last.id.present? %>
-        <%=link_to grocery_program_path(@programs.last.id) do %>
-          <i class="fa-solid fa-list fa-xl" style="color: #ffffff;"></i>
-        <% end %>
-      <% elsif params[:action] == "programs_dashboard" && @programs.present? %>
+
+      <%= link_to new_program_path, class: "navbar-brand" do %>
+        <i class="fa-solid fa-plus fa-xl" style="color: #ffffff; font-size: 44px;"></i>
+      <% end %>
+      <div data-controller="toggle">
+        <div data-action="click->toggle#action" class="btn-home-robot">
+          <i class="fa-solid fa-robot fa-bounce fa-xl" style=" color:white;"></i>
+        </div>
+        <div class="d-none" data-toggle-target="form">
+          <%= render partial: 'shared/form_chatgpt' %>
+        </div>
+      </div>
+      <% if params[:action] == "programs_dashboard" && @program.id != nil %>
+
         <%=link_to grocery_program_path(@programs.last.id) do %>
           <i class="fa-solid fa-list fa-xl" style="color: #ffffff;"></i>
         <% end %>

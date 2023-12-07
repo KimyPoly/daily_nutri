@@ -173,3 +173,13 @@ legend {
   margin-bottom: 5px;
   font-size: 35px;
 }
+.btn-home-robot {
+  border: 1px solid $orange;
+  border-radius: 50px;
+  font-weight: lighter;
+  transition: opacity 0.3s ease;
+  background-color: $orange;
+  text-decoration: none;
+
+
+}

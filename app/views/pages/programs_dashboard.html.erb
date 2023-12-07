@@ -10,7 +10,7 @@
 <% else %>
   <div class="program-card-container" data-controler="card-selector">
     <% @programs.each do |program| %>
-      <%= link_to program_path(program), class: "program-card", data: { action: "click->card-selector#toggleStyle"} do%>
+      <%= link_to program_path(program), class: "program-card" do%>
         <div class="program-card">
           <%= render partial: 'pages/goal_image', locals: { goal: program.goal } %>
           <div class="program-card-info">
@@ -23,14 +23,4 @@
     <% end %>
   </div>
 <% end %>
-<br>
-<br>
 
-<div data-controller="toggle">
-
-  <button data-action="click->toggle#action" class="btn-home" style="background-color: #FFF9EC; border: #FFF9EC;"><i class="fa-solid fa-robot fa-bounce" style="font-size: 40px;"></i></button>
-  <div class="display-none" data-toggle-target="form">
-    <%= render partial: 'shared/form_chatgpt'%>
-  </div>
-
-</div>

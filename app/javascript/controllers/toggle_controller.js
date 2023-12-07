@@ -15,7 +15,7 @@ export default class extends Controller {
   }
 
   action() {
-    this.formTarget.classList.toggle("display-none");
+    this.formTarget.classList.toggle("d-none");
   }
 
   waitingResponse() {

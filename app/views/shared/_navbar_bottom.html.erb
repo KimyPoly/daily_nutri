@@ -24,6 +24,14 @@
         </div>
       </div>
 
+
+
+      <% if params[:action] == "programs_dashboard" && @programs.present? && @programs.last.id.present? %>
+        <%=link_to grocery_program_path(@programs.last.id) do %>
+          <i class="fa-solid fa-list fa-xl" style="color: #ffffff;"></i>
+        <% end %>
+      <% elsif params[:action] == "programs_dashboard" && @programs.present? %>
+
         <%=link_to grocery_program_path(@programs.last.id) do %>
           <i class="fa-solid fa-list fa-xl" style="color: #ffffff;"></i>
         <% end %>
@@ -40,3 +48,4 @@
       <% end %>
     </div>
   </div>
+</div>

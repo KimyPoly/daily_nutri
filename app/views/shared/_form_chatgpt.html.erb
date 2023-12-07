@@ -2,13 +2,15 @@
   <h4><strong>Hey ! I'm Chat Cooking</strong></h4>
   <p>I'll create a recipe for you with your leftovers ingeredients.</p>
   <%= simple_form_for '', url: dashboard_path, method: :get, id: "chat-form", html: {
-                                                                                      data: { turbo: false },
-                                                                                      action: "submit->toggle#"
+                                                                                      data: { turbo: false,
+                                                                                      action: "submit->toggle#waitingResponse"
+                                                                                      }
                                                                                     } do |f| %>
     <%= f.input :options, placeholder: "Give me only ingredients", label: "",  id: "message-input"%>
     <%= f.submit "Submit", class: "btn-home-main" %>
   <% end %>
 
+    <i data-toggle-target ="loading" class="fa-solid fa-spinner fa-spin fa-2xl" style="color: #E67E22; display: none"></i>
 
   <% if @response_from_content_method.present? %>
     <h3 id='responseGPT'>Recipe Idea</h3>

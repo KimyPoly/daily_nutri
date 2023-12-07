@@ -2,11 +2,10 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="toggle"
 export default class extends Controller {
-  static targets = ["form"]
-  
+  static targets = ["form", "loading"]
+
   connect() {
     const url = window.location.href;
-    console.log(url);
     const regex = new RegExp('options');
     const requestDone = regex.test(url);
     if (requestDone) {
@@ -17,5 +16,11 @@ export default class extends Controller {
 
   action() {
     this.formTarget.classList.toggle("display-none");
+  }
+
+  waitingResponse() {
+    console.log("Hihiiiiiiiiii")
+    this.loadingTarget.style.display = '';
+
   }
 }

@@ -10,7 +10,7 @@
 <% else %>
   <div class="program-card-container" data-controler="card-selector">
     <% @programs.each do |program| %>
-      <%= link_to program_path(program), class: "program-card", data: { action: "click->card-selector#toggleStyle"} do%>
+      <%= link_to program_path(program), class: "program-card" do%>
         <div class="program-card">
           <%= render partial: 'pages/goal_image', locals: { goal: program.goal } %>
           <div class="program-card-info">

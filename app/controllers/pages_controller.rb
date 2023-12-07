@@ -15,11 +15,15 @@ class PagesController < ApplicationController
   end
 
   def meal_with_content(*elements)
-    client = OpenAI::Client.new
-    chaptgpt_response = client.chat(parameters: {
-      model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: "I have #{elements} left in my fridge, can you give me 1 recipe to do max 1000 charactere"}]
-    })
-    return chaptgpt_response["choices"][0]["message"]["content"]
-  end
+    begin
+        client = OpenAI::Client.new(request_timeout: 1)
+        chaptgpt_response = client.chat(parameters: {
+          model: "gpt-3.5-turbo",
+          messages: [{ role: "user", content: "I have #{elements} left in my fridge, can you give me 1 recipe to do max 1000 charactere"}]
+        })
+        chaptgpt_response["choices"][0]["message"]["content"]
+        rescue Faraday::Error => e
+          "This is the recipe"
+        end
+    end
 end

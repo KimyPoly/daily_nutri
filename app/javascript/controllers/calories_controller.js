@@ -15,7 +15,8 @@ export default class extends Controller {
   connect() {
     this.totalCalories = 0;
     this.countMeal = 0;
-    this.maxMeals = this.daysValue * this.mealsDayValue
+    this.maxMeals = this.daysValue * this.mealsDayValue;
+    this.alertCaloriesShown = false;
   }
 
   initialize() {
@@ -43,17 +44,17 @@ export default class extends Controller {
     this.alert(this.countMeal, this.maxMeals)
 
     this.caloriesTotalTarget.textContent = this.totalCalories;
-    console.log(this.caloriesGoalValue, this.totalCalories)
-    console.log(this.minCalorieValue);
-    if (this.totalCalories - this.minCalorieValue < this.caloriesGoalValue) {
-      this.compareCalories(this.totalCalories, this.caloriesGoalValue);
-    }
+    this.compareCalories(this.totalCalories, this.caloriesGoalValue);
   }
 
   compareCalories(selectedCalories, totalCalories) {
     if (selectedCalories > totalCalories) {
-      console.log("This is working");
-      Swal.fire("You're above the recommended calories goal for your program")
+      if (!this.alertCaloriesShown) {
+        Swal.fire("You're above the recommended calories goal for your program");
+        this.alertCaloriesShown = true;
+      }
+    } else {
+      this.alertCaloriesShown = false;
     }
   }
 }

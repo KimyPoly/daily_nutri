@@ -102,6 +102,10 @@ legend {
   border-radius: 8px;
 }
 
+.btn-submit:active:focus{
+  outline: none;
+}
+
 .btn-program {
   font-weight: bold!important;
   color: white;

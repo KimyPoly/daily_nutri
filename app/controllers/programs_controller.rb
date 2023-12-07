@@ -1,6 +1,6 @@
 class ProgramsController < ApplicationController
   skip_before_action :authenticate_user!, only: :new
-  before_action :set_program, only: %i[show]
+  before_action :set_program, only: %i[show destroy]
 
   def show
     if params[:index].present?
@@ -81,6 +81,15 @@ class ProgramsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    if @program.destroy
+      redirect_to dashboard_path, notice: 'Le programme a été supprimé avec succès.'
+    else
+      redirect_to program_path
+    end
+  end
+
 
   private
 

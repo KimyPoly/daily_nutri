@@ -11,6 +11,7 @@ class PagesController < ApplicationController
     @program = Program.new
     if !params[:options].nil?
       @response_from_content_method = meal_with_content(params[:options])
+      # render :programs_dashboard, anchor: 'responseGPT'
     end
   end
 

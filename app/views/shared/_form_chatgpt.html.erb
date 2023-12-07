@@ -1,14 +1,17 @@
 <div id="chat-container">
   <h4><strong>Hey ! I'm Chat Cooking</strong></h4>
   <p>I'll create a recipe for you with your leftovers ingeredients.</p>
-  <%= simple_form_for '', url: dashboard_path, method: :get, id: "chat-form" do |f| %>
+  <%= simple_form_for '', url: dashboard_path, method: :get, id: "chat-form", html: {
+                                                                                      data: { turbo: false },
+                                                                                      action: "submit->toggle#"
+                                                                                    } do |f| %>
     <%= f.input :options, placeholder: "Give me only ingredients", label: "",  id: "message-input"%>
     <%= f.submit "Submit", class: "btn-home-main" %>
   <% end %>
 
 
   <% if @response_from_content_method.present? %>
-    <h3>Recipe Idea</h3>
+    <h3 id='responseGPT'>Recipe Idea</h3>
 
     <%= @response_from_content_method %>
   <% end %>

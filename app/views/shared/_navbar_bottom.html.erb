@@ -11,6 +11,10 @@
         <%=link_to grocery_program_path(@programs.last.id) do %>
           <i class="fa-solid fa-list fa-xl" style="color: #ffffff;"></i>
         <% end %>
+      <% elsif params[:action] == "programs_dashboard" && @programs.last.id != nil %>
+        <%=link_to grocery_program_path(@programs.last.id) do %>
+          <i class="fa-solid fa-list fa-xl" style="color: #ffffff;"></i>
+        <% end %>
       <% elsif params[:action] == "grocery" %>
         <%=link_to grocery_program_path(@program) do %>
           <i class="fa-solid fa-list fa-xl" style="color: #ffffff;"></i>

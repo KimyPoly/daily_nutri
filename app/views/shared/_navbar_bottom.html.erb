@@ -1,6 +1,6 @@
 <% if params[:action] == "index"%>
   <div class="navbar-app-meals">
-  
+
   <% else %>
     <div class="navbar-app">
     <% end %>
@@ -20,8 +20,11 @@
           <%= render partial: 'shared/form_chatgpt' %>
         </div>
       </div>
-      <% if params[:action] == "programs_dashboard" && @program.id != nil %>
-
+      <% if params[:action] == "programs_dashboard" && @programs.present? && @programs.last.id.present? %>
+        <%=link_to grocery_program_path(@programs.last.id) do %>
+          <i class="fa-solid fa-list fa-xl" style="color: #ffffff;"></i>
+        <% end %>
+      <% elsif params[:action] == "programs_dashboard" && @programs.present? %>
         <%=link_to grocery_program_path(@programs.last.id) do %>
           <i class="fa-solid fa-list fa-xl" style="color: #ffffff;"></i>
         <% end %>

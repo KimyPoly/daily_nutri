@@ -17,8 +17,8 @@
 </div>
 
  <div data-controller="toggle">
-    <button data-action="click->toggle#action" class="btn-home-main">Recipes</button>
-    <div class="display-none" data-toggle-target="form">
+    <button data-action="click->toggle#action" class="btn-home-main">Recipe</button>
+    <div class="d-none" data-toggle-target="form">
     <ol class="recipe-steps">
       <% @meal.recipe.split('.,').each_with_index do |recipe_step, index| %>
         <li class="recipe-ecart"> <%= recipe_step.strip %></li>
@@ -26,4 +26,3 @@
     </ol>
   </div>
 </div>
-

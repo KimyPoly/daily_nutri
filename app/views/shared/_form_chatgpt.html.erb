@@ -14,7 +14,8 @@
 
   <% if @response_from_content_method.present? %>
     <h3 id='responseGPT'>Recipe Idea</h3>
-
-    <%= @response_from_content_method %>
+    <div class="scrollable-response">
+      <%= @response_from_content_method %>
+    </div>
   <% end %>
 </div>

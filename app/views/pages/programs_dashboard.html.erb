@@ -14,13 +14,12 @@
         <div class="program-card">
           <%= render partial: 'pages/goal_image', locals: { goal: program.goal } %>
           <div class="program-card-info">
-            <p><strong><i class="fa-solid fa-bullseye"></i></strong> <%= program.goal.capitalize %></p>
-            <p><strong><i class="fa-solid fa-person"></i></strong> <%= program.total_calories %> Kc.</p>
-            <p><strong><i class="fa-regular fa-calendar"></i></strong> <%= program.nb_of_days %> d.</p>
+            <div class="program-card-info-content"><strong><i class="fa-solid fa-bullseye"></i><br></strong> <%= program.goal.capitalize %></div>
+            <div class="program-card-info-content"><strong><i class="fa-solid fa-person"></i><br></strong> <%= program.total_calories %></div>
+            <div class="program-card-info-content"><strong><i class="fa-regular fa-calendar"></i><br></strong> <%= program.nb_of_days %></div>
           </div>
         </div>
       <% end %>
     <% end %>
   </div>
 <% end %>
-

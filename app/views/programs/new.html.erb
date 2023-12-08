@@ -63,9 +63,9 @@
         <span class="step <%= @step > 6 ? "step-fill" : "" %>"></span>
       </div>
       <% unless @step == 6 %>
-        <%= f.button :submit, "Next", class:"btn-submit", id:"nextbtn" %>
+        <%= f.button :submit, "Next", class:"btn-submit", id:"nextbtn", data: { turbo: "false" }%>
       <% else  %>
-        <%= f.button :submit, "Create program", class:"btn-submit" %>
+        <%= f.button :submit, "Create program", class:"btn-submit", data: { turbo: "false" } %>
       <% end %>
     </div>
   <% end %>

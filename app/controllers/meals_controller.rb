@@ -116,7 +116,7 @@ class MealsController < ApplicationController
 
       nuts: [
         "Almonds", "Cashews", "Walnuts", "Pecans", "Brazil nuts",
-        "Macadamia nuts", "Pistachios", "Pine nuts", "Hazelnuts", "Chestnuts"
+        "Macadamia nuts", "Pistachios", "Pine nuts", "Hazelnuts", "Chestnuts", "peanuts", "Peanuts"
       ],
       crustaceans: [
         "Shrimp", "Crab", "Lobster", "Crayfish", "Prawns", "Scampi", "Langoustines"
@@ -125,7 +125,7 @@ class MealsController < ApplicationController
         "milk", "butter", "cream", "cheese"
       ],
       eggs: [
-        "eggs", "pancakes"
+        "eggs", "pancakes", "Pancakes"
       ],
       fish: [
         "Salmon", "Tuna", "Cod", "Trout", "Haddock",
@@ -144,7 +144,7 @@ class MealsController < ApplicationController
         "Soybeans", "tofu", "tempeh", "edamame", "soy milk", "soy sauce"
       ],
       sesame: [
-        "Sesame seeds", "Sesame oil", "Tahini"
+        "Sesame seeds", "Sesame oil", "Tahini", "sesame seeds", "sesame oil"
       ]
     }
   end

@@ -3,8 +3,8 @@ class Program < ApplicationRecord
 
   GOAL = ["Lose weight", "Weight maintenance", "Gain weight"]
   DIET = ["Vegan", "Vegetarian", "Omnivorous", "Pescatarian", "Keto"]
-  ALLERGIES = ["None", "Nuts", "Crusta", "Milk", "Eggs", "Fish", "Crustacean",
-               "Shellfish", "Peanuts", "Wheat", "Soybeans", "Sesame"]
+  ALLERGIES = ["None", "Nuts", "Milk", "Eggs", "Fish", "Crustacean",
+               "Shellfish", "Wheat", "Soybeans", "Sesame"]
 
   belongs_to :user
   has_many :meal_assignements, dependent: :destroy

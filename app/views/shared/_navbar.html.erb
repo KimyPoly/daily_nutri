@@ -5,14 +5,29 @@
       <h2>DailyNutri</h2>
     <% end %>
 
-    <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "navbar-brand" do %>
-    <% if user_signed_in? %>
-      <% if current_user.profile_picture.attached? %>
-        <%= image_tag current_user.profile_picture %>
-      <% else %>
-        <%= image_tag 'https://maison.20minutes.fr/wp-content/uploads/2021/03/couleur-orange.jpg', style: 'object-fit: cover;' %>
-      <% end %>
-      <% end %>
-    <% end %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <% if current_user.profile_picture.attached? %>
+              <%= image_tag current_user.profile_picture, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+            <% else %>
+              <%= image_tag 'https://www.modesettravaux.fr/wp-content/uploads/modesettravaux/2021/07/shutterstock_1652270995.jpg', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>

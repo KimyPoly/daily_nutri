@@ -50,7 +50,7 @@ class MealsController < ApplicationController
     end
     case @goal
     when "Lose weight"
-      @meals = @meals.where("calories < ?", 400)
+      @meals = @meals.where("calories > ?", 400)
     when "Weight maintenance"
       @meals
     when "Gain weight"

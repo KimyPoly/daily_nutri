@@ -35,3 +35,16 @@
 .navbar-toggler {
   border: none;
 }
+
+.navbar-collapse:focus {
+  border: none;
+}
+
+.navbar-collapse:active {
+  border: none;
+}
+.navbar-toggler:focus {
+  text-decoration: none;
+  outline: 0;
+  box-shadow: none;
+}
